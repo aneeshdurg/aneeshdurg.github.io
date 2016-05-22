@@ -6,6 +6,10 @@ permalink: /posts/CameraTheremin
 
 This post details how I made the [CameraTheremin](https://aneeshdurg.github.io/CameraTheremin/). I hope you find it useful.
 
+## Contents
+
+[The motivation](#the-motivation)
+
 ## The motivation
 
 I've always thought that one of the coolest instruments in the world is the Theremin. What other instrument can you play without touching it? However, Theremins cost around $300 and as a non-musician who just wants to try it out for the sake of novelty, that's a bit pricey. 
