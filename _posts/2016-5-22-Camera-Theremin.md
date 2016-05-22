@@ -10,8 +10,9 @@ This post details how I made the [CameraTheremin](https://aneeshdurg.github.io/C
 
 * [The motivation](#the-motivation)
 * [Getting webcam input with getUserMedia](#getting-webcam-input-with-getusermedia)
-  * [Proximity detection Method 1: Thresholding](#proximity-detection-Method-1:-Thresholding)
-  * [Proximity detection Method 2: Binary background subtraction](#proximity-detection-Method-2:-Binary-background-subtraction)
+* [Image processing using canvas](#image-processing-using-canvas)
+  * [Proximity detection Method 1: Thresholding](#proximity-detection-method-1:-thresholding)
+  * [Proximity detection Method 2: Binary background subtraction](#proximity-detection-method-2:-binary-background-subtraction)
 * [Audio generation](#audio-generation)
 * [Conclusion](#conclusion)
 
