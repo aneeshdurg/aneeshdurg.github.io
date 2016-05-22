@@ -11,8 +11,8 @@ This post details how I made the [CameraTheremin](https://aneeshdurg.github.io/C
 * [The motivation](#the-motivation)
 * [Getting webcam input with getUserMedia](#getting-webcam-input-with-getusermedia)
 * [Image processing using canvas](#image-processing-using-canvas)
-  * [Proximity detection Method 1: Thresholding](#proximity-detection-method-1:-thresholding)
-  * [Proximity detection Method 2: Binary background subtraction](#proximity-detection-method-2:-binary-background-subtraction)
+  * [Proximity detection Method 1: Thresholding](#proximity-detection-method-1-thresholding)
+  * [Proximity detection Method 2: Binary background subtraction](#proximity-detection-method-2-binary-background-subtraction)
 * [Audio generation](#audio-generation)
 * [Conclusion](#conclusion)
 
@@ -131,7 +131,7 @@ then blurred to improve accuracy by convolving a hardcoded blur kernel with the 
 
 You may notice the fact that I've used the limits ys, ye, xs, xe in my for loops as opposed to 0, height, 0, width. This is due to my crop function, which I'll talk more about later. As the name implies, it crops the image to specified boundaries, only processing selected parts of the image.
 
-### Proximity detection Method 1: Thresholding
+### Proximity detection Method 1 Thresholding
 
 This method is rather simple and uses the following function:
 
@@ -159,7 +159,7 @@ function threshold(data, thresh, a, b){
 
 This function assumes that if the intensity of a certain point is greater than a certain threshold, it must be part of the background, and thus transforms the grayscale image into a binary image. 
 
-### Proximity detection Method 2: Binary background subtraction
+### Proximity detection Method 2 Binary background subtraction
 
 This method requires me to first save an initial frame containing what I consider to be the background. Note that this will include regions which would otherwise be detected to be the foreground by the thresholder, but that is irrelevant to my usage. 
 
