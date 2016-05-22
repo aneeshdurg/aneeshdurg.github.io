@@ -1,6 +1,7 @@
 ---
 layout: post
-title: CameraTheremin 
+title: Camera Theremin 
+permalink: /post/
 ---
 
 ##The motivation
