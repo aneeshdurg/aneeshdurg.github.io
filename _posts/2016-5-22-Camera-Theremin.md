@@ -6,12 +6,12 @@ permalink: /posts/CameraTheremin
 
 This post details how I made the [CameraTheremin](https://aneeshdurg.github.io/CameraTheremin/). I hope you find it useful.
 
-## Contents
+## Table of Contents
 
 * [The motivation](#the-motivation)
 * [Getting webcam input with getUserMedia](#getting-webcam-input-with-getUserMedia)
-..* [Proximity detection Method 1: Thresholding](#proximity-detection-Method-1:-Thresholding)
-..* [Proximity detection Method 2: Binary background subtraction](#proximity-detection-Method-2:-Binary-background-subtraction)
+  * [Proximity detection Method 1: Thresholding](#proximity-detection-Method-1:-Thresholding)
+  * [Proximity detection Method 2: Binary background subtraction](#proximity-detection-Method-2:-Binary-background-subtraction)
 * [Audio generation](#audio-generation)
 * [Conclusion](#conclusion)
 
@@ -37,9 +37,9 @@ var video = document.getElementById("vid");
 var constraints = {
     video: {
         mandatory: {
-	    maxWidth: 320,
-	    maxHeight: 180
-	}
+	        maxWidth: 320,
+            maxHeight: 180
+        }
     }
 } 
 navigator.getUserMedia(constraints, startStream, function(){});
