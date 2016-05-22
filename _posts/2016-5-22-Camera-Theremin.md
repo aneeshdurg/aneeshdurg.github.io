@@ -81,11 +81,11 @@ In order to detect proximity, I first seperated the foreground from the backgrou
 
 ### closer
 
-![closer to the camera](https://raw.githubusercontent.com/aneeshdurg/aneeshdurg.github.io/master/_posts/2016-5-22-Camera-Theremin/closer.png)
+![closer to the camera](https://raw.githubusercontent.com/aneeshdurg/aneeshdurg.github.io/master/images/2016-5-22-Camera-Theremin/closer.png)
 
 ### further
 
-![further from the camera](https://raw.githubusercontent.com/aneeshdurg/aneeshdurg.github.io/master/_posts/2016-5-22-Camera-Theremin/further.png)
+![further from the camera](https://raw.githubusercontent.com/aneeshdurg/aneeshdurg.github.io/master/images/2016-5-22-Camera-Theremin/further.png)
 
 In order to seperate the foreground from the background, I created two methods, which you can switch between, depending on which is more suitable for you lighting and surrounding conditions.
 
