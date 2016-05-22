@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Camera Theremin 
-permalink: /post/
 ---
 
-##The motivation
+## The motivation
+
 I've always thought that one of the coolest instruments in the world is the Theremin. What other instrument can you play without touching? Howevver, Theremins cost around $300 and as a non-musician who just wants to try it out for the sake of novelty, that's a bit pricey. 
 That being said, I still wanted to try one and decided to recreate the experience in my browser using JavaScript and getUserMedia (my initlal approach was to use python and openCV+pyo, but I later abandonded that for a variety of reasons, most noteably the fact that it required a user to install python and all the required packages, as opposed to opening a url).
 
@@ -15,7 +15,7 @@ So, what do we really need to recreate a theremin like experience? We need:
 
 I felt like proximity to the camera would be a rather novel and fun experience to play with, so I decided to use that to control the pitch, while volume would be controlled by the horizontal movement.
 
-##Getting webcam input with getUserMedia
+## Getting webcam input with getUserMedia
 
 Getting webcam input with getUserMedia is a snap. All it took was the following lines:
 
