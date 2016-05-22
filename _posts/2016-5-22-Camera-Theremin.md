@@ -374,7 +374,7 @@ function playSynth(freq, vol){
 }
 ```
 
-Most of this code is fairly self-explanatory and you can also see the recording/playback functionality as well.
+Most of this code is fairly self-explanatory and you can also see the recording/playback functionality as well. One interesting thing is that play back changes the cropped regions as it uses those values to display a progress animation while it plays. The original crop bounds are restored at the end of playback.
 
 ## Conclusion
 
