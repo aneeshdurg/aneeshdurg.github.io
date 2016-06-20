@@ -6,7 +6,25 @@ permalink: /posts/Smart-Zoom/
 
 I recently made a chrome extension called [smartZoom](https://chrome.google.com/webstore/detail/smartzoom/edhnoodpplcedbalpigcmgojicolfdbg) which makes chrome set the browser's zoom level based off of the user's proximity to their laptop using getUserMedia.
 While I wouldn't say it's entirely complete and working they way I want it to, it can definately be considered a proof of concept.
+
 ---
+
+## Table of Contents
+
+* [The motivation](#the-motivation)
+* [Detecting Proximity](#detecting-proximity)
+* [Improvimg proximity detection 1: Cropping the frame](#improving-proximity-detection-1)
+* [Improvimg proximity detection 2: Largest object](#improving-proximity-detection-2)
+* [Improvimg proximity detection 3: Edge detection](#improving-proximity-detection-3)
+* [Improvimg proximity detection 4: Tracking the user](#improving-proximity-detection-4)
+* [Determining the zoom level](#determining-the-zoom-level)
+* [Putting it all together as a chrome extension](#putting-it-all-together-as-a-chrome-extension)
+* [Determining Parameters automatically](#determining-parameters-automatically)
+
+## The motivation
+
+I was just browsing reddit on my laptop and had placed the laptop on the other end of the bed and realized that it was too far away for me to read it properly. I thought to myself "it would be so convinient if my browser zoomed in and out for me instead of having to press a few keys". And so, I stopped browsing reddit and started writing code.
+
 ## Detecting Proximity
 
 I got the idea for this extension while I was working on my [Camera Theremin](https://aneeshdurg.github.io/CameraTheremin) and so the method for detecting proximity is the same and you can read about it [here](http://aneeshdurg.github.io/posts/CameraTheremin#proximity-detection-method-1). However, I needed to make some modifications to be able to use the value returned from this function as a way to set the browser's zoom level. 
