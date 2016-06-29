@@ -21,7 +21,24 @@ In order to get the images I needed, I decided to make use of the website bulbpe
 
 To first find the name and number, I went to the page that lists all the [Kanto region pokemon](http://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_Kanto_Pok%C3%A9dex_number) and downloaded the html source. From there I manually opened the file and deleted all of the content aside from the main table which holds the list of pokemon (yes, there are better ways of doing this, but I only needed to do this to one file once, so I didn't really try harder). 
 
-Now that I have this table, I need to parse it to obtain only the information I need, that being the pokedex number and the name.  I considered doing this with Beautiful Soup, but decided against it as that seemed to be a bit overkill for my purposes. In the end, all the code I needed looked something like this:
+Now that I have this table, I need to parse it to obtain only the information I need, that being the pokedex number and the name.  I considered doing this with Beautiful Soup, but decided against it as that seemed to be a bit overkill for my purposes. Each row of the table was similar to the following:
+
+```html
+<tr style="background:#FFFFFF;">
+<td style="font-family:Monospace;"> #004
+</td>
+<td style="font-family:Monospace;"> #004
+</td>
+<td> <a href="/wiki/Charmander_(Pok%C3%A9mon)" title="Charmander"><img alt="Charmander" src="http://cdn.bulbagarden.net/upload/b/bb/004MS.png" width="40" height="40" /></a>
+</td>
+<td> <a href="/wiki/Charmander_(Pok%C3%A9mon)" title="Charmander (Pokémon)">Charmander</a>
+</td>
+<td colspan="2" style="text-align:center; background:#F08030"> <a href="/wiki/Fire_(type)" title="Fire (type)"><span style="color:#FFFFFF">Fire</span></a>
+</td></tr>
+```
+Since this table is sorted, if I only view the title of the icon and append that to an array, the array index will take care of the pokedex numbers.
+
+In the end, all the python code I needed to do that looked something like this:
 
 ```python
 pkmnTable = open("listPkmn.html", "r").readlines()
