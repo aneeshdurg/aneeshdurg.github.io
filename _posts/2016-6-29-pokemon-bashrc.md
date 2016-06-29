@@ -4,7 +4,7 @@ title: Pokemon .bashrc
 permalink: /posts/pokemon-bashrc/ 
 ---
 
-Recently, I've been playing around with my .bashrc file on my laptop and trying to make the time I spend at my laptop a little more exciting. Additionaly, I've been a huge fan of the pokemon franchise since I was young enough to frolick through meadows without incurring strange looks from others. I decided to bring the world of pokemon into my terminal.
+##### Recently, I've been playing around with my .bashrc file on my laptop and trying to make the time I spend at my laptop a little more exciting. Additionaly, I've been a huge fan of the pokemon franchise since I was young enough to frolick through meadows without incurring strange looks from others. I decided to bring the world of pokemon into my terminal.
 ---
 
 Things I used to accomplish this:
