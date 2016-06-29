@@ -31,7 +31,7 @@ Now that I have this table, I need to parse it to obtain only the information I 
 </td>
 <td> <a href="/wiki/Charmander_(Pok%C3%A9mon)" title="Charmander"><img alt="Charmander" src="http://cdn.bulbagarden.net/upload/b/bb/004MS.png" width="40" height="40" /></a>
 </td>
-<td> <a href="/wiki/Charmander_(Pok%C3%A9mon)" title="Charmander (Pokémon)">Charmander</a>
+<td> <a href="/wiki/Charmander_(Pok%C3%A9mon)" title="Charmander (Pok?mon)">Charmander</a>
 </td>
 <td colspan="2" style="text-align:center; background:#F08030"> <a href="/wiki/Fire_(type)" title="Fire (type)"><span style="color:#FFFFFF">Fire</span></a>
 </td></tr>
