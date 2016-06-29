@@ -96,12 +96,18 @@ For the python script, the timeout is set to 3 seconds, and the timeout is set t
 In the event that the process is killed by timeout, the exit status will contain a non zero number, which I checked with the following if statement:
 
 ```bash
-if [ $ -ne 0 ]
-then 
-# process the image from wget
-# Put processed image in temp.txt
+#first checking for network
+if [ -z "$ssid" ]
+then
+  if [ $ -ne 0 ]
+  then 
+  # process the image from wget
+  # Put processed image in temp.txt 
+  else
+  # use a randomly chosen existing 'cached' txt file and copy that to temp.txt
+  fi
 else
-# use a existing 'cached' txt file and copy that to temp.txt
+# use a randomly chosen existing 'cached' txt file and copy that to temp.txt
 fi
 
 #use sed to append my old welcome message to the ends of lines of temp.txt
