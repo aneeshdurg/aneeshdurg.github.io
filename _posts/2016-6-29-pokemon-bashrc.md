@@ -144,6 +144,12 @@ And so I have the following prompt:
 ![online](https://raw.githubusercontent.com/aneeshdurg/aneeshdurg.github.io/master/images/2016-6-29-pokemon-bashrc/online.png)
 
 
+## Update 1 - Pokedex entries
+
+I liked having the pokemon's picture and its name, but I thought it would also be really cool if I had it's pokedex entries (from the games). A quick look on bulbpedia showed me that each pokemon has a section on its wiki page that lists all its pokedex entries by game. So, I made another python script which found those entries for me and returned a dictionary with the game names as keys. By randomly selecting one of those keys, I was able to display a pokedex entry as well.
+
+![With pkdex](https://raw.githubusercontent.com/aneeshdurg/aneeshdurg.github.io/master/images/2016-6-29-pokemon-bashrc/withpkdex.png)
+
 ## Todo
 
 In the future I'd like to:
