@@ -197,7 +197,7 @@ Since the delay only occurs once, I changed the timeouts to be:
 - 30s for getting the pokemon image
 
 - 20s for getting the pokedex data
-- 
+
 So I have a total worst case delay of 1 min, but only once per day. 
 
 ## Todo
