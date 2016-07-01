@@ -204,7 +204,7 @@ So I have a total worst case delay of 1 min, but only once per day.
 
 In the future I'd like to:
 
-- Use the full national pokedex, not just the kanto region
+- ~~Use the full national pokedex, not just the kanto region~~
 
 - ~~Maybe have more 'cached' images~~
 
