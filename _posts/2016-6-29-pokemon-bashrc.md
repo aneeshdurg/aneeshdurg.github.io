@@ -114,10 +114,12 @@ For the python script, the timeout is set to 3 seconds, and the timeout is set t
 In the event that the process is killed by timeout, the exit status will contain a non zero number, which I checked with the following if statement:
 
 ```bash
+timeout [time] script.py
+exitStatus=$?
 #first checking for network
 if [ -z "$ssid" ]
 then
-  if [ $ -ne 0 ]
+  if [ $exitStatus -eq 0 ]
   then 
   # process the image from wget
   # Put processed image in temp.txt 
