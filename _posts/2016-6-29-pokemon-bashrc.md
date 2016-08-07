@@ -4,7 +4,8 @@ title: Pokemon .bashrc
 permalink: /posts/pokemon-bashrc/ 
 ---
 
-##### Recently, I've been playing around with my .bashrc file on my laptop and trying to make the time I spend at my laptop a little more exciting. Additionaly, I've been a huge fan of the pokemon franchise since I was young enough to frolick through meadows without incurring strange looks from others. I decided to bring the world of pokemon into my terminal.
+Recently, I've been playing around with my .bashrc file on my laptop and trying to make the time I spend at my laptop a little more exciting. Additionaly, I've been a huge fan of the pokemon franchise since I was young enough to frolick through meadows without incurring strange looks from others. I decided to bring the world of pokemon into my terminal.
+
 ---
 
 Things I used to accomplish this:
@@ -113,10 +114,12 @@ For the python script, the timeout is set to 3 seconds, and the timeout is set t
 In the event that the process is killed by timeout, the exit status will contain a non zero number, which I checked with the following if statement:
 
 ```bash
+timeout [time] script.py
+exitStatus=$?
 #first checking for network
 if [ -z "$ssid" ]
 then
-  if [ $ -ne 0 ]
+  if [ $exitStatus -eq 0 ]
   then 
   # process the image from wget
   # Put processed image in temp.txt 
@@ -144,12 +147,67 @@ And so I have the following prompt:
 ![online](https://raw.githubusercontent.com/aneeshdurg/aneeshdurg.github.io/master/images/2016-6-29-pokemon-bashrc/online.png)
 
 
+## Update 1 - Pokedex entries
+
+I liked having the pokemon's picture and its name, but I thought it would also be really cool if I had it's pokedex entries (from the games). A quick look on bulbpedia showed me that each pokemon has a section on its wiki page that lists all its pokedex entries by game. So, I made another python script which found those entries for me and returned a dictionary with the game names as keys. By randomly selecting one of those keys, I was able to display a pokedex entry as well.
+
+![With pkdex](https://raw.githubusercontent.com/aneeshdurg/aneeshdurg.github.io/master/images/2016-6-29-pokemon-bashrc/withpkdex.png)
+
+## Update 2
+
+The pokedex entries actually messed up the formatting for the image by wrapping past the edge of the terminal. To solve this, 
+I added the commands:
+
+```bash
+pkdex1=${pkdex:0:50}
+pkdex2=${pkdex:50:50}
+pkdex3=${pkdex:100:50}
+pkdex4=${pkdex:150}
+```
+
+and split the text into 4 lines. This works, but sometimes the text is split in the middle of a word which is awkward. I plan to work more on this later.
+
+## Update 3
+
+Since I live in India, there are days when my internet connection is insanely slow which makes open a new instance of my terminal take around 13s before all the commands timeout and all I have is a default "cached" image anyway. I decided to change my idea and display a random pokemon each day, as opposed to a random pokemon each instance of terminal. 
+The code necesary to do that was similar to the following:
+
+```bash
+dt=$(date)
+ssid=$(iwgetid -r)
+fileDt="asdf"
+if [ -f ~/.pkmn/today ]
+then
+fileDt=$(date --utc --reference=/home/$USER/.pkmn/today)
+fi
+if [ "${fileDt:0:10}" = "${dt:0:10}" ]
+then
+cp ~/.pkmn/today ~/.pkmn/temp.txt
+else
+#Get the pkmn image and pokedex data
+#write the pokedex data and the quote into the img text file
+#copy current img text file into ~/.pkmn/today
+fi
+#write the user, date, ssid, battery info into ~/.pkmn/temp.txt
+#Display temp.txt
+#delete temp.txt
+```
+Since the delay only occurs once, I changed the timeouts to be:
+
+- 10s for getting the pokemon name and number
+
+- 30s for getting the pokemon image
+
+- 20s for getting the pokedex data
+
+So I have a total worst case delay of 1 min, but only once per day. 
+
 ## Todo
 
 In the future I'd like to:
 
-- Use the full national pokedex, not just the kanto region
+- ~~Use the full national pokedex, not just the kanto region~~
 
-- Maybe have more 'cached' images
+- ~~Maybe have more 'cached' images~~
 
 - Choose the best gamma value for each image instead of 0.5 by default
