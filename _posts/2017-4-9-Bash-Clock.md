@@ -4,9 +4,7 @@ title: Bash Clock
 permalink: /posts/BashClock/ 
 ---
 
-Hi all,
-
-It's been a while since my last post. (Un)fortunately this isn't a post about my [more exciting Haskell project](http://www.browserhaskell.tk/editor), but about a quick terminal enhancement I cooked up today! 
+Hi all, it's been a while since my last post. (Un)fortunately this isn't a post about my [more exciting Haskell project](http://www.browserhaskell.tk/editor), but about a quick terminal enhancement I cooked up today! 
 
 ![clock](https://raw.githubusercontent.com/aneeshdurg/aneeshdurg.github.io/master/images/2017-4-9-Bash-Clock/clock.png)
 
