@@ -147,3 +147,42 @@ The function checkFg requires the file `~/.clocktmp` to exist, then it greps the
 While I would have preferred to use the return value of checkFg instead of checking it's side-effect of it deleting a file, namely `~/.clocktmp`,  this seemed to allow for the cleanest code. 
 
 So there you have it! A fully functional, self-updating terminal clock. Hope you all liked it!
+
+## UPDATE:
+
+So I realized that if you have multiple shells open, since they all rely on the same file `~/.clocktmp`, this creates a race condition when one shell may assume that the existence (or non-existance) of the file is because of itself and not another shell. It also lead to errors when it tries to delete a non-existant file...oops.
+
+To fix this, I made a folder called `.clock` which houses temporary files which are named `tmp[shell pid]`. This is reflected in the code below.
+
+```bash
+function checkFg()
+{
+  ps -O stat | grep "S+" | (while read line
+  do
+    name=$(echo $line | cut -d' ' -f6)
+    if [[ $name != "bash" ]] && [[ $name != "grep" ]]; then
+      [ -e $(echo ~/.clock/tmp$$) ] && rm $(echo ~/.clock/tmp$$) 
+    fi
+  done)
+}
+function wallClock()
+{
+  touch $(echo ~/.clock/tmp$$)
+   checkFg
+   [ -e $(echo ~/.clock/tmp$$) ] &&\
+      [ -e ~/.clocktoggle ] &&\
+        echo -ne "\033[s\033[0;0H\033[2K\033[37;40m$($(cat ~/.clocktoggle))\033[0m\033[u" &&\
+        rm $(echo ~/.clock/tmp$$);
+  sleep 1;
+  wallClock;
+}
+[ -e ~/.clocktoggle ] && echo '\n'
+alias 'clockon'='echo "date" > ~/.clocktoggle'
+alias 'clockoff'='[ -e ~/.clocktoggle ] && rm ~/.clocktoggle'
+function clockcmd()
+{ 
+  [ -e ~/.clocktoggle ] && echo "$1" > ~/.clocktoggle;
+}
+
+wallClock &
+```
