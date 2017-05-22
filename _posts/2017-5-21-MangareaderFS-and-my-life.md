@@ -6,7 +6,7 @@ permalink: /posts/mangareaderfs
 
 Hi everyone! Today's post is going to be a little different from most of my posts because I'm going to also write a short update about myself! Yay!!!
 
-If you don't want to hear about me, click [here](#mangareaderfs) to only read about my new project. 
+If you don't want to hear about me, click [here](#mangareader-fs) to only read about my new project. 
 
 ---
 
