@@ -18,7 +18,7 @@ I've also been meaning to give this website a bit of a makeover. I don't really 
 
 Lately, I've been killing time and learning category theory (You can only imagine the loneliness and bordem that lead to that decision (jk, category theory is pretty rad)). Quite honestly, it's been slow progress. Part of it is because I keep getting distracted by stupid things, and part of it is because I'm having a hard time getting the intuition behind a couple concepts. I suspect that this would be easier if I tried focusing a bit more and maybe doing more excersices from the textbook I'm referencing. Either way, I hope to gain more familiarity with the concepts and paradaigms of category theory before the fall semester starts. Perhaps I'll use this blog to post about my progress/share things I found interesting while learning.
 
-Aside from that I've been watching a lot of anime (which will explain the project portion of this post), and a lot of Wes Anderson films, and I've gone back to writing fiction. I'm writing a series of short stories this time, and while they don't connect directly to each other, the over-arching narrative is a lot grander than anything I've written before. I've also spent some time going over my old writing, and quite honestly that was a good laugh. I feel like you can really see a sense of childishness from my older writing, which I don't particularly mind, since it's comforting to know that I've grown enough to identify where I could have done things better in some of my stories. For the time being, I don't think I'm embarassed enough by my stories to take the link to them off of my "about me" post. My newer writing is a lot less "philosophical" in that I'm not aiming to preach about my views about life and death or anything edgy like that. 
+Aside from that I've been watching a lot of anime (which will explain the project portion of this post), watching a lot of Wes Anderson films, and I've gone back to writing fiction. I'm writing a series of short stories this time, and while they don't connect directly to each other, the over-arching narrative is a lot grander than anything I've written before. I've also spent some time going over my old writing, and quite honestly that was a good laugh. I feel like you can really see a sense of childishness from my older writing, which I don't particularly mind, since it's comforting to know that I've grown enough to identify where I could have done things better in some of my stories. For the time being, I don't think I'm embarassed enough by my stories to take the link to them off of my "about me" post. My newer writing is a lot less "philosophical" in that I'm not aiming to preach about my views about life and death or anything edgy like that. 
 
 I really want to start reading books again. It's been a while since I last read one. I'm still about halfway through "Robot stories" by Isaac Asimov, but I have an implicit rule of only reading those on flights. The most recent book(s) I finished was the first (and currently only) two books of the Kingkiller chronicles. I was honestly not impressed, especially by the quality of the second book, and might not even care to read the third. Quite a few people have reccomended the book "Gödel, Escher, Bach" to me, although I've heard it's quite taxing to read. Perhaps I will have the energy to start it someday.
 
@@ -55,6 +55,33 @@ def cleanCache(fs, cv):
             if len(fs.filecache[n].keys()) == 0:
                 print("Deleting", n)
                 del fs.filecache[n]
+        cv.notifyAll()
+        cv.release()
+```
+
+UPDATE:
+
+So there was an issue with the cleaner, namely that you're not supposed to delete entries of a dictionary while enumerating it...oops. I've fixed that and the code is now:
+
+```python
+def cleanCache(fs, cv):
+    while 1:
+        sleep(300)
+        cv.acquire()
+        oldNames = []
+        for n in fs.filecache:
+            oldChapters = []
+            for c in fs.filecache[n]:
+                if time() - fs.filecache[n][c]['timestamp'] > 300:
+                    print("Deleting chapter", c, "of", n)
+                    oldChapters.append(c)
+            for c in oldChapters:
+                del fs.filecache[n][c]
+            if len(fs.filecache[n].keys()) == 0:
+                print("Deleting", n)
+                oldNames.append(n)
+        for n in oldNames:
+            del fs.filecache[n]
         cv.notifyAll()
         cv.release()
 ```
