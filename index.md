@@ -13,8 +13,8 @@ You can find my blog [here]({{ '/blog' | relative_url }}).
    * A visual representation of a memory allocator
    * This project was designed to help students of [cs241](http://cs241.cs.illinois.edu/) with their malloc MP.
    * Supported browsers:
-     * Chrome - everything works
-     * Firefox - everything *usually* works
+     * Firefox (Desktop) - everything *usually* works
+     * Chrome (Desktop) - everything works
 
 <br>
 + [What is a filesystem?]({{ '/what_is_a_filesystem' | relative_url }})
@@ -23,16 +23,16 @@ You can find my blog [here]({{ '/blog' | relative_url }}).
    * Features a visualization of disk blocks in a ext2/minix-like filesystem and has a command line simulator with
      support for commands like `ls`, `cat`, `hexdump` and many more!
    * Supported browsers:
-     * Chrome
-     * Firefox
+     * Firefox (Desktop)
+     * Chrome (Desktop)
 
 ## Interesting posts/projects
 
 + [Camera Theremin]({{ '/CameraTheremin/' | relative_url }}) \| [Blog post]({{ '/posts/CameraTheremin' | relative_url }})
    * An online theremin that turns your webcam into a musical instrument!
    * Supported browsers:
-     * Chrome
-     * Firefox
+     * Firefox (Desktop and Mobile)
+     * Chrome (Desktop and Mobile)
 <br><br>
 + [Arduino keyboard/mouse](https://github.com/aneeshdurg/arduino-keyboard/) \| [Blog post]({{ '/posts/arduino-keyboard-mouse' | relative_url }})
    * Use your arduino UNO as a keyboard/mouse combo!
