@@ -23,8 +23,8 @@ You can find my blog [here]({{ '/blog' | relative_url }}).
    * Features a visualization of disk blocks in a ext2/minix-like filesystem and has a command line simulator with
      support for commands like `ls`, `cat`, `hexdump` and many more!
    * Supported browsers:
-     * Firefox (Desktop)
-     * Chrome (Desktop)
+     * Firefox (Desktop and Mobile)
+     * Chrome (Desktop and Mobile)
 
 ## Interesting posts/projects
 
