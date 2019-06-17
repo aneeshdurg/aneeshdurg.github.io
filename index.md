@@ -8,15 +8,6 @@ You can find my blog [here]({{ '/blog' | relative_url }}).
 
 ## Visualizations
 
-+ [Visual Malloc]({{ '/visual-malloc' | relative_url }})
-   * ![visual malloc]({{ '/images/visual_malloc.png' | relative_url }})
-   * A visual representation of a memory allocator
-   * This project was designed to help students of [cs241](http://cs241.cs.illinois.edu/) with their malloc MP.
-   * Supported browsers:
-     * Firefox (Desktop) - everything *usually* works
-     * Chrome (Desktop) - everything works
-
-<br>
 + [What is a filesystem?]({{ '/what_is_a_filesystem' | relative_url }})
    * ![what is a filesystem]({{ '/images/what_is_a_filesystem.png' | relative_url }})
    * An interactive book based of the corresponding content from the [cs241 coursebook](http://cs241.cs.illinois.edu/coursebook/Filesystems)
@@ -25,6 +16,15 @@ You can find my blog [here]({{ '/blog' | relative_url }}).
    * Supported browsers:
      * Firefox (Desktop and Mobile)
      * Chrome (Desktop and Mobile)
+<br>
+
++ [Visual Malloc]({{ '/visual-malloc' | relative_url }})
+   * ![visual malloc]({{ '/images/visual_malloc.png' | relative_url }})
+   * A visual representation of a memory allocator
+   * This project was designed to help students of [cs241](http://cs241.cs.illinois.edu/) with their malloc MP.
+   * Supported browsers:
+     * Firefox (Desktop) - everything *usually* works
+     * Chrome (Desktop) - everything works
 
 ## Interesting posts/projects
 
