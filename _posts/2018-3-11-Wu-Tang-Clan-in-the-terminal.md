@@ -25,7 +25,7 @@ The first thing was inspecting the name generator's website to see how it accept
 We can see from this form that by hitting the button labelled `Enter the Wu-Tang`, we're generating a POST request.
 Then by using the network monitor we can take a look at how the POST request actually looks. To do this, just right click anywhere, click on `Inspect element` and go over to the network tab. Then, reload the page and submit some text in the form. You'll see an entry towards the top with the 'Method' field set to POST. Click on that one, then click on 'Edit and Resend'. You will see something similar to the following:
 
-![network_post](https://raw.githubusercontent.com/aneeshdurg/aneeshdurg.github.io/master/images/2018-3-11-Wu-Tang-in-the-terminal/post.png)
+![network_post]({{ '/static/images/2018-3-11-Wu-Tang-in-the-terminal/post.png' | relative_url }})
 
 The parts that we should be interested in are the `Content-Type` field in the Headers and the format of the Body. The type specifies how the data is formatted so that the server knows what we're sending. Note that there's an additional field in the headers that lists all valid types that we can send. 
 
@@ -39,7 +39,7 @@ curl -i -X POST -H "Content-Type:  application/x-www-form-urlencoded" -d 'realna
 
 And we get the following output:
 
-![curl](https://raw.githubusercontent.com/aneeshdurg/aneeshdurg.github.io/master/images/2018-3-11-Wu-Tang-in-the-terminal/curl.png)
+![curl]({{ '/static/images/2018-3-11-Wu-Tang-in-the-terminal/curl.png' | relative_url }})
 
 I've scrolled down to only include the relevant bits, but essentially the entire HTML source of the page has been dumped into my terminal. 
 
@@ -49,19 +49,19 @@ Fun side note: If you have the program lynx installed (which is a command line w
 $ curl -i -X POST -H "Content-Type:  application/x-www-form-urlencoded" -d 'realname=Bash+Script&Submit=Enter+the+Wu-Tang' http://www.mess.be/inickgenwuname.php | lynx -stdin
 ```
 
-![lynx](https://raw.githubusercontent.com/aneeshdurg/aneeshdurg.github.io/master/images/2018-3-11-Wu-Tang-in-the-terminal/lynx.png)
+![lynx]({{ '/static/images/2018-3-11-Wu-Tang-in-the-terminal/lynx.png' | relative_url }})
 
 Now we know how the output is supposed to look, so let's try grepping for the word "From", since we know the name will be in the phrase "From this day onward...". We can use our trusty pipe operator again (we'll need it quite a bit in the commands to come). 
 
-![name1](https://raw.githubusercontent.com/aneeshdurg/aneeshdurg.github.io/master/images/2018-3-11-Wu-Tang-in-the-terminal/name1.png)
+![name1]({{ '/static/images/2018-3-11-Wu-Tang-in-the-terminal/name1.png' | relative_url }})
 
 Huh, so that kinda worked, but we're missing the second part of the name. This can be remidied by using the flag `-A1` to get the following line from grep as well.
 
-![name2](https://raw.githubusercontent.com/aneeshdurg/aneeshdurg.github.io/master/images/2018-3-11-Wu-Tang-in-the-terminal/name2.png)
+![name2]({{ '/static/images/2018-3-11-Wu-Tang-in-the-terminal/name2.png' | relative_url }})
 
 Now to get everything onto one line, we can use the program `tr` with the `-d` flag to delete all newlines.
 
-![tr](https://raw.githubusercontent.com/aneeshdurg/aneeshdurg.github.io/master/images/2018-3-11-Wu-Tang-in-the-terminal/tr.png)
+![tr]({{ '/static/images/2018-3-11-Wu-Tang-in-the-terminal/tr.png' | relative_url }})
 
 You may notice that I've also used `;` and thrown in an `echo`. The `;` does what it does in many languages, it seperates statements and makes then run one after the other (kinda like the pipe, but it doesn't move any data around between the two processes). The `echo` just prints out a newline so that the word 'Ninja' doesn't appear on the same line as the next prompt. It's a purely cosmetic thing that I threw in there to make the screenshot look better. It won't be a part of the final script.
 
@@ -76,11 +76,11 @@ Here the `-d` flag tells `cut` what we want to use for the delimiter and `-f1` s
 
 However, in our case, we want the last collumn, since the text is after the dots. Since getting the last collumn from cut is a little weird, we'll just reverse the text and take the first collumn instead. We can reverse the text with `rev` and send that over to cut, before using `rev` again to get the output back to normal.
 
-![cut](https://raw.githubusercontent.com/aneeshdurg/aneeshdurg.github.io/master/images/2018-3-11-Wu-Tang-in-the-terminal/cut.png)
+![cut]({{ '/static/images/2018-3-11-Wu-Tang-in-the-terminal/cut.png' | relative_url }})
 
 Finally, a minor cosmetic issue which plagues me is the weird space as the first character. Using `tr` would also delete the space in the name so instead we'll use cut again. This time we'll use the field flag with `-f2-` which means we want every field including and after the second one, but this also preserves the space that was in the text. Since our delimiter is a space, and bash uses spaces to seperate arguments, we'll need to use a backslash before the space to let bash know that we want that space to be passed in as an argument
 
-![no_space](https://raw.githubusercontent.com/aneeshdurg/aneeshdurg.github.io/master/images/2018-3-11-Wu-Tang-in-the-terminal/no_space.png)
+![no_space]({{ '/static/images/2018-3-11-Wu-Tang-in-the-terminal/no_space.png' | relative_url }})
 
 Lookin' good! There are a few minor things that we need to address now:
 
@@ -89,7 +89,7 @@ Lookin' good! There are a few minor things that we need to address now:
 
 The first one is quite easy. `curl`'s download information isn't printed to standard out, its printed to standard error. This is why it still shows up, even though it doesn't match the grep command. Now we can see why keeping standard error and output seperate is useful. Even when we're consuming the output from stdanrd out, we can still see the debugging/error output. To get rid of it, we can redirect standard error to a special file called `/dev/null`.  `/dev/null` isn't actually a real file, but kind of a black hole that will throw away any input that you've put in. To do this redirection, we need to know the actual number of the file descriptor associated with standard error. To skip a few details, standard error is actually just the number 2. The redirection can be accomplished with the operator `>`. Using this we get the following.
 
-![no_stderr](https://raw.githubusercontent.com/aneeshdurg/aneeshdurg.github.io/master/images/2018-3-11-Wu-Tang-in-the-terminal/no_stderr.png)
+![no_stderr]({{ '/static/images/2018-3-11-Wu-Tang-in-the-terminal/no_stderr.png' | relative_url }})
 
 Awesome! Now to tackle the second one. At this point I'm going to put this into a file and start making this a reuseable script. The file I'll be using will be called `wu-tang.sh` but the name isn't really important. These are the contents so far:
 
@@ -127,7 +127,7 @@ To get `tr` to work with the name we use the syntax `$(command)`. This is called
 
 We'll just test this script and compare it against the website. 
 
-![compare](https://raw.githubusercontent.com/aneeshdurg/aneeshdurg.github.io/master/images/2018-3-11-Wu-Tang-in-the-terminal/compare.png)
+![compare]({{ '/static/images/2018-3-11-Wu-Tang-in-the-terminal/compare.png' | relative_url }})
 
 The last step is to make it possible to run this from the command line as `wu-tang [name]`(without the `./` we had before). For this, I'll define an alias in my `.bashrc`. The `.bashrc` is a file located in your home directory which is a series of commands that are run everytime you open up your terminal. An alias is just a shortcut for any program, or bash commands. I only need to add the following line:
 
@@ -137,7 +137,7 @@ alias wu-tang='~/wu-tang.sh'
 
 And I'm done! Now I can run it as `wu-tang [name]`. Now I can use a variable and a for-loop as demonstrated below to run this 10 times with each input being the output of the previous iteration like I wanted to.
 
-![loop](https://raw.githubusercontent.com/aneeshdurg/aneeshdurg.github.io/master/images/2018-3-11-Wu-Tang-in-the-terminal/loop.png)
+![loop]({{ '/static/images/2018-3-11-Wu-Tang-in-the-terminal/loop.png' | relative_url }})
 
 Note that I'm free to use the variable `name` without affecting the script, since the variables are in different scopes.
 

@@ -9,7 +9,7 @@ You can find my blog [here]({{ '/blog' | relative_url }}).
 ## Visualizations
 
 + [What is a filesystem?]({{ '/what_is_a_filesystem' | relative_url }})
-   * ![what is a filesystem]({{ '/images/what_is_a_filesystem.png' | relative_url }})
+   * ![what is a filesystem]({{ '/static/images/what_is_a_filesystem.png' | relative_url }})
    * An interactive book based of the corresponding content from the [cs241 coursebook](http://cs241.cs.illinois.edu/coursebook/Filesystems)
    * Features a visualization of disk blocks in a ext2/minix-like filesystem and has a command line simulator with
      support for commands like `ls`, `cat`, `hexdump` and many more!
@@ -19,7 +19,7 @@ You can find my blog [here]({{ '/blog' | relative_url }}).
 <br>
 
 + [Visual Malloc]({{ '/visual-malloc' | relative_url }})
-   * ![visual malloc]({{ '/images/visual_malloc.png' | relative_url }})
+   * ![visual malloc]({{ '/static/images/visual_malloc.png' | relative_url }})
    * A visual representation of a memory allocator
    * This project was designed to help students of [cs241](http://cs241.cs.illinois.edu/) with their malloc MP.
    * Supported browsers:

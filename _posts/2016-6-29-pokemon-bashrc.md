@@ -101,7 +101,7 @@ Nor did I want my terminal to be obscenely large either. So the best solution I 
 
 My first instinct was simply replace the end of the line of the image using sed. The command I had in mind was something like `sed -i "1 s/$/[my text here]/" [filename].txt` which should open filename.txt, replaces the end of the first line (as specified by the 1 preceding the replace) with my text and saves the file. However, the output was akin to the following:
 
-![wrong sed command](https://raw.githubusercontent.com/aneeshdurg/aneeshdurg.github.io/master/images/2016-6-29-pokemon-bashrc/wrong-sed.png)
+![wrong sed command]({{ '/static/images/2016-6-29-pokemon-bashrc/wrong-sed.png' | relative_url }})
 
 This had me stumped, but a quick look at the img2txt output with vim showed me that the lines ended with `^M` which indicated a carriage return. this means that instead of `$` I should be using `\r` in sed.
 
@@ -138,20 +138,20 @@ And so I have the following prompt:
 
 ## Offline
 
-![offline-1](https://raw.githubusercontent.com/aneeshdurg/aneeshdurg.github.io/master/images/2016-6-29-pokemon-bashrc/offline-1.png)
+![offline-1]({{ '/static/images/2016-6-29-pokemon-bashrc/offline-1.png' | relative_url }})
 
-![offline-2](https://raw.githubusercontent.com/aneeshdurg/aneeshdurg.github.io/master/images/2016-6-29-pokemon-bashrc/offline-2.png)
+![offline-2]({{ '/static/images/2016-6-29-pokemon-bashrc/offline-2.png' | relative_url }})
 
 ## Online
 
-![online](https://raw.githubusercontent.com/aneeshdurg/aneeshdurg.github.io/master/images/2016-6-29-pokemon-bashrc/online.png)
+![online]({{ '/static/images/2016-6-29-pokemon-bashrc/online.png' | relative_url }})
 
 
 ## Update 1 - Pokedex entries
 
 I liked having the pokemon's picture and its name, but I thought it would also be really cool if I had it's pokedex entries (from the games). A quick look on bulbpedia showed me that each pokemon has a section on its wiki page that lists all its pokedex entries by game. So, I made another python script which found those entries for me and returned a dictionary with the game names as keys. By randomly selecting one of those keys, I was able to display a pokedex entry as well.
 
-![With pkdex](https://raw.githubusercontent.com/aneeshdurg/aneeshdurg.github.io/master/images/2016-6-29-pokemon-bashrc/withpkdex.png)
+![With pkdex]({{ '/static/images/2016-6-29-pokemon-bashrc/withpkdex.png' | relative_url }})
 
 ## Update 2
 
