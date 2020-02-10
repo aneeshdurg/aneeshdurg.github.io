@@ -24,7 +24,8 @@ I'm going to be detailing how I made a hexel effect.
 ## The finished thing
 
 This is the finished project. The slider under every canvas lets you control the
-polygons' side lengths.
+polygons' side lengths. You can find the source code
+[here](https://github.com/aneeshdurg/aneeshdurg.github.io/tree/master/static/hexels).
 
 <canvas id="glcanvas-hexelf"></canvas>
 <br>
