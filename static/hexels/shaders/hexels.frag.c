@@ -4,7 +4,7 @@ uniform sampler2D uSampler;
 uniform mediump float uPixSize;
 
 // sign(sign(a - b) + 1) -> 1 if a >= b 0 if a < b
-mediump float isGEq(float a, float b) {
+mediump float isGEq(mediump float a, mediump float b) {
     return sign(sign(a - b) + 1.0);
 }
 
