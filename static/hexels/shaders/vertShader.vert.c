@@ -1,13 +1,13 @@
-attribute highp vec3 aVertexNormal;
-attribute highp vec3 aVertexPosition;
-attribute highp vec2 aTextureCoord;
+attribute mediump vec3 aVertexNormal;
+attribute mediump vec3 aVertexPosition;
+attribute mediump vec2 aTextureCoord;
 
-uniform highp mat4 uNormalMatrix;
-uniform highp mat4 uMVMatrix;
-uniform highp mat4 uPMatrix;
+uniform mediump mat4 uNormalMatrix;
+uniform mediump mat4 uMVMatrix;
+uniform mediump mat4 uPMatrix;
 
-varying highp vec2 vTextureCoord;
-varying highp vec3 vLighting;
+varying mediump vec2 vTextureCoord;
+varying mediump vec3 vLighting;
 
 void main(void) {
     gl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);
@@ -15,13 +15,13 @@ void main(void) {
 
     // Apply lighting effect
 
-    highp vec3 ambientLight = vec3(0.6, 0.6, 0.6);
-    highp vec3 directionalLightColor = vec3(0.5, 0.5, 0.75);
-    highp vec3 directionalVector = vec3(0.85, 0.8, 0.75);
+    mediump vec3 ambientLight = vec3(0.6, 0.6, 0.6);
+    mediump vec3 directionalLightColor = vec3(0.5, 0.5, 0.75);
+    mediump vec3 directionalVector = vec3(0.85, 0.8, 0.75);
 
-    highp vec4 transformedNormal = uNormalMatrix * vec4(aVertexNormal, 1.0);
+    mediump vec4 transformedNormal = uNormalMatrix * vec4(aVertexNormal, 1.0);
 
-    highp float directional =
+    mediump float directional =
         max(dot(transformedNormal.xyz, directionalVector), 0.0);
     vLighting = ambientLight + (directionalLightColor * directional);
 }

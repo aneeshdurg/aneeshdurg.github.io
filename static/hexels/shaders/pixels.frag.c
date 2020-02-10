@@ -1,10 +1,10 @@
-varying highp vec2 vTextureCoord;
-varying highp vec3 vLighting;
+varying mediump vec2 vTextureCoord;
+varying mediump vec3 vLighting;
 uniform sampler2D uSampler;
-uniform highp float uPixSize;
+uniform mediump float uPixSize;
 
 void main(void) {
-    highp float n = max(uPixSize, 0.01) / 10.0;
+    mediump float n = max(uPixSize, 0.01) / 10.0;
     gl_FragColor = texture2D(
         uSampler, n * floor(vTextureCoord / n));
 }
