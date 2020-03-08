@@ -1,0 +1,3 @@
+[submodule "static/webgl_game_of_life/game"]
+	path = static/webgl_game_of_life/game
+	url = https://github.com/aneeshdurg/webgl_game_of_life
