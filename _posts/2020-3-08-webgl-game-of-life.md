@@ -33,6 +33,8 @@ the `fps` button. You can also randomize the game state or clear it entirely!
 <button onclick="game.randomize(0.25)">randomize!</button>
 <button onclick="game.randomize(0.0)">clear</button>
 
+You can find the source code for this project here: [https://github.com/aneeshdurg/webgl_game_of_life](https://github.com/aneeshdurg/webgl_game_of_life)
+
 ## What is conway's game of life?
 
 Conway's game of life is a set of rules for a cellular automata created by
