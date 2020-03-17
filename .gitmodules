@@ -1,3 +1,6 @@
 [submodule "static/webgl_game_of_life/game"]
 	path = static/webgl_game_of_life/game
 	url = https://github.com/aneeshdurg/webgl_game_of_life
+[submodule "static/pi_digits/src"]
+	path = static/pi_digits/src
+	url = https://github.com/aneeshdurg/webgl-pi-digits.git
