@@ -54,7 +54,7 @@ approximation to the value of the \\(n^{th}\\) digit.
 
 ## WebGL implementation
 
-Here's the final result. I computed the actual millionth digit to be \\(E\\).
+Here's the final result. I computed the actual millionth digit to be \\(C\\).
 
 <input id="pi_input" value="1600"/>
 <button onclick="get_pi_digit()">Compute!</button>
