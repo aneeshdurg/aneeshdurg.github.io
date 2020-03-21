@@ -20,14 +20,27 @@ document.addEventListener('DOMContentLoaded', async (event) => {
     const canvas = document.getElementById("glcanvas");
     game = new Game(canvas, vertUrl, renderUrl, computeUrl);
 
-    new ResizeObserver((e) => {
-         console.assert(e.length == 1, "Should only observe canvas!");
-         const size = e[0].contentRect;
-         console.log(size.width, size.height);
-         canvas.width = size.width;
-         canvas.height = size.height;
-         game.resizeHandler();
-     }).observe(canvas);
+    if (window.ResizeObserver) {
+        new ResizeObserver((e) => {
+            console.assert(e.length == 1, "Should only observe canvas!");
+            const size = e[0].contentRect;
+            console.log(size.width, size.height);
+            canvas.width = size.width;
+            canvas.height = size.height;
+            game.resizeHandler();
+        }).observe(canvas);
+    } else {
+        const resizer = () => {
+            if (canvas.width != canvas.clientWidth ||
+                    canvas.height != canvas.clientHeight) {
+                canvas.width = canvas.clientWidth;
+                canvas.height = canvas.clientHeight;
+                game.resizeHandler();
+            }
+        };
+        setInterval(resizer, 100);
+    }
+
     canvas.addEventListener("click", () => {
         console.log("giving focus");
         canvas.setAttribute('tabindex','0');
@@ -62,3 +75,5 @@ document.addEventListener('DOMContentLoaded', async (event) => {
     await game.main();
     game.randomize(0.25);
 });
+
+window.onerror = (m, u, l) => { alert(m + u + l); };
