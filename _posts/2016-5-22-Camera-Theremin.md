@@ -383,5 +383,5 @@ This was a fairly fun project to work on, though I'd say it's still not done. I 
 
 There are also some known issues such as the occasional crash due to overuse of memory in firefox (doesn't happen on chrome) which need to be worked out.
 
-You can find the code for the project [here](https://github.com/aneeshdurg/CameraTheremin/) and try it out [here](https://aneeshdurg.github.io). Feel free to fork the repository and play around with the code!
+You can find the code for the project [here](https://github.com/aneeshdurg/CameraTheremin/) and try it out [here](https://aneeshdurg.me/CameraTheremin). Feel free to fork the repository and play around with the code!
 
