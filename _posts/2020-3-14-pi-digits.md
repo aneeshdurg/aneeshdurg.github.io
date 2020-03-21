@@ -9,6 +9,7 @@ millionth digit of \\( \pi \\) using my GPU!
 
 ---
 
+<link rel="stylesheet" href="{{ '/static/pi_digits/style.css' | relative_url }}">
 <script src="{{ '/static/pi_digits/src/script.js' | relative_url }}" type="text/javascript"></script>
 <script src="{{ '/static/pi_digits/post.js' | relative_url }}" type="text/javascript"></script>
 <script>
@@ -55,6 +56,15 @@ approximation to the value of the \\(n^{th}\\) digit.
 ## WebGL implementation
 
 Here's the final result. I computed the actual millionth digit to be \\(C\\).
+
+<div class="isa_error" onclick="this.remove()">
+Computing digits around 1,000,000 will take around a minute. At significantly
+higher values, your browser may hang. In some cases this may even cause your
+entire OS to crash. This seems to be a bug in Firefox on MacOSX.
+<br>
+<br>
+Click this message to dismiss.
+</div>
 
 <input id="pi_input" value="1600"/>
 <button onclick="get_pi_digit()">Compute!</button>
