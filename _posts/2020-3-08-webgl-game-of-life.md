@@ -9,7 +9,7 @@ game of life. Click on this post for final result!
 
 ---
 
-
+<link rel="stylesheet" href="{{ '/static/webgl_game_of_life/style.css' | relative_url }}">
 <script src="{{ '/static/webgl_game_of_life/game/script.js' | relative_url }}" type="text/javascript"></script>
 <script>
 const vertUrl = "{{ '/static/webgl_game_of_life/game/shader.vert.c' | relative_url }}";
@@ -25,13 +25,20 @@ dragging on the canvas.  Pressing play will automatically run the game at the
 specified frame rate, which can be changed by entering a new value and pressing
 the `fps` button. You can also randomize the game state or clear it entirely!
 
-<canvas id="glcanvas"></canvas>
+<div class="resizableContainer">
+<canvas class="resizableElement" id="glcanvas"></canvas>
+</div>
 <button id="pause" onclick="pauseplay()">play</button>
 <button id="step" style="display: none;" onclick="game.step()">step</button>
 <input id="fps" value="60"/>
-<button onclick="game.setFps(document.getElementById('fps').value)">fps</button>
+<button onclick="setFps(document.getElementById('fps').value)">fps</button>
 <button onclick="game.randomize(0.25)">randomize!</button>
 <button onclick="game.randomize(0.0)">clear</button>
+
+You can also resize the canvas by dragging the lower right corner or double
+click to enter fullscreen mode. You can use `space` to toggle play/pause, `+` to
+increase fps, `-` to decrease fps, `r` to randomize, `c` to clear and `s` to
+step.
 
 You can find the source code for this project here: [https://github.com/aneeshdurg/webgl_game_of_life](https://github.com/aneeshdurg/webgl_game_of_life)
 

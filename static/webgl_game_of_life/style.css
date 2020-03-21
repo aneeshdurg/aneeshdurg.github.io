@@ -1,0 +1,13 @@
+.resizableContainer {
+    resize: both;
+    border: 2px solid;
+    padding: 0.25em;
+    overflow: hidden;
+    width: 100%;
+    height: 25em;
+}
+
+.resizableElement {
+    width: 100%;
+    height: 100%;
+}
