@@ -31,7 +31,6 @@ async function get_pi_digit() {
         alert("Please supply a valid number!");
         return;
     } else if (n > 1200000 && !window.piCalcAllowLargeCalculations) {
-        const link = 'https://github.com/aneeshdurg/webgl-pi-digits';
         addErrorMessage(
             document.getElementById("errors"), n + " is possibly too big for this calculator!")
         return;
