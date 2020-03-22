@@ -5,10 +5,9 @@ permalink: /posts/computing-digits-of-pi/
 ---
 
 Happy \\( \pi \\) day! In the spirit of \\( \pi \\) day, I wanted to compute the
-millionth digit of \\( \pi \\) using my GPU! 
+millionth digit of \\( \pi \\) using my GPU!
 
 ---
-
 <link rel="stylesheet" href="{{ '/static/pi_digits/style.css' | relative_url }}">
 <script src="{{ '/static/pi_digits/src/script.js' | relative_url }}" type="text/javascript"></script>
 <script src="{{ '/static/pi_digits/post.js' | relative_url }}" type="text/javascript"></script>
@@ -57,13 +56,14 @@ approximation to the value of the \\(n^{th}\\) digit.
 
 Here's the final result. I computed the actual millionth digit to be \\(C\\).
 
-<div class="isa_error" onclick="this.remove()">
-Computing digits around 1,000,000 will take around a minute. At significantly
+<div id="errors">
+<div class="isa_error" onclick="(() => { fadeOutEl(this); })()">
+Computing digits around 1,000,000 will take around 30s. At significantly
 higher values, your browser may hang. In some cases this may even cause your
 entire OS to crash. This seems to be a bug in Firefox on MacOSX.
-<br>
-<br>
+<br><br>
 Click this message to dismiss.
+</div>
 </div>
 
 <input id="pi_input" value="1600"/>
@@ -73,6 +73,31 @@ document.addEventListener('DOMContentLoaded', get_pi_digit);
 </script>
 <div id="container"></div>
 
+The image above displays the values computed to calculate the \\(n^{th}\\) digit
+of \\(\pi\\).
 I intend to eventually fill in more details about how this works and what the
 colors are, but for now, the results are above. If you open the console there's
 some information about how long each step of the process took.
+
+On my machine, computing the millionth digit takes around `30s`. At numbers
+significantly above 1m, I saw firefox crashing OSX and strange results that
+seemed innaccurate. By default the UI above disables calculating numbers above
+1.2m. If you'd like to override this behavior, open the console and enter (at
+your own risk):
+
+```javascript
+window.piCalcAllowLargeCalculations = true;
+```
+
+To compute this using WebGL, I created a fragment shader that converts pixel
+coordinates to 1 dimensional indicies and then uses that to determine which
+elements of the sum it should compute by using that index as the value for
+\\(k\\).  Since we have four output channels for `RGBA` we can compute each of
+the 4 terms in the formula and write the result to one of the output channels.
+Then, the final summation is done by copying the `RGBA` values into memory and
+doing the addition and scalar multiplication on the CPU. I experimented with a
+parallel summation algorithm using another shader, but found that even up to
+million numbers, CPU summation was fast enough.
+
+You can find the source code for this project here 
+[https://github.com/aneeshdurg/webgl-pi-digits]([https://github.com/aneeshdurg/webgl-pi-digits]).

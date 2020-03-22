@@ -28,3 +28,8 @@ padding:12px;
     font-size:2em;
     vertical-align:middle;
 }
+
+canvas {
+    min-width: 25%;
+    max-width: 100%;
+}
