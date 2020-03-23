@@ -3,7 +3,6 @@ function fadeOutEl(el) {
         el.style.opacity = "1";
 
     const opacity = Number(el.style.opacity);
-    console.log(el, opacity);
     if (opacity < 0.1) {
         el.remove();
         return;
@@ -26,13 +25,14 @@ async function get_pi_digit() {
     const container = document.getElementById("container");
     container.innerHTML = "";
 
+    const errorContainer = document.getElementById("errors");
+
     const n = parseInt(document.getElementById("pi_input").value);
     if (!n) {
         alert("Please supply a valid number!");
         return;
     } else if (n > 1200000 && !window.piCalcAllowLargeCalculations) {
-        addErrorMessage(
-            document.getElementById("errors"), n + " is possibly too big for this calculator!")
+        addErrorMessage(errorContainer, n + " is possibly too big for this calculator!")
         return;
     }
 
@@ -41,6 +41,11 @@ async function get_pi_digit() {
     const canvas = document.createElement("canvas");
     container.appendChild(canvas);
 
-    let nth = await main(canvas, n, root);
-    results.innerText = "The " + n + "th hex digit of pi is " + nth + "\n";
+    let nth = 0;
+    try {
+        nth = await main(canvas, n, root);
+        results.innerText = "The " + n + "th hex digit of pi is " + nth + "\n";
+    } catch (e) {
+        addErrorMessage(errorContainer, e.message);
+    }
 }

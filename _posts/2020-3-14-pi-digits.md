@@ -94,10 +94,22 @@ coordinates to 1 dimensional indicies and then uses that to determine which
 elements of the sum it should compute by using that index as the value for
 \\(k\\).  Since we have four output channels for `RGBA` we can compute each of
 the 4 terms in the formula and write the result to one of the output channels.
-Then, the final summation is done by copying the `RGBA` values into memory and
-doing the addition and scalar multiplication on the CPU. I experimented with a
-parallel summation algorithm using another shader, but found that even up to
-million numbers, CPU summation was fast enough.
+Then, using another shader, we compute the sum of each `16x16` block in
+parallel. Finally, we take the output of that shader and sum the block sums and
+multiply the scalar coefficients on the CPU.
+
+You can tweak the value that controls the size of the block sum with with:
+
+```javascript
+window.piCalcScale = <your number here>;
+```
+
+At sizes above 32, I noticed errors in the computation (probably due to
+overflow), although it was faster. I tried having the sum program run
+iteratively, computing the block sums in parallel until the totaly number of
+elements to sum was less than some threshold, but for 1m elements, it did not
+makes things faster. I assume it would have a bigger impact for larger sizes of
+\\(n\\), but they aren't supported by this calculator anyway.
 
 You can find the source code for this project here 
 [https://github.com/aneeshdurg/webgl-pi-digits]([https://github.com/aneeshdurg/webgl-pi-digits]).
