@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Haskell Game of Life
-permalink: /HaskellGameofLife/ 
+permalink: /posts/haskell-game-of-life/
 ---
 Hello, my possibly (probably) nonexistant readers! It's been a while since I've written anything. For starters, happy new year!
 
