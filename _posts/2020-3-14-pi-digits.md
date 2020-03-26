@@ -112,4 +112,4 @@ makes things faster. I assume it would have a bigger impact for larger sizes of
 \\(n\\), but they aren't supported by this calculator anyway.
 
 You can find the source code for this project here 
-[https://github.com/aneeshdurg/webgl-pi-digits]([https://github.com/aneeshdurg/webgl-pi-digits]).
+[https://github.com/aneeshdurg/webgl-pi-digits](https://github.com/aneeshdurg/webgl-pi-digits).
