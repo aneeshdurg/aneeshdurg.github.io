@@ -27,7 +27,7 @@ I was just browsing reddit on my laptop and had placed the laptop on the other e
 
 ## Detecting Proximity
 
-I got the idea for this extension while I was working on my [Camera Theremin](https://aneeshdurg.github.io/CameraTheremin) and so the method for detecting proximity is the same and you can read about it [here](http://aneeshdurg.github.io/posts/CameraTheremin#proximity-detection-method-1). However, I needed to make some modifications to be able to use the value returned from this function as a way to set the browser's zoom level. 
+I got the idea for this extension while I was working on my [Camera Theremin](https://aneeshdurg.github.io/CameraTheremin) and so the method for detecting proximity is the same and you can read about it [here](https://aneeshdurg.github.io/posts/CameraTheremin#proximity-detection-method-1). However, I needed to make some modifications to be able to use the value returned from this function as a way to set the browser's zoom level. 
 
 ## Improving proximity detection 1
 
