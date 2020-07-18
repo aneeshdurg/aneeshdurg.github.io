@@ -1,0 +1,13 @@
+canvas {
+    width: 50%;
+}
+
+.problem {
+    border: 1px dashed;
+    text-align: center;
+    padding: 1em;
+}
+
+.textbox {
+    text-align: left;
+}
