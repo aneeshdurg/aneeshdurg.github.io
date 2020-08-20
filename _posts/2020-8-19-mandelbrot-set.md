@@ -28,12 +28,6 @@ whether the computation for one element of the sequence ever exceeds the maximum
 value for a 32-bit float. That was sufficient to get the iconic mandelbrot
 shape.
 
-The colors in my implementation are pretty arbitrary, it just visualizes the
-current value computed in the sequence and transforms it into an HSL value. You
-can see the source code for this project here:
+The colors visualize how quickly the series diverges. You can see the source
+code for this project here:
 [https://github.com/aneeshdurg/mandelbrot](https://github.com/aneeshdurg/mandelbrot).
-
-It was interesting trying to come up with a quick way to do the HSL color stuff
-since I was feeling too lazy to implement something where the speed of the
-convergence is tracked. It's probably not hard to do and I never actually used
-the blue channel for anything so maybe I'll go back and implement that tomorrow.
