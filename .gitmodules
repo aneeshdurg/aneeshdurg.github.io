@@ -4,3 +4,6 @@
 [submodule "static/pi_digits/src"]
 	path = static/pi_digits/src
 	url = https://github.com/aneeshdurg/webgl-pi-digits.git
+[submodule "static/mandelbrot/src"]
+	path = static/mandelbrot/src
+	url = https://github.com/aneeshdurg/mandelbrot
