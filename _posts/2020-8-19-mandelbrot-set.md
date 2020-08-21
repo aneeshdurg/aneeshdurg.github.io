@@ -21,7 +21,7 @@ It's one of the most iconic images when it comes to showing of beautiful
 structures in math. The mandelbrot set is defined as follows:
 
 \\[ \\{c \text{ } \forall c \in C\text{ if }F_n\text{ is bounded as } n\rightarrow \infty \\} \\]
-where \\(F_{n + 1}(c) = F_n^2(c) + c\\) and \\(F_0(c) = c\\) and \\(C\\) is all complex numbers.
+where \\(F_{n + 1}(c) = F_n^2(c) + c\\) with \\(F_0(c) = 0\\), \\(C\\) is all complex numbers.
 
 In the program above, "divergence" of the sequence \\(F\\) is approximated by
 whether the computation for one element of the sequence ever exceeds the maximum
