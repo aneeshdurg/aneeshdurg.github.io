@@ -9,7 +9,7 @@ name: Aneesh Durg
 description: Member of Technical Staff @ Qumulo
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
-avatar: https://aneeshdurg.me/static/images/me.jpg
+avatar: /static/images/me.jpg
 
 #
 # Flags below are optional
