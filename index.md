@@ -23,11 +23,15 @@ You can find my blog [here]({{ '/blog' | relative_url }}).
    * A visual representation of a memory allocator
    * This project was designed to help students of [cs241](http://cs241.cs.illinois.edu/) with their malloc MP.
    * Supported browsers:
-     * Firefox (Desktop) - everything *usually* works
-     * Chrome (Desktop) - everything works
+     * Firefox (Desktop)
+     * Chrome (Desktop)
 
 ## Interesting posts/projects
+Checkout my blog for all the posts! [/blog]({{ '/blog' | relative_url }})
 
++ Pi Calculator \| [Blog post]({{ '/posts/computing-digits-of-pi' | relative_url }})
+   * Compute digits of pi in your browser using your GPU!
+<br><br>
 <!-- Hard-coding the url here because it needs https -->
 + [Camera Theremin](https://aneeshdurg.me/CameraTheremin/) \| [Blog post]({{ '/posts/CameraTheremin' | relative_url }})
    * An online theremin that turns your webcam into a musical instrument!
