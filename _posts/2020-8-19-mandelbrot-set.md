@@ -16,6 +16,8 @@ const root = "{{ '/static/mandelbrot/src' | relative_url }}";
 
 <canvas id="glcanvas"></canvas>
 
+Click/right-click on the canvas to zomm in/out!
+
 Today I thought I'd work on a really quick vizualization of the mandelbrot set.
 It's one of the most iconic images when it comes to showing of beautiful
 structures in math. The mandelbrot set is defined as follows:
