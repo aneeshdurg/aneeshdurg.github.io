@@ -8,6 +8,7 @@ Can't call myself a math nerd without doing this right?
 
 ---
 <link rel="stylesheet" href="{{ '/static/mandelbrot/style.css' | relative_url }}">
+<script src="{{ '/static/webgl-common/common.js' | relative_url }}"></script>
 <script src="{{ '/static/mandelbrot/src/script.js' | relative_url }}" type="text/javascript"></script>
 <script src="{{ '/static/mandelbrot/post.js' | relative_url }}" type="text/javascript"></script>
 <script>
@@ -16,7 +17,7 @@ const root = "{{ '/static/mandelbrot/src' | relative_url }}";
 
 <canvas id="glcanvas"></canvas>
 
-Click/right-click on the canvas to zomm in/out!
+Click/double-click on the canvas to zoom in/out!
 
 Today I thought I'd work on a really quick vizualization of the mandelbrot set.
 It's one of the most iconic images when it comes to showing of beautiful

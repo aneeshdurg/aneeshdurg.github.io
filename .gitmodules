@@ -10,3 +10,6 @@
 [submodule "static/dragon_fractal/src"]
 	path = static/dragon_fractal/src
 	url = https://github.com/aneeshdurg/dragon_fractal
+[submodule "static/webgl-common"]
+	path = static/webgl-common
+	url = https://github.com/aneeshdurg/webgl-common

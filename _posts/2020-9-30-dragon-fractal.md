@@ -11,6 +11,7 @@ Some experiments with my favorite fractal!
 {% assign mediaurl = "/static/dragon_fractal/media" | relative_url %}
 
 <link rel="stylesheet" href="{{ '/static/dragon_fractal/style.css' | relative_url }}">
+<script src="{{ '/static/webgl-common/common.js' | relative_url }}"></script>
 <script src="{{ '/static/dragon_fractal/src/prog.js' | relative_url }}" type="text/javascript"></script>
 <script src="{{ '/static/dragon_fractal/post.js' | relative_url }}" type="text/javascript"></script>
 <script>
