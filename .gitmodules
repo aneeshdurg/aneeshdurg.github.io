@@ -7,3 +7,6 @@
 [submodule "static/mandelbrot/src"]
 	path = static/mandelbrot/src
 	url = https://github.com/aneeshdurg/mandelbrot
+[submodule "static/dragon_fractal/src"]
+	path = static/dragon_fractal/src
+	url = https://github.com/aneeshdurg/dragon_fractal
