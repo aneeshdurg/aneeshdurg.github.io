@@ -9,6 +9,8 @@ I'd learned, or that I wish were taught in school.
 
 ---
 
+{% assign baseurl = "/static/images/2020-12-23-things-i-wish-id-learned" | relative_url %}
+
 It still occasionally feels surreal that I'm no longer a full time student,
 but there's definitely still a huge component of my current life and career that
 revolves around learning. Over the last year, I've had a chance to reflect on my
@@ -43,6 +45,8 @@ strategy is something that really works for me, as keeping myself interested in
 my work greately enhances my productivity.
 
 ### 2. How to pace yourself
+<img src="{{ '/pace.jpg' | prepend: baseurl }}"/><br>
+_[https://www.pexels.com/photo/wall-clock-at-5-50-707582/](https://www.pexels.com/photo/wall-clock-at-5-50-707582/)_
 
 Univerity was a pretty constant workload for me. I got used to just being in a
 high-stress environment where there was also some work that needed to be done.
@@ -54,6 +58,8 @@ allow yourself to explore things outside your comfort zone is a luxury that
 takes some getting used to in the real world.
 
 ### 3. Learning how to discover
+<img src="{{ '/AneeshDurg-LakeValhalla.jpg' | prepend: baseurl }}"/><br>
+_Image taken by me_
 
 University taught me how to learn things related to software development, but it
 didn't really tell me how to learn things totally unrelated to my field. Being
@@ -70,12 +76,15 @@ but it's something I re-learn every so often.
 
 ### 1. Unicode
 
+<img src="{{ '/common-additions-v2.png' | prepend: baseurl }}"/><br>
+_[https://www.unicode.org/reports/tr51/images/other/common-additions-v2.png](http://clipart-library.com/clipart/812547.htm)_
+
 One of my first tasks as a full time engineer was to write some tests of a
 unicode validator. It really hit me how text encoding is so important to build
 software that works not just for english speaking humans, but to enable users
 from all around the world to use character sets that help them express
 themselves best (also, emojis). It really made me reflect how I was so familiar
-with ASCII, to the point where I instanstly know things like, `65 === 'A', but
+with ASCII, to the point where I instanstly know things like, `65 === 'A'`, but
 wasn't really exposed to other text encoding schemes. Of course, knowing how
 ASCII works is great! It is a subset of `utf-8`, perhaps the most widely used
 unicode dialect, after all. Still, it would have been nice if my formal
@@ -85,14 +94,16 @@ It's also just a really cool topic to read about, especially for the historic
 context.
 
 ### 2. Accessibility
+<img src="{{ '/a11y.png' | prepend: baseurl }}"/><br>
+_[https://www.a11yproject.com/](https://www.a11yproject.com/)_
 
 I must confess that I've never taken a course on UI design or HCI, so it's
 likely that my ignorance in this area is a product of my own doing. Still, there
 were a few classes, like intro to CS, and software design studio, where this
 topic wouldn't have been out of place. Through my job, I've learnt about the web
-content accessibility guidelines (`WCAG`) and the tools around then
-(`react-a11y`) to help us make our software accessible to more people. As the
-saying goes, unused software is just tech debt, thus, inaccessible software must
+content accessibility guidelines (`WCAG`) and the tools around then (`axe`) to
+help us make our software accessible to more people. As the saying goes, unused
+software is just tech debt, thus, inaccessible software must
 also be tech debt.
 
 When looking at this topic next to unicode, I see a pattern relating to writing
@@ -100,6 +111,8 @@ software that takes into account a broader userbase that isn't centered around
 the experiences that prevail in the US.
 
 ### 3. How to write good tests
+<img src="{{ '/tests.png' | prepend: baseurl }}"/><br>
+_Image taken by me_
 
 While university did expose me to the concept of writing tests, the real value
 and art of it was still unclear to me until I had completed a few internships.
@@ -132,6 +145,8 @@ effectively, but I never thought about creating design documents to help myself
 structure my approach to development as a student.
 
 ### 5. Writing portable software
+<img src="{{ '/os.jpg' | prepend: baseurl }}"/><br>
+_[http://clipart-library.com/clipart/812547.htm](http://clipart-library.com/clipart/812547.htm)_
 
 Most of my university projects only worked on linux. I don't really have much
 experience writing code that runs on the BSDs, MacOS, or windows. I certainly
