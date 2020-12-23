@@ -29,6 +29,15 @@ You can find my blog [here]({{ '/blog' | relative_url }}).
 ## Interesting posts/projects
 Checkout my blog for all the posts! [/blog]({{ '/blog' | relative_url }})
 
++ [webgl-playground]({{ '/webgl-playground' | relative_url }})
+   * A collection of interesting visual effects presented in a hand-written
+     staticly generated site.
+   * Check out this [kaleidoscope]({{ '/webgl-playground/kaleidoscope' | relative_url }})
+   that features a variety of input sources, including your [webcam]({{ '/webgl-playground/kaleidoscope?provider=Webcam' | relative_url }})!
+   * Supported browsers:
+     * Firefox (Desktop and mobile - not all GPUs work perfectly on the desktop version)
+     * Chrome (Desktop and mobile)
+<br><br>
 + Pi Calculator \| [Blog post]({{ '/posts/computing-digits-of-pi' | relative_url }})
    * Compute digits of pi in your browser using your GPU!
 <br><br>
