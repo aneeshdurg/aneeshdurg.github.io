@@ -13,3 +13,6 @@
 [submodule "static/webgl-common"]
 	path = static/webgl-common
 	url = https://github.com/aneeshdurg/webgl-common
+[submodule "static/genuary2021"]
+	path = static/genuary2021
+	url = https://github.com/aneeshdurg/genuary2021
