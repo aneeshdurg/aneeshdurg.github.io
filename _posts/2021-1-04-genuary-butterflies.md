@@ -45,13 +45,13 @@ classic butterfly shape.
 document.addEventListener("DOMContentLoaded", function() {
 const canvas = document.getElementById("examplecanvas");
 canvas.width = 100;
-canvas.height = 100;
+canvas.height = 50;
 const ctx = canvas.getContext("2d");
 window.example_butterfly.position = [50, 0];
 window.example_butterfly.draw(ctx);
 window.example_butterfly.position[1] = 0;
 document.getElementById("flap").onclick=function() {
-ctx.clearRect(0, 0, 100, 100);
+ctx.clearRect(0, 0, 100, 50);
 window.example_butterfly.draw(ctx);
 window.example_butterfly.position[1] = 0;
 };
