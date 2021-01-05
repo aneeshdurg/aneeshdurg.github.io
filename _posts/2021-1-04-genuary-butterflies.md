@@ -4,7 +4,7 @@ title: Genuary 2021 - day 4
 permalink: /posts/Genuary 2021/
 ---
 
-I saw #genuary2021 on twitter and wanted in on the fun.
+I saw [#genuary2021](https://genuary2021.github.io/) on twitter and wanted in on the fun.
 
 ---
 
