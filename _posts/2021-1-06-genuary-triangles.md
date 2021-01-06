@@ -25,7 +25,9 @@ animation:
 document.addEventListener("DOMContentLoaded", function() {
 main(document.getElementById("mycanvas"));
 document.getElementById("start-mic").addEventListener("click",function() {
-start_microphone();
+const disp = document.getElementById("mic-disp");
+const input = document.getElementById("mic-thresh");
+start_microphone(disp, input);
 });
 document.getElementById("start-nomic").addEventListener("click",function() {
 start_no_microphone();
@@ -35,3 +37,6 @@ start_no_microphone();
 <canvas id="mycanvas" style="width: 100%"></canvas>
 <button id="start-mic">Start with the microphone</button>
 <button id="start-nomic">Start without the microphone</button>
+<p>Current mic level: <span id="mic-disp">null</span></p>
+<label for="mic-thresh">Mic threshold: </label>
+<input id="mic-thresh" value="100"/>
