@@ -6,6 +6,7 @@ permalink: /posts/Hello-World/
 
 It's my first post! 
 ---
+
 About me:
 
 * I am a student of Mathematics & Computer science at the university of Illinois at Urbana-Champaign. 

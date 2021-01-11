@@ -1,32 +1,12 @@
 ---
 layout: post
-title: MangareaderFS and my life 
+title: MangareaderFS
 permalink: /posts/mangareaderfs
 ---
 
-Hi everyone! Today's post is going to be a little different from most of my posts because I'm going to also write a short update about myself! Yay!!!
-
-If you don't want to hear about me, click [here](#mangareader-fs) to only read about my new project. 
+Building a FUSE filesystem interface to mangareader
 
 ---
-
-It's been exactly a year since I started this blog, which is pretty cool although I wish I had more time to post stuff. For starters, I'd like to write about that cool Haskell project I keep promising you guys, but it's a bit of a long story, and I'm too lazy to write it out. 
-
-Breifly, it was supposed to be an online repl for haskell, that also acted as a chrome extension allowing newbies (i.e. me) to try out snippets of haskell code they find on the internet (i.e. stackoverflow). Currently, I have an extension, and the repl, but neither are as good as I want them to be (can any software project ever be considered done?), but for the time being, you can try it out [here](http://www.browserhaskell.tk/editor). If you like it, be sure to drop those stars on github and/or contribute to the project. If you've got any ideas for things you'd like to see, shoot me an email.
-
-I've also been meaning to give this website a bit of a makeover. I don't really like the current layout too much, and I'd like to make it feel a bit more...professional. Maybe add my resume somewhere here or something. 
-
-Lately, I've been killing time and learning category theory (You can only imagine the loneliness and bordem that lead to that decision (jk, category theory is pretty rad)). Quite honestly, it's been slow progress. Part of it is because I keep getting distracted by stupid things, and part of it is because I'm having a hard time getting the intuition behind a couple concepts. I suspect that this would be easier if I tried focusing a bit more and maybe doing more excersices from the textbook I'm referencing. Either way, I hope to gain more familiarity with the concepts and paradaigms of category theory before the fall semester starts. Perhaps I'll use this blog to post about my progress/share things I found interesting while learning.
-
-Aside from that I've been watching a lot of anime (which will explain the project portion of this post), watching a lot of Wes Anderson films, and I've gone back to writing fiction. I'm writing a series of short stories this time, and while they don't connect directly to each other, the over-arching narrative is a lot grander than anything I've written before. I've also spent some time going over my old writing, and quite honestly that was a good laugh. I feel like you can really see a sense of childishness from my older writing, which I don't particularly mind, since it's comforting to know that I've grown enough to identify where I could have done things better in some of my stories. For the time being, I don't think I'm embarassed enough by my stories to take the link to them off of my "about me" post. My newer writing is a lot less "philosophical" in that I'm not aiming to preach about my views about life and death or anything edgy like that. 
-
-I really want to start reading books again. It's been a while since I last read one. I'm still about halfway through "Robot stories" by Isaac Asimov, but I have an implicit rule of only reading those on flights. The most recent book(s) I finished was the first (and currently only) two books of the Kingkiller chronicles. I was honestly not impressed, especially by the quality of the second book, and might not even care to read the third. Quite a few people have reccomended the book "Gödel, Escher, Bach" to me, although I've heard it's quite taxing to read. Perhaps I will have the energy to start it someday.
-
-School has been going pretty well. This semester was super busy, but I kinda liked the grind. Grades turned out decent (like software projects, they can always be better), and I think I have more of a direction as to what I want to do/study from here on out. Of course, I'm still exploring different things and trying to see more of the world, but my path is gradually convering. 
-
-So yeah, that's how things have been for me lately. I'm sure none of that was particularly interesting, but maybe if someone reads this they might be interested to see what kind of life I lead aside from the sparse posts I make here.
-
-## Mangareader FS
 
 Earlier this year, I learned about FUSE (filesystem in user space), a library that makes writing your own filesystem rather simple. At the least, you won't be dealing with kernel code. Since then, I'd wanted to do some kind of project wiht it, but I hadn't known what to do. To paint the other half of the picture, I enjoy reading manga (Japanese comics) on a weekly basis, but hate the websites they're hosted on just because there's a ton of ads and it's often very slow to use (especially back in India). So, I decided to make mangareader FS.
 
