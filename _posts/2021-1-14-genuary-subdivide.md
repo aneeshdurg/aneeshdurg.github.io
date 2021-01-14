@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Genuary 2021 - day 14
-permalink: /posts/Genuary 2021-day10-14/
+permalink: /posts/Genuary 2021-day14/
 ---
 
 Revisiting [day4's butterflies]({{ '/posts/Genuary 2021' | relative_url }}) for [#genuary2021](https://genuary2021.github.io/)
