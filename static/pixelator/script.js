@@ -9,6 +9,7 @@ class Pixelator {
     cancel_draw = false;
     draw_promise = null;
 
+    animate = true;
     cancel_gen = false;
     gen_promise = null;
 
@@ -87,6 +88,19 @@ class Pixelator {
             this.random_url();
         });
         target.appendChild(random_btn);
+
+        target.appendChild(document.createElement('br'));
+        const animate_label = document.createElement("label");
+        animate_label.innerText = "Animate: ";
+        const animate_input = document.createElement("input");
+        animate_input.type = 'checkbox';
+        animate_input.checked = this.animate;
+        animate_input.addEventListener('change', () => {
+            this.animate = animate_input.checked;
+        });
+        target.appendChild(animate_label);
+        target.appendChild(animate_input);
+
     }
 
     async getImage() {
@@ -123,7 +137,8 @@ class Pixelator {
             this.colors.push(this.getRandomColor());
             if (this.cancel_gen)
                 break;
-            await new Promise(r => setTimeout(r, 100));
+            if (this.animate)
+                await new Promise(r => setTimeout(r, 100));
         }
     }
 
@@ -190,9 +205,10 @@ class Pixelator {
                     this.ctx.fill();
                 }
             }
+
         }
 
-        if (this.cancel_draw)
+        if (this.cancel_draw || this.colors.length == this.palettelen)
             resolver();
         else
             setTimeout(() => { requestAnimationFrame(() => this.draw(resolver)) }, 100);
@@ -218,9 +234,12 @@ class Pixelator {
 
     async generate_and_draw() {
         await this.cancel_drawing();
+        console.log("done cancelling draw");
         await this.cancel_generating();
+        console.log("done cancelling gen");
 
         await this.generateFinal();
+        console.log("done regenerating");
 
         this.gen_promise = this.generatePallete();
         this.draw_promise = new Promise(r => { this.draw(r); });
