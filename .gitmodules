@@ -16,3 +16,9 @@
 [submodule "static/genuary2021"]
 	path = static/genuary2021
 	url = https://github.com/aneeshdurg/genuary2021
+[submodule "static/vsynth/video-synth"]
+	path = static/vsynth/video-synth
+	url = https://github.com/aneeshdurg/video-synth
+[submodule "static/vsynth/src"]
+	path = static/vsynth/src
+	url = https://github.com/aneeshdurg/video-synth
