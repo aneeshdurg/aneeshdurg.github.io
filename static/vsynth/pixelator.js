@@ -9,10 +9,10 @@ document.addEventListener("DOMContentLoaded", async function() {
 
         const canvas = document.createElement("canvas");
         canvas.style.width = "100%";
-        let reduce_colors_obj = null;
         const callback = (synth_ui) => {
             console.log("!!!", synth_ui);
-            reduce_colors_obj = synth_ui.children[4].args.reduce_colors_data;
+            const reduce_colors_obj = synth_ui.children[4].args.reduce_colors_data;
+            const pixelate_obj = synth_ui.children[2].args.pixelate_factor;
 
             const label = document.createElement('label');
             label.innerText = 'Number of colors: ';
@@ -30,6 +30,37 @@ document.addEventListener("DOMContentLoaded", async function() {
                 reduce_colors_obj.generate_colors();
             });
             container.appendChild(btn);
+
+            container.appendChild(document.createElement('br'));
+            const plabel = document.createElement('label');
+            plabel.innerText = 'Pixelation factor: ';
+            const pixel_input = new IntEntry([1, 20], pixelate_obj.value, true);
+            pixel_input.addEventListener('change', () => {
+                pixelate_obj.set_value(pixel_input.value);
+            });
+            container.appendChild(plabel);
+            container.appendChild(pixel_input);
+
+            if (!webcam_mode) {
+                const pic_obj = synth_ui.children[0].args.picture_texture;
+                const ilabel = document.createElement('label');
+                ilabel.innerText = 'Upload an image: ';
+                const fileSelect = document.createElement("input");
+                fileSelect.type = "file";
+                fileSelect.accept = "image/*";
+                const uploadImage = () => {
+                    let file = fileSelect.files[0];
+                    let reader = new FileReader();
+                    reader.readAsDataURL(file)
+                    reader.onloadend = () => {
+                        pic_obj.img.src = reader.result;
+                    };
+                }
+                fileSelect.addEventListener("change", uploadImage);
+                container.appendChild(document.createElement('br'));
+                container.appendChild(ilabel);
+                container.appendChild(fileSelect);
+            }
         };
 
         const savedata = webcam_mode ? "../data/pixelator.savedata" : "../data/pixelator-picture.savedata";
