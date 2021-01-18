@@ -19,6 +19,3 @@
 [submodule "static/vsynth/video-synth"]
 	path = static/vsynth/video-synth
 	url = https://github.com/aneeshdurg/video-synth
-[submodule "static/vsynth/src"]
-	path = static/vsynth/src
-	url = https://github.com/aneeshdurg/video-synth

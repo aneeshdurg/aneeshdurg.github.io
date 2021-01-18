@@ -9,11 +9,11 @@ A faster version of my [pixelator]({{ '/posts/2021-01-14-pixelator/' | relative_
 ---
 
 <script>
-const root = "{{ '/static/vsynth/src/' | relative_url }}"
+const root = "{{ '/static/pixelator' | relative_url }}"
 </script>
 
-<script src="{{ '/static/vsynth/src/synth.build.js' | relative_url }}" type="text/javascript"></script>
-<script src="{{ '/static/vsynth/pixelator.js' | relative_url }}" type="text/javascript"></script>
+<script src="{{ '/static/pixelator/synth.build.js' | relative_url }}" type="text/javascript"></script>
+<script src="{{ '/static/pixelator/pixelator.js' | relative_url }}" type="text/javascript"></script>
 
 Here's the final product, you can either use your webcam or a static image.
 

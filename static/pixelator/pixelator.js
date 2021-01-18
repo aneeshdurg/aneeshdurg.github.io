@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", async function() {
             }
         };
 
-        const savedata = webcam_mode ? "../data/pixelator.savedata" : "../data/pixelator-picture.savedata";
+        const savedata = webcam_mode ? "/pixelator.savedata" : "/pixelator-picture.savedata";
         loadStaticSynth(canvas, root, savedata, callback);
         container.appendChild(canvas);
 
