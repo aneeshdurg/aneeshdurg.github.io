@@ -4,6 +4,7 @@ layout: default
 
 <div class="posts">
     {% assign newyear = "0" %}
+    {% assign newmonth = "0" %}
 
     {% for post in site.posts %}
         {% capture postdate %}{{ post.date | date: "%Y" }}{% endcapture %}
@@ -15,8 +16,21 @@ layout: default
             <a name="{{ newyear }}"></a>
             <a href="#{{ newyear }}"><p>{{ postdate }}</p></a>
             <hr>
+            {% assign newmonth = "0" %}
         {% endif %}
-        <article class="post">
+        {% capture postmonth %}{{ post.date | date: "%B" }}{% endcapture %}
+        {% if postmonth != newmonth %}
+            {% if newmonth != "0" %}
+                <br>
+            {% endif %}
+            {% capture  newmonth %}{{ postmonth }}{% endcapture %}
+            <div style="margin-left: 0em">
+                <a name="{{ newyear }}-{{ newmonth }}"></a>
+                <a href="#{{ newyear }}-{{ newmonth }}"><p>{{ postmonth }}</p></a>
+                <hr style="border: 1px dashed">
+            </div>
+        {% endif %}
+        <article class="post" style="margin-left: 2em">
             <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
             <div class="entry">
                 {{ post.excerpt }}
