@@ -6,7 +6,8 @@ Welcome to my website!
 Below is a portfolio of projects/blog posts I want to showcase.
 You can find my blog [here]({{ '/blog' | relative_url }}).
 
-## Visualizations
+
+## cool stuff I've done
 
 + [What is a filesystem?]({{ '/what_is_a_filesystem' | relative_url }})
    * ![what is a filesystem]({{ '/static/images/what_is_a_filesystem.png' | relative_url }})
@@ -26,9 +27,6 @@ You can find my blog [here]({{ '/blog' | relative_url }}).
      * Firefox (Desktop)
      * Chrome (Desktop)
 
-## Interesting posts/projects
-Checkout my blog for all the posts! [/blog]({{ '/blog' | relative_url }})
-
 + [webgl-playground]({{ '/webgl-playground' | relative_url }})
    * A collection of interesting visual effects presented in a hand-written
      staticly generated site.
@@ -37,21 +35,32 @@ Checkout my blog for all the posts! [/blog]({{ '/blog' | relative_url }})
    * Supported browsers:
      * Firefox (Desktop and mobile - not all GPUs work perfectly on the desktop version)
      * Chrome (Desktop and mobile)
-<br><br>
-+ Pi Calculator \| [Blog post]({{ '/posts/computing-digits-of-pi' | relative_url }})
-   * Compute digits of pi in your browser using your GPU!
-<br><br>
+<br>
 <!-- Hard-coding the url here because it needs https -->
 + [Camera Theremin](https://aneeshdurg.me/CameraTheremin/) \| [Blog post]({{ '/posts/CameraTheremin' | relative_url }})
    * An online theremin that turns your webcam into a musical instrument!
    * Supported browsers:
      * Firefox (Desktop and Mobile)
      * Chrome (Desktop and Mobile)
-<br><br>
+<br>
 + [Arduino keyboard/mouse](https://github.com/aneeshdurg/arduino-keyboard/) \| [Blog post]({{ '/posts/arduino-keyboard-mouse' | relative_url }})
    * Use your arduino UNO as a keyboard/mouse combo!
    * This project really just tacks on reporting mouse data to an existing
      driver for using UNOs as keyboards.
-<br><br>
-+ [MangareaderFS](https://github.com/aneeshdurg/mangareaderfs/) \| [Blog post]({{ '/posts/mangareaderfs#mangareader-fs' | relative_url }})
-   * Ever wanted to browse manga through your filesystem? Well now you can!
+
+## Recent blog posts
+
+<div style="border: 1px dashed; padding: 0.1em">
+{% for i in (0..2) %}
+<article class="post" style="margin-left: 2em">
+<h1><a href="{{ site.baseurl }}{{ site.posts[i].url }}">{{ site.posts[i].title }}</a></h1>
+<div class="entry">
+{{ site.posts[i].excerpt }}
+</div>
+<a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+</article>
+{% endfor %}
+</div>
+
+
+
