@@ -2,14 +2,13 @@
 layout: default
 ---
 
-Welcome to my website!
-Below is a portfolio of projects/blog posts I want to showcase.
-You can find my blog [here]({{ '/blog' | relative_url }}).
+Welcome to my website! I mostly use it for posting about various projects I've
+been working on. You can find my blog [here]({{ '/blog' | relative_url }}).
 
 
-## cool stuff I've done
+## cool stuff i've done
 
-+ [What is a filesystem?]({{ '/what_is_a_filesystem' | relative_url }})
++ [what is a filesystem?]({{ '/what_is_a_filesystem' | relative_url }})
    * ![what is a filesystem]({{ '/static/images/what_is_a_filesystem.png' | relative_url }})
    * An interactive book based of the corresponding content from the [cs241 coursebook](http://cs241.cs.illinois.edu/coursebook/Filesystems)
    * Features a visualization of disk blocks in a ext2/minix-like filesystem and has a command line simulator with
@@ -19,7 +18,7 @@ You can find my blog [here]({{ '/blog' | relative_url }}).
      * Chrome (Desktop and Mobile)
 <br>
 
-+ [Visual Malloc]({{ '/visual-malloc' | relative_url }})
++ [visual malloc]({{ '/visual-malloc' | relative_url }})
    * ![visual malloc]({{ '/static/images/visual_malloc.png' | relative_url }})
    * A visual representation of a memory allocator
    * This project was designed to help students of [cs241](http://cs241.cs.illinois.edu/) with their malloc MP.
@@ -37,18 +36,18 @@ You can find my blog [here]({{ '/blog' | relative_url }}).
      * Chrome (Desktop and mobile)
 <br>
 <!-- Hard-coding the url here because it needs https -->
-+ [Camera Theremin](https://aneeshdurg.me/CameraTheremin/) \| [Blog post]({{ '/posts/CameraTheremin' | relative_url }})
++ [camera theremin](https://aneeshdurg.me/CameraTheremin/) \| [Blog post]({{ '/posts/CameraTheremin' | relative_url }})
    * An online theremin that turns your webcam into a musical instrument!
    * Supported browsers:
      * Firefox (Desktop and Mobile)
      * Chrome (Desktop and Mobile)
 <br>
-+ [Arduino keyboard/mouse](https://github.com/aneeshdurg/arduino-keyboard/) \| [Blog post]({{ '/posts/arduino-keyboard-mouse' | relative_url }})
++ [arduino keyboard/mouse](https://github.com/aneeshdurg/arduino-keyboard/) \| [Blog post]({{ '/posts/arduino-keyboard-mouse' | relative_url }})
    * Use your arduino UNO as a keyboard/mouse combo!
    * This project really just tacks on reporting mouse data to an existing
      driver for using UNOs as keyboards.
 
-## Recent blog posts
+## recent blog posts
 
 <div style="border: 1px dashed; padding: 0.1em">
 {% for i in (0..2) %}
@@ -62,5 +61,4 @@ You can find my blog [here]({{ '/blog' | relative_url }}).
 {% endfor %}
 </div>
 
-
-
+see all my posts [here]({{ '/blog' | relative_url }})
