@@ -56,7 +56,7 @@ been working on. You can find my blog [here]({{ '/blog' | relative_url }}).
 <div class="entry">
 {{ site.posts[i].excerpt }}
 </div>
-<a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+<a href="{{ site.baseurl }}{{ site.posts[i].url }}" class="read-more">Read More</a>
 </article>
 {% endfor %}
 </div>
