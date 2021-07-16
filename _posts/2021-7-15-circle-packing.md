@@ -184,6 +184,14 @@ pixels that would be overwritten and check that no pixels are set. I did cheat a
 bit here and read the pixels from the bounding square of the new circle, but in
 practice that doesn't affect the visual quality by much. Here's the demo:
 
+<div class="isa_error" onclick="(() => { fadeOutEl(this); })()">
+For best results please make sure the old version above isn't running. You can
+verify this either by checking the logs in your browser's console or by just
+refreshing the page.
+<br><br>
+Click this message to dismiss.
+</div>
+
 <div id="container1" style="width: 100%; border: solid 1px; padding: 0.5em;">
 <button id="start1">Start!</button>
 </div>
