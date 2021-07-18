@@ -38,6 +38,8 @@ ver1_main = async (container, img_path) => {
   const draw_timeout = 0;
   const attempt_limit = 10;
 
+  let errors = 0;
+
   console.time("draw");
   let draw_count = 0;
   const draw = () => {
@@ -45,6 +47,7 @@ ver1_main = async (container, img_path) => {
       draw_count++;
       if (draw_count > draw_limit) {
         console.timeEnd("draw");
+        console.log(draw_count, draw_limit, draw_count - errors);
         return;
       }
 
@@ -79,6 +82,7 @@ ver1_main = async (container, img_path) => {
         if (failed) {
           num_attempts++;
           if (num_attempts > attempt_limit) {
+            errors++;
             break;
           }
           continue;
@@ -99,7 +103,7 @@ ver1_main = async (container, img_path) => {
       }
     }
 
-    console.log(draw_count, draw_limit);
+    console.log(draw_count, draw_limit, errors);
 
     if (draw_timeout) {
       setTimeout(()=> { requestAnimationFrame(draw); }, draw_timeout);

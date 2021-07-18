@@ -1,6 +1,8 @@
 <script src="script.js"></script>
+<script src="https://aneeshdurg.me/webgl-common/common.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", async () => {
-    ver2_main(document.body, "/idk.png");
+  await loadTwgl();
+  ver2_main(document.body, "/image.jpeg", "/ver2/compute.frag.c");
 });
 </script>
