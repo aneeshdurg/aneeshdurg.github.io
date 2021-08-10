@@ -1,0 +1,91 @@
+<script src="script.js"></script>
+<script src="h264-mp4-encoder/web.js"></script>
+<canvas id="main" style="height:100%;"></canvas>
+<script>
+function _download(data, filename) {
+    const downloader = document.createElement('a');
+    downloader.setAttribute('href', data);
+    downloader.setAttribute('download', filename);
+    downloader.style.display = "none";
+    document.body.appendChild(downloader);
+
+    downloader.click();
+
+    document.body.removeChild(downloader);
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+    const m = new Mandala(document.getElementById("main"));
+    let i = 0;
+    while (i < 480) {
+        m.step(i);
+        if (Math.random() < 0.25) {
+            i += 5;
+        } else if (Math.random() < 0.5) {
+            i += 3;
+        } else {
+            i += 2;
+        }
+    }
+
+    let cancel = false;
+    const p = new Promise(r => {
+        const draw = (t) => {
+            m.draw(t);
+            if (cancel) {
+                r();
+            } else {
+                requestAnimationFrame(draw);
+            }
+        };
+        requestAnimationFrame(draw);
+    });
+    console.log(m);
+
+    const do_record = async (ext, get_context, add_to_context, export_context) => {
+        const recording = [];
+        let record_frames = 600;
+        const fps = 60;
+        const mspf = 1000 / fps;
+        let time = 0;
+
+        const context = await get_context();
+        for (let i = 0; i < record_frames; i++) {
+            console.log(i, time);
+            m.draw(time);
+            time += mspf;
+            add_to_context(context, m, i);
+            await new Promise(r => setTimeout(r, 10));
+        }
+
+        const exported = await export_context(context);
+        _download(exported, `output.mp4`);
+    };
+
+    window.record = async () => {
+        cancel = true;
+        await p;
+
+        await do_record(
+            "mp4",
+            async () => {
+                const encoder = await HME.createH264MP4Encoder()
+                // TODO enforce even width/height
+                encoder.width = m.canvas.width;
+                encoder.height = m.canvas.height;
+                encoder.initialize();
+                return encoder;
+            },
+            (encoder, m, _i) => {
+                encoder.addFrameRgba(m.ctx.getImageData(0, 0, 1000, 1000).data);
+            },
+            async (encoder) => {
+                encoder.finalize();
+                const data = encoder.FS.readFile(encoder.outputFilename);
+                const blob = new Blob([data], { type: 'octet/stream' });
+                return window.URL.createObjectURL(blob);
+            },
+        );
+    };
+});
+</script>
