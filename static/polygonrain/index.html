@@ -1,7 +1,10 @@
+<script src="./web.js"></script>
 <script src="script.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", async () => {
-    polygonrain_start(document.getElementById("mycanvas"));
+    const canvas = document.getElementById("mycanvas");
+    canvas.onclick = () => { canvas.requestFullscreen(); };
+    polygonrain_start(canvas);
 });
 </script>
 <canvas id="mycanvas"></canvas>

@@ -1,0 +1,1 @@
+tuning params avoid reading from gpu buffer
