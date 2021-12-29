@@ -1,0 +1,18 @@
+<script src="script.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+    const f1 = new Fractal(document.getElementById("mycanvas1"), 6);
+    f1.factor = 5 / 12;
+    for (let i = 0; i < 5; i++) {
+      f1.draw_level([500, 500], i, 250);
+    }
+
+    const f = new Fractal(document.getElementById("mycanvas2"), 6);
+    f.factor = 5 / 12;
+    for (let i = 0; i < 5; i++) {
+      await f.animate_level([500, 500], i, 250, 100);
+    }
+});
+</script>
+<canvas id="mycanvas1" style="width:45%"></canvas>
+<canvas id="mycanvas2" style="width:45%"></canvas>
