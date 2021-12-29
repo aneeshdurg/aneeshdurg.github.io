@@ -14,6 +14,7 @@ class Fractal {
     // n = 8, factor = (1/3 + 1/2) / 2
     this.factor = 1 / (2 * Math.sin(Math.PI / this.n));
     this.draw_bounding_circle = false;
+    this.fill = false;
   }
 
   /// Get the angle of the nth point on the circle
@@ -45,7 +46,11 @@ class Fractal {
         ctx.lineTo(...movetoangle(i));
     }
     ctx.lineTo(...movetoangle(0));
-    ctx.stroke();
+    if (this.fill) {
+      ctx.fill();
+    } else {
+      ctx.stroke();
+    }
 
     if (this.draw_bounding_circle) {
       ctx.strokeStyle = "red";
