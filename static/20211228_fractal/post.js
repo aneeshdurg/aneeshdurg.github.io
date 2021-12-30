@@ -6,23 +6,23 @@ document.addEventListener("DOMContentLoaded", async function() {
     f1.factor = 1 / 2;
     f2.factor = 1 / 3;
     f3.factor = (1 / 3 + 1 / 4) / 2;
+
     f1.fill = true;
     f2.fill = false;
     f3.fill = true;
-    for (let i = 0; i < 7; i++) {
-      f1.draw_level([500, 500], i, 250);
-      f2.draw_level([500, 500], i, 250);
-      f3.draw_level([500, 500], i, 250);
-    }
+
+    f1.draw_all_levels([500, 500], 6, 250);
+    f2.draw_all_levels([500, 500], 6, 250);
+    f3.draw_all_levels([500, 500], 6, 250);
   }
 
   { // square animation example
     const btn = document.getElementById("start1");
     btn.onclick = async () => {
-    btn.disabled = true;
-    const f = new Fractal(document.getElementById("canvas4"), 4);
-    f.factor = 1 / 2;
-    for (let i = 0; i < 5; i++) { await f.animate_level([500, 500], i, 250, 100); }
+      btn.disabled = true;
+      const f = new Fractal(document.getElementById("canvas4"), 4);
+      f.factor = 1 / 2;
+      for (let i = 0; i < 5; i++) { await f.animate_level([500, 500], i, 250, 100); }
       btn.disabled = false;
     };
   }
@@ -43,11 +43,15 @@ document.addEventListener("DOMContentLoaded", async function() {
       const f = new Fractal(canvas, ninput.value);
       f.factor = finput.value;
       const lvl = lvlinput.value;
-      for (let i = 0; i < lvl; i++) {
-        if (!no_animation && enableanim.checked) {
-          await f.animate_level([500, 500], i, 250, 100);
-        } else {
-          f.draw_level([500, 500], i, 250);
+      if (no_animation || !enableanim.checked) {
+        f.draw_all_levels([500, 500], lvl, 250);
+      } else {
+        for (let i = 0; i < lvl; i++) {
+          if (!no_animation && enableanim.checked) {
+            await f.animate_level([500, 500], i, 250, 100);
+          } else {
+            f.draw_level([500, 500], i, 250);
+          }
         }
       }
       resolver();
@@ -96,8 +100,6 @@ document.addEventListener("DOMContentLoaded", async function() {
   { // aesthetic fractal
     const f = new Fractal(document.getElementById("canvas6"), 6);
     f.factor = 5 / 12;
-    for (let i = 0; i < 5; i++) {
-      f.draw_level([500, 500], i, 250);
-    }
+    f.draw_all_levels([500, 500], 4, 250);
   }
 });

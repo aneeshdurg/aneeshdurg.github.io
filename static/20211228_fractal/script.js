@@ -60,8 +60,9 @@ class Fractal {
     }
   }
 
-  draw_level_offscreen(level, radius, mod) {
+  draw_level_offscreen(level, radius, mod, draw_all_levels) {
     mod = mod || 1;
+    draw_all_levels = draw_all_levels || false;
 
     // TODO only compute upper bound on dimensions for this level
     // value of sum(n in [0, infinity), r*f^n) - we can ignore mod
@@ -76,12 +77,20 @@ class Fractal {
 
     const center = [bound / 2, bound / 2]
 
-    if (level == 0) {
-      this.draw_shape(ctx, center, radius * mod);
+    if (radius < 0.5) {
+      // Any shapes we draw wouldn't be visible anyway
       return ctx;
     }
 
-    const lctx = this.draw_level_offscreen(level - 1, radius * this.factor, mod);
+    if (level == 0 || draw_all_levels) {
+      this.draw_shape(ctx, center, radius * mod);
+    }
+
+    if (level == 0) {
+      return ctx;
+    }
+
+    const lctx = this.draw_level_offscreen(level - 1, radius * this.factor, mod, draw_all_levels);
     for (let i = 0; i < this.n; i++) {
       const vertex = this.get_vertex(center, radius, 0, i);
       vertex[0] -= lctx.canvas.width / 2;
@@ -92,10 +101,14 @@ class Fractal {
     return ctx;
   }
 
-  draw_level(center, level, radius, mod) {
-    const ctx = this.draw_level_offscreen(level, radius, mod);
+  draw_level(center, level, radius, mod, draw_all_levels) {
+    const ctx = this.draw_level_offscreen(level, radius, mod, draw_all_levels);
     const pos = [center[0] - ctx.canvas.width / 2, center[1] - ctx.canvas.height / 2];
     this.ctx.drawImage(ctx.canvas, ...pos);
+  }
+
+  draw_all_levels(center, level, radius, mod) {
+    this.draw_level(center, level, radius, mod, true);
   }
 
   async animate_level(center, level, radius, duration) {
