@@ -67,8 +67,10 @@ ver3_main = async (container, img_path, shader_path) => {
       draw_count -= errors;
       if (draw_count > draw_limit || total_errors > total_error_limit) {
         console.timeEnd("draw");
-        console.log("FINAL STATS:", draw_count, draw_limit, total_errors, total_error_limit);
-        console.log("timers", total_cgen_time, total_ctest_time);
+        document.getElementById("stats").innerHTML =
+          `FINAL STATS: ${draw_count} ${draw_limit} ${total_errors} ${total_error_limit}` +
+          `<br>` +
+          `timers ${total_cgen_time} ${total_ctest_time}`;
         return;
       }
 
