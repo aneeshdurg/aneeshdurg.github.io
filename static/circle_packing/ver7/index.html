@@ -3,6 +3,9 @@
 <script src="../coi-serviceworker/coi-serviceworker.min.js"></script>
 <script src="../twgl-full.min.js"></script>
 <script>
+  window.coi = {
+    doReload: () => {},
+  };
 document.addEventListener("DOMContentLoaded", async () => {
   ver7_main(document.body, "../image.jpeg", "../ver3/compute.frag.c");
 });
