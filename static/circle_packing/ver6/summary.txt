@@ -1,0 +1,1 @@
+collecting data, determined that generating circle set on CPU is bottleneck
