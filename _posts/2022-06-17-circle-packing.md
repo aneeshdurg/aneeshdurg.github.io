@@ -1,7 +1,7 @@
 ---
 layout: post
 title: real time circle packing - now in real time!
-permalink: /posts/2021-07-16-circle-packing/
+permalink: /posts/2022-06-17-circle-packing/
 ---
 
 In which the author finally "finishes" a project. (okay, this wasn't actually
