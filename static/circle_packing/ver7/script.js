@@ -74,7 +74,6 @@ ver7_main = async (container, img_path, shader_path) => {
   }
 
   let global_start = performance.now();
-  const global_timeout = 30;
   let global_batch_count = 0;
 
 
@@ -88,13 +87,11 @@ ver7_main = async (container, img_path, shader_path) => {
       for (let batch_i = 0; batch_i < draw_batch_size; batch_i+=test_batch_size) {
         global_batch_count++;
         draw_count -= errors;
-        const exceeded_timeout = false;//(performance.now() - global_start) > global_timeout;
-        if (exceeded_timeout ||  draw_count > draw_limit || total_errors > total_error_limit) {
+        if (draw_count > draw_limit || total_errors > total_error_limit) {
           console.timeEnd("draw");
+          const total_time = performance.now() - global_start;
           document.getElementById("stats").innerHTML =
-            `FINAL STATS: ${draw_count} ${draw_limit} ${total_errors} ${total_error_limit}` +
-            `<br>` +
-            `timers ${total_cgen_time} ${total_ctest_time}`;
+            `<br> FINAL STATS: drew ${draw_count} circles in ${total_time}ms`;
           console.timeEnd("total");
           return;
         }
