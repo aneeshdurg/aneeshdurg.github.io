@@ -10,6 +10,7 @@ precision mediump int;
 #define PI 3.1415926538
 #define GOLDEN_RATIO 1.6180339887
 
+#define OPCODE_COMPUTE_RADIUS 0
 #define OPCODE_TEST_HIT 1
 #define OPCODE_DRAW_HIT 2
 #define OPCODE_DRAW_RES 3
@@ -27,6 +28,15 @@ out vec4 color_out;
 void main() {
   vec2 coords = gl_FragCoord.xy;
   switch (u_opcode) {
+  case OPCODE_COMPUTE_RADIUS:
+  {
+    vec4 color = texelFetch(u_img_texture, ivec2(coords), 0);
+    float gray_value = 0.3 * color.r + 0.59 * color.g + 0.11 * color.b;
+    float radius = ceil(exp(gray_value * 5.0)/exp(5.0) * 8.0);
+    color_out.r = radius + 1.0;
+    color_out.a = 1.0;
+    break;
+  }
   case OPCODE_TEST_HIT: {
     color_out = texelFetch(u_coord_texture, ivec2(coords), 0);
     int r = int(color_out.z);

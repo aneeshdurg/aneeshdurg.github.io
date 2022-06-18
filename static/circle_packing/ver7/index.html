@@ -1,13 +1,9 @@
 <script src="script.js"></script>
 <script src="../webgl-common/common.js"></script>
-<script src="../coi-serviceworker.js"></script>
-<script src="../twgl-full.min.js"></script>
 <script>
-  window.coi = {
-    doReload: () => {},
-  };
 document.addEventListener("DOMContentLoaded", async () => {
-  ver7_main(document.body, "../image.jpeg", "../ver3/compute.frag.c");
+  await loadTwgl();
+  ver7_main(document.body, "../image.jpeg", "compute.frag.c");
 });
 </script>
 

@@ -29,8 +29,6 @@ ver7_main = async (container, img_path, shader_path) => {
       "webgl2", {premultipliedAlpha: false, 'preserveDrawingBuffer': true});
   enableGlExts(gl);
 
-  const  img_buffer = createTexture(gl, [500, 500], img.canvas);
-
   // TODO get fragShader
   const fragShader = await getFile(shader_path);
   const programInfo = twgl.createProgramInfo(gl, [vs, fragShader]);
@@ -62,10 +60,9 @@ ver7_main = async (container, img_path, shader_path) => {
   const canvas_w = img.canvas.width;
   const imgdata = img.getImageData(0, 0, img.canvas.width, img.canvas.height);
 
-  let global_start = performance.now();
-  const global_timeout = 30;
+  // Copy canvas into webgl buffer
+  const img_buffer = createTexture(gl, [500, 500], img.canvas);
 
-  console.time("precompute");
   const getRadius = (x, y) => {
     const idx = 4 * (y * canvas_w + x);
     const r = imgdata.data[idx];
@@ -76,24 +73,8 @@ ver7_main = async (container, img_path, shader_path) => {
     return radius + 1;
   }
 
-  const bigR = new Uint32Array(canvas_w * canvas_h);
-  let bigRLength = 0;
-  const smallR = new Uint32Array(canvas_w * canvas_h);
-  let smallRLength = 0;
-  for (let y = 0; y < canvas_h; y++) {
-    for (let x = 0; x < canvas_w; x++) {
-      const r = getRadius(x, y);
-      const idx = y * canvas_w + x;
-      if (r > 2) {
-        bigR[bigRLength++] = idx;
-      } else {
-        smallR[smallRLength++] = idx;
-      }
-    }
-  }
-  console.timeEnd("precompute");
-  console.log("brl", bigRLength, "srl", smallRLength);
-
+  let global_start = performance.now();
+  const global_timeout = 30;
   let global_batch_count = 0;
 
 
@@ -118,18 +99,12 @@ ver7_main = async (container, img_path, shader_path) => {
           return;
         }
 
+        // console.time("batch compute");
         const cgen_start = performance.now();
         let circle_cnt = 0;
         for (let circle_i = 0; circle_i < test_batch_size; circle_i++) {
-          // Randomly pick a point from either bigR or smallR. The probability
-          // that we pick a point from bigR decreases as global_batch_count
-          // increases
-          const pick_big = Math.random() > 0.75;
-          const idx = pick_big ?
-            bigR[Math.floor(Math.random() * bigRLength)] :
-            smallR[Math.floor(Math.random() * smallRLength)];
-          const x = idx % canvas_w;
-          const y = idx / canvas_w | 0; // | 0 casts to int for int division
+          const x = Math.random() * canvas_w | 0;
+          const y = Math.random() * canvas_h | 0;
 
           let radius = getRadius(x, y);
           if (radius == 1) {
@@ -166,6 +141,7 @@ ver7_main = async (container, img_path, shader_path) => {
 
         const cgen_end = performance.now();
         total_cgen_time += cgen_end - cgen_start;
+
         for (let i = 0; i < circle_cnt; i++) {
           const x = circles_x[i];
           const y = circles_y[i];
