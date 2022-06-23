@@ -1,0 +1,11 @@
+<script>
+  let last_t = 0;
+  const draw = (t) => {
+    if ((t - last_t) > 30) {
+        console.log("!");
+        last_t = t;
+    }
+    requestAnimationFrame(draw);
+  };
+  requestAnimationFrame(draw);
+</script>

@@ -52,3 +52,8 @@ So fast :o
 
 TODO - write something about the journey/learning along the way!
 
+To summerize:
+ - avoid calling canvas.width/canvas.height in tight loops
+ - use typed arrays when possible, and if not, try to only pack lists with POD
+   types (object lists suck).
+

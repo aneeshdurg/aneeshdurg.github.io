@@ -1,0 +1,2 @@
+Typed arrays! precomputing points, avoiding canvas.width, not using an array of
+objects for circles
