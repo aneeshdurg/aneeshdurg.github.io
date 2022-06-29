@@ -1,2 +1,1 @@
-Typed arrays! precomputing points, avoiding canvas.width, not using an array of
-objects for circles
+Compute all radius' on the GPU and read to CPU

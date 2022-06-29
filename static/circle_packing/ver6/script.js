@@ -18,7 +18,7 @@ async function getImage(url) {
 
 const tau = 2 * Math.PI;
 
-ver3_main = async (container, img_path, shader_path) => {
+ver6_main = async (container, img_path, shader_path) => {
 
   const canvas = document.createElement("canvas");
   container.appendChild(canvas);

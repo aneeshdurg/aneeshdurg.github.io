@@ -1,12 +1,11 @@
 ver8_main = async (container, img_path, shader_path) => {
   const video = document.createElement("video");
-  video.width = 500;
-  video.height = 500;
   console.log(video);
   container.innerHTML = `<label for="webcamSelector">Choose a webcam: </label>`
   const selector = document.createElement("select");
   selector.id = "webcamSelector";
   container.appendChild(selector);
+  container.appendChild(document.createElement("br"));
 
   let devices = undefined;
   try {
@@ -55,8 +54,10 @@ ver8_main = async (container, img_path, shader_path) => {
   const canvas = document.createElement("canvas");
   container.appendChild(canvas);
 
-  canvas.width = 500;
-  canvas.height = 500;
+  const dimensions = [500, 500];
+
+  canvas.width = dimensions[0];
+  canvas.height = dimensions[1];
 
   const gl = canvas.getContext(
       "webgl2", {premultipliedAlpha: false, 'preserveDrawingBuffer': false});
@@ -71,14 +72,15 @@ ver8_main = async (container, img_path, shader_path) => {
   // allocate buffers
 
   // do we really need all 4 channels here?
-  const random_buffer = new FrameBufferManager(gl, [500, 500]);
-  const random_buffer_src = new Float32Array(4 * 500 * 500);
+  const random_buffer = new FrameBufferManager(gl, dimensions);
+  const random_buffer_src = new Float32Array(4 * dimensions[0] * dimensions[1]);
 
-  const radius_buffer = new FrameBufferManager(gl, [500, 500]);
+  const radius_buffer = new FrameBufferManager(gl, dimensions);
 
-  twgl.setUniforms(programInfo, {u_dimensions: [500, 500]});
+  twgl.setUniforms(programInfo, {u_dimensions: dimensions, u_radius_factor: 5, u_max_radius: 8});
 
   let video_dimensions = null;
+  let resize_buffer_in = null;
   const draw = () => {
     if (video.readyState != 4) {
       video_dimensions = null;
@@ -87,32 +89,20 @@ ver8_main = async (container, img_path, shader_path) => {
 
     if (!video_dimensions) {
       video_dimensions = [video.videoWidth, video.videoHeight];
+      resize_buffer_in = createTexture(gl, video_dimensions, video);
+    } else {
+      updateTexture(gl, video_dimensions, resize_buffer_in, video);
     }
-    // Copy canvas into webgl buffer
-    const resize_buffer_in = createTexture(gl, video_dimensions, video);
-    twgl.setUniforms(programInfo, {
-        u_img_texture: resize_buffer_in,
-        u_in_dimensions: video_dimensions,
-        u_opcode: 3,
-      });
-    radius_buffer.bind_dst();
-    render(gl);
-    radius_buffer.flipflop();
 
-    twgl.setUniforms(programInfo, {
-          u_img_texture: radius_buffer.src(),
-          u_opcode: 0,
-        });
-    radius_buffer.bind_dst();
-    render(gl);
 
     // create randomized texture
     for (let i = 0; i < random_buffer_src.length; i++) {
       random_buffer_src[i] = Math.random();
     }
-    updateTexture(gl, [500, 500], random_buffer.src(), random_buffer_src);
+    updateTexture(gl, dimensions, random_buffer.src(), random_buffer_src);
     twgl.setUniforms(programInfo, {
-          u_radius_texture: radius_buffer.dst(),
+          u_img_texture: resize_buffer_in,
+          u_in_dimensions: video_dimensions,
           u_random_texture: random_buffer.src(),
           u_opcode: 1,
         });
@@ -120,8 +110,7 @@ ver8_main = async (container, img_path, shader_path) => {
     render(gl);
 
     twgl.setUniforms(programInfo, {
-          u_radius_texture: random_buffer.dst(),
-          u_img_texture: radius_buffer.src(),
+          u_img_texture: random_buffer.dst(),
           u_opcode: 2,
         });
     gl.bindFramebuffer(gl.FRAMEBUFFER, null);

@@ -81,6 +81,7 @@ ver7_main = async (container, img_path, shader_path) => {
   const circles_y = new Uint32Array(test_batch_size);
   const circles_r = new Uint32Array(test_batch_size);
 
+  let render_cnt = 0;
   console.time("draw");
   let draw_count = 0;
     const draw = () => {
@@ -88,6 +89,8 @@ ver7_main = async (container, img_path, shader_path) => {
         global_batch_count++;
         draw_count -= errors;
         if (draw_count > draw_limit || total_errors > total_error_limit) {
+          gl.finish();
+          console.log(render_cnt);
           console.timeEnd("draw");
           const total_time = performance.now() - global_start;
           document.getElementById("stats").innerHTML =
@@ -159,6 +162,7 @@ ver7_main = async (container, img_path, shader_path) => {
         });
         fb_test.bind_dst();
         render(gl);
+        render_cnt++;
 
         twgl.setUniforms(programInfo, {
           u_coord_texture: fb_test.dst(),
@@ -170,18 +174,7 @@ ver7_main = async (container, img_path, shader_path) => {
         });
         fb_hits.bind_dst();
         render(gl);
-        fb_hits.flipflop();
-
-        twgl.setUniforms(programInfo, {
-          u_coord_texture: fb_test.dst(),
-          u_pixel_texture: fb_hits.src(),
-          u_img_texture: img_buffer,
-          u_opcode: 2,
-          u_coord_count: test_batch_size,
-          u_dimensions: [500, 500],
-        });
-        fb_hits.bind_dst();
-        render(gl);
+        render_cnt++;
         fb_hits.flipflop();
 
         twgl.setUniforms(programInfo, {
@@ -194,6 +187,7 @@ ver7_main = async (container, img_path, shader_path) => {
         });
         fb_result.bind_dst();
         render(gl);
+        render_cnt++;
         fb_result.flipflop();
 
         twgl.setUniforms(programInfo, {
@@ -206,6 +200,7 @@ ver7_main = async (container, img_path, shader_path) => {
         });
         gl.bindFramebuffer(gl.FRAMEBUFFER, null);
         render(gl);
+        render_cnt++;
 
         draw_count += test_batch_size - errors;
         total_errors += errors;

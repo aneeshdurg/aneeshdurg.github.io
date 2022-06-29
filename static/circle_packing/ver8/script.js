@@ -47,9 +47,6 @@ ver8_main = async (container, img_path, shader_path) => {
   const bufferInfo = twgl.createBufferInfoFromArrays(gl, bufferArrays);
   setupProgram(gl, programInfo, bufferInfo);
 
-  // allocate buffers
-  const junk = new FrameBufferManager(gl, [1, 1]);
-
   // do we really need all 4 channels here?
   const random_buffer = new FrameBufferManager(gl, dimensions);
   const random_buffer_src = new Float32Array(4 * dimensions[0] * dimensions[1]);
