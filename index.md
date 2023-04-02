@@ -8,6 +8,13 @@ been working on. You can find my blog [here]({{ '/blog' | relative_url }}).
 
 ## cool stuff i've done
 
++ [sPyCy]({{ '/spycy' | relative_url }})
+   * A python implementation of graph database with an openCypher frontend for
+     testing openCypher tools, or for embedding openCypher in other projects.
+   * Try the in-browser demo at the link above!
+<br>
+
+
 + [what is a filesystem?]({{ '/what_is_a_filesystem' | relative_url }})
    * ![what is a filesystem]({{ '/static/images/what_is_a_filesystem.png' | relative_url }})
    * An interactive book based of the corresponding content from the [cs241 coursebook](http://cs241.cs.illinois.edu/coursebook/Filesystems)
