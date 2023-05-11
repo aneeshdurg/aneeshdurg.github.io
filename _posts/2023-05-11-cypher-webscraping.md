@@ -33,6 +33,27 @@ MATCH (parent:code)-->(child) RETURN sum(child.innerText)
 Expressing the same thing in javascript or python is also possible, but tedious,
 and the syntax isn't as intuitive in my opinion.
 
+Here's a proof of concept:
+<script src="https://cdn.jsdelivr.net/pyodide/v0.23.0/full/pyodide.js"></script>
+<script src="{{ '/static/cypher_scraper/script.js' | relative_url }}"></script>
+<script src="./static/script.js"></script>
+<link rel="stylesheet" type="text/css" href="https://aneeshdurg.me/spycy/static/style.css">
+<div class="content-blogpost" style="border: 1px solid; width: 100%; padding: 1em">
+<div id="preload" class="preload">
+<code id="progress">
+(Initialization can take a minute or two)<br>
+</code>
+</div>
+<div id="loaded" style="display: none;">
+<h2> Input HTML </h2>
+<textarea id="source" class="cellinput"></textarea>
+<br>
+<br>
+<h2> Cypher Scraper </h2>
+<div id="notebook"></div>
+</div>
+</div>
+
 Before I started thinking about this problem, I was already writing my own open
 source implementation of `openCypher` in python. The project is called
 [sPyCy](https://aneeshdurg.me/spycy) and it supports most of the language. One
@@ -73,7 +94,9 @@ an instance itself. One thing to note is that the whole class is parameterized
 on `NodeType` and `EdgeType` which are the types that the underlying `Graph`
 will use to represent nodes and edges respectively.
 
-Let's take a look at a `Graph` implementation that will enable webscraping:
+Let's take a look at a `Graph` implementation that will enable webscraping. Note
+that this isn't quite what's running in the demo above, for reasons discussed
+later.
 
 ```python
 from dataclasses import dataclass, field
@@ -167,6 +190,18 @@ all_div_children: List[NodeType] = list(exe.exec("match (a:div)-->(b) return a")
 
 The full code for this example, can be found
 [here](https://github.com/aneeshdurg/spycy/blob/main/examples/spycy_dom.py).
+
+
+## Making a browser demo
+
+To make this work in the browser we can run `sPyCy` via
+[pyodide](https://pyodide.org/en/stable/). As a result, instead of using
+`BeautifulSoup`, we can instead use the HTML parser within the browser itself!
+The code for doing so can be found
+[here](https://github.com/aneeshdurg/aneeshdurg.github.io/tree/master/static/cypher_scraper).
+While this demo works, if we replaced the pattern matcher implementation
+entirely, we could build a more performant scraper that instead translates every
+pattern into `querySelector/querySelectorAll` calls.
 
 ## Future work?
 
