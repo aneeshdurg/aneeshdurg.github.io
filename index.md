@@ -6,7 +6,7 @@ Welcome to my website! I mostly use it for posting about various projects I've
 been working on. You can find my blog [here]({{ '/blog' | relative_url }}).
 
 
-## cool stuff i've done
+## projects
 
 + [sPyCy]({{ '/spycy' | relative_url }})
    * A python implementation of graph database with an openCypher frontend for
