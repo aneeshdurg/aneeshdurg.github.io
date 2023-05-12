@@ -31,11 +31,20 @@ layout: default
             </div>
         {% endif %}
         <article class="post" style="margin-left: 2em">
-            <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
-            <div class="entry">
-                {{ post.excerpt }}
-            </div>
-        <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+            {% if post.redirect %}
+              <h1><a href="{{ site.baseurl }}{{ post.redirect }}">{{ post.title }}</a></h1>
+              <div class="entry">
+                  {{ post.excerpt }}
+              </div>
+              <a href="{{ site.baseurl }}{{ post.redirect }}" class="read-more">Read More</a>
+            {% else %}
+              <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+              <p style="display: none;">DEBUG {{ post.extra }}</p>
+              <div class="entry">
+                  {{ post.excerpt }}
+              </div>
+              <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+            {% endif %}
         </article>
   {% endfor %}
 </div>
