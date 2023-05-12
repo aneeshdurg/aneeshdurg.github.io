@@ -18,8 +18,8 @@ width: 100%;
 <script src="{{ '/static/20211228_fractal/post.js' | relative_url }}" type="text/javascript"></script>
 
 <div style="width:100%">
-<canvas id="canvas1" style="width:33%"></canvas>
-<canvas id="canvas2" style="width:33%"></canvas>
+<canvas id="canvas1" style="width:32%"></canvas>
+<canvas id="canvas2" style="width:32%"></canvas>
 <canvas id="canvas3" style="width:32%"></canvas>
 <p><i>These aren't static images - they're computed on the fly!</i></p>
 </div>
