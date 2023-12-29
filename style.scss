@@ -9,6 +9,23 @@
 @import "variables";
 // Syntax highlighting @import is at the bottom of this file
 
+:root {
+ --body-bg: white;
+ --body-color: #333;
+ --emphasis-color: #222;
+ --footer-color: #eee;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+ :root {
+   --body-bg: black;
+   --body-color: #eee;
+   --emphasis-color: #fff;
+   --footer-color: #333;
+  }
+}
+
 /**************/
 /* BASE RULES */
 /**************/
@@ -18,9 +35,9 @@ html {
 }
 
 body {
-	background: $white;
+	background: var(--body-bg);
   font: 18px/1.4 $helvetica;
-  color: $darkGray;
+  color: var(--body-color);
 }
 
 .container {
@@ -32,7 +49,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $helveticaNeue;
-  color: $darkerGray;
+  color: var(--emphasis-color);
   font-weight: bold;
 
   line-height: 1.7;
@@ -47,7 +64,7 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: 30px;
   a {
-    color: inherit;
+    color: var(--emphasis-color);
   }
 }
 
@@ -225,7 +242,7 @@ nav {
 
   a {
     margin-left: 20px;
-    color: $darkGray;
+    color: var(--body-color);
     text-align: right;
     font-weight: 300;
     letter-spacing: 1px;
@@ -275,7 +292,7 @@ nav {
   margin-top: 50px;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
-  background-color: $lightGray;
+  background-color: var(--footer-color);
 }
 
 footer {
