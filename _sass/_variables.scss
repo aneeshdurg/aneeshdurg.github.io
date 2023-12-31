@@ -25,3 +25,24 @@ $georgia: Georgia, serif;
     @content;
   }
 }
+
+// Normal CSS variables to allow for switching themes based on the browser's
+// default preference
+:root {
+ --body-bg: white;
+ --body-color: #333;
+ --emphasis-color: #222;
+ --footer-color: #eee;
+ --highlight-bg: #efefef;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+ :root {
+   --body-bg: black;
+   --body-color: #888;
+   --emphasis-color: #eee;
+   --footer-color: #333;
+   --highlight-bg: #101010;
+  }
+}

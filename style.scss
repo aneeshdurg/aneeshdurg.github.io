@@ -9,23 +9,6 @@
 @import "variables";
 // Syntax highlighting @import is at the bottom of this file
 
-:root {
- --body-bg: white;
- --body-color: #333;
- --emphasis-color: #222;
- --footer-color: #eee;
-}
-
-/* Dark mode */
-@media (prefers-color-scheme: dark) {
- :root {
-   --body-bg: black;
-   --body-color: #eee;
-   --emphasis-color: #fff;
-   --footer-color: #333;
-  }
-}
-
 /**************/
 /* BASE RULES */
 /**************/
