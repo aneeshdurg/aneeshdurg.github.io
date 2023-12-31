@@ -24,7 +24,7 @@ layout: default
                 <br>
             {% endif %}
             {% capture  newmonth %}{{ postmonth }}{% endcapture %}
-            <div style="margin-left: 0em">
+            <div style="margin-left: 1em">
                 <a name="{{ newyear }}-{{ newmonth }}"></a>
                 <a href="#{{ newyear }}-{{ newmonth }}"><p>{{ postmonth }}</p></a>
                 <hr style="border: 1px dashed">
@@ -33,16 +33,16 @@ layout: default
         <article class="post" style="margin-left: 2em">
             {% if post.redirect %}
               <h1><a href="{{ site.baseurl }}{{ post.redirect }}">{{ post.title }}</a></h1>
-              <div class="entry">
+              <div class="excerpt">
                   {{ post.excerpt }}
+                  <a href="{{ site.baseurl }}{{ post.redirect }}" class="read-more">Read More</a>
               </div>
-              <a href="{{ site.baseurl }}{{ post.redirect }}" class="read-more">Read More</a>
             {% else %}
               <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
-              <div class="entry">
+              <div class="excerpt">
                   {{ post.excerpt }}
+                  <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
               </div>
-              <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
             {% endif %}
         </article>
   {% endfor %}
