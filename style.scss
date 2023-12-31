@@ -26,6 +26,9 @@ body {
 .container {
   margin: 0 auto;
   max-width: 50%;
+  @include mobile {
+    max-width: 95%;
+  }
   padding: 0 10px;
   width: 100%;
 }
