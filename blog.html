@@ -24,13 +24,13 @@ layout: default
                 <br>
             {% endif %}
             {% capture  newmonth %}{{ postmonth }}{% endcapture %}
-            <div style="margin-left: 1em">
+            <div class="newmonth">
                 <a name="{{ newyear }}-{{ newmonth }}"></a>
                 <a href="#{{ newyear }}-{{ newmonth }}"><p>{{ postmonth }}</p></a>
                 <hr style="border: 1px dashed">
             </div>
         {% endif %}
-        <article class="post" style="margin-left: 2em">
+        <article class="post">
           {% capture postlink %}{{ post.url }}{% endcapture %}
             {% if post.redirect %}
               {% capture postlink %}{{ post.redirect }}{% endcapture %}

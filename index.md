@@ -41,9 +41,9 @@ been working on. You can find my blog [here]({{ '/blog' | relative_url }}).
 
 ## recent blog posts
 
-<div style="border: 1px dashed; padding: 0.1em">
+<div class="blogpreview">
 {% for i in (0..2) %}
-<article class="post" style="margin-left: 2em">
+<article class="post">
 <h1><a href="{{ site.baseurl }}{{ site.posts[i].url }}">{{ site.posts[i].title }}</a></h1>
 <div class="entry">
 {{ site.posts[i].excerpt }}
