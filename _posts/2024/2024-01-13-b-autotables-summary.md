@@ -103,7 +103,7 @@ tables to relational tables.
 
 ## What is the problem that AutoTables solves?
 
-`AutoTables` aims to synthesize programs that can transform a non-relationable
+`AutoTables` aims to synthesize programs that can transform a non-relational
 table to a relational table without any examples provided by the user. This is
 done by generating sequences of operations from the DSL that they define which
 has the added flexibility of allowing their system to work agnostic of the
@@ -136,12 +136,12 @@ authors faced was in gathering sufficient training data.
 
 To train neural networks, a large amount of training data is required. While it
 is probably likely that a large amount of non-relational tables can be found in
-the wild, collecting them and then subsequently labelling them with the correct
+the wild, collecting them and then subsequently labeling them with the correct
 program to relationalize them is a monumental effort. Instead, the authors
 observed that every operation in their DSL contained an inverse. By applying
 sequences of inverse operations against relational tables (which are easy to
 generate), one can obtain a large corpus of non-relation tables and their
-labelling programs (the inverse of applying the sequence of inverses).
+labeling programs (the inverse of applying the sequence of inverses).
 Additionally, to improve the robustness of their implementations, they include a
 few operations during the generation phase that do not have inverses - e.g.
 dropping rows/columns (while preserving contiguous chunks of data since
@@ -166,9 +166,9 @@ training time.
   low confidence? An interesting area to explore could be to extend the behavior
   to try to establish a structured representation losslessly. I think the number
   of unstructured datasets out there that could benefit from this is very high
-  (e.g. wikipedia tables/articles usually don't have a consistent format, but
-  being able to turn them into a more queriable format could enable some
-  new usecases).
+  (e.g. Wikipedia tables/articles usually don't have a consistent format, but
+  being able to turn them into a more query-able format could enable some
+  new use cases).
 
  - Why not use queries to guide the required transformations?
 
@@ -182,14 +182,14 @@ training time.
  useful in the context of LLM powered applications where queries might be
  presented as natural language.
 
- - More details on comparision to other systems?
+ - More details on comparison to other systems?
 
  I'm sure this is probably an answerable question, but I'd like to see some
  concrete examples of tables where autotables can and can't predict the correct
  program, and maybe also look at some cases where some of the systems that were
- ran for comparision was able to transform their input correctly while
+ ran for comparison was able to transform their input correctly while
  autotables couldn't. Without that info though, I'm not sure how to really
- interpret the comparision section other than to note that this problem isn't
+ interpret the comparison section other than to note that this problem isn't
  fully solved, but that autotables provides a pretty significant improvement.
 
  - For very large tables this method may not scale well (transformation time)

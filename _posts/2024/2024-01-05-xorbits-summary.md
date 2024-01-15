@@ -36,7 +36,7 @@ projects have also identified the poor scaling of python based dataframe
 implementations, such as `modin`, `polars`, and `bodo` among others.
 
 For full transparency, I am currently a full-time engineer at `bodo` - the
-similarity of my empolyer's product to `Xorbits` is what made me click on this
+similarity of my employer's product to `Xorbits` is what made me click on this
 paper, but the thoughts in this post are entirely my own and do not necessarily
 reflect the views or intentions of my employer.
 
@@ -48,7 +48,7 @@ is attempting to solve a very real problem.
 
 The general workflow of a program accelerated with `Xorbits` is that API calls
 are collected into a graph until a method that triggers computation (or an
-explicit request for compution) is encountered. At that point, the `Xorbits`
+explicit request for computation) is encountered. At that point, the `Xorbits`
 runtime optimizes the graph, chunks execution (partitions input data/operators
 into per-logical-thread operations), and executes. There seemed to be three main
 contributions the paper focused on.
@@ -82,11 +82,11 @@ it certainly seems like a really cool way to approach the problem.
 To be honest I only skimmed this section, so my brief summary is that they
 support multiple storage backends and even have some notion of tiering to use
 the kind of storage mechanism that best represents how the data is being used. I
-did learn about the existance of `pickle5` though, which was neat.
+did learn about the existence of `pickle5` though, which was neat.
 
 ### Side note - a non-technical explanation
 
-While I was intially reading the paper, my partner offhandedly asked me to
+While I was initially reading the paper, my partner offhandedly asked me to
 summarize what I was reading and asked for a non-technical explanation, so
 here's my best non-technical explanation of how chunked processing works:
 
@@ -127,20 +127,20 @@ replaces the `pandas`/`numpy` runtimes with it's own implementation that defers
 computation, which allows for extremely high compatibility with existing python
 scripts, while `bodo` only supports the subset of those scripts that can be
 compiled by `numba`. There's pros and cons to both of these approaches, and
-choosing one comes down to whether you want to be more explicit in targetting
+choosing one comes down to whether you want to be more explicit in targeting
 only the subset of workflows where your product can make a meaningful impact, or
 prioritizing compatibility so that users don't need to take many actions to use
 the product.
 
-I felt like the paper was lacking details comparisions to other state of the art
+I felt like the paper was lacking details comparisons to other state of the art
 systems. I think the paper's first author would agree with me on that statement,
 given that they wrote [this blog post](https://luweizheng.github.io/blog/dataframe-analysis)
 which compares `Xorbits` to a few other systems including `bodo`. However, this
-comparision only examines differences on relatively small datasets and only
+comparison only examines differences on relatively small datasets and only
 using their laptop's compute resources. But it does show that `Xorbits` is far
 from perfect scaling, and it would be interesting to know more about where
 bottlenecks are encountered.
 
 Overall, cool to learn about more approaches in this space. I've already
 selected the next paper I plan to write about, and hopefully I'll be able to
-find time before the end of this month to finish that writeup as well!
+find time before the end of this month to finish that write-up as well!

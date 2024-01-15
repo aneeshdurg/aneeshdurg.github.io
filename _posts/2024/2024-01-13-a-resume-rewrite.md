@@ -8,13 +8,13 @@ New year, new resume? Join me as I rewrite my resume in HTML instead of \\(\rm\L
 
 ---
 
-Since my sophmore year or so, my resume has been in latex. The history is a bit
-murky because I apparently didn't start traking my resume source in git until
+Since my sophomore year or so, my resume has been in latex. The history is a bit
+murky because I apparently didn't start tracking my resume source in git until
 well after college, but I have a vague recollection of how it all started. Up
 until that point, I'd been making my resumes in Microsoft Word, but I always
 found it to be a bit clunky, and I didn't like the way mine looked. Around that
 time a bunch of my friends were all hyping up latex as the way they made their
-resumes, and that there were a plethora of good templates availible online. I
+resumes, and that there were a plethora of good templates available online. I
 knew a little bit of latex at the time, so it seemed like a good idea to migrate
 everything over to latex. I started off with a pretty generic looking template,
 but soon got deep into customization. I played around with one and two column
@@ -24,13 +24,13 @@ my resume which is only my most "relevant" experiences).
 
 A lot has changed since I migrated my resume to latex. For starters, I'm a lot
 better at latex now! But I'm also a *lot* better at HTML. You see, I'd always
-wanted to have my resume be in HTML, for a number of reasons, cheif among them
+wanted to have my resume be in HTML, for a number of reasons, chief among them
 being that HTML seemed to offer more options for structuring data, and seemed
 way easier to tweak than latex - especially since I could trial CSS changes
 interactively in the browser. Editing my resume was also becoming a pain. I need
 the machine I was editing on to have a \\(\rm\TeX\\) installation, and quick
 tweaks couldn't be done by just changing the source on github. I can remember at
-least one instance where for a few months the pdf in the repo was older than the
+least one instance where for a few months the PDF in the repo was older than the
 source files, and I didn't catch it until I'd submitted a few job apps.
 Additionally, as I started maintaining my CV, my CV would frequently lack
 updates to entries that were also present in my resume, or vice versa. I wanted
@@ -41,7 +41,7 @@ great to begin with. What held me back from migrating was that I didn't feel
 comfortable writing the necessary CSS rules to make the HTML match the aesthetic
 of my latex resume. But, that has changed.
 
-My resume is now written in HTML! The only tool I need to compile it into a pdf
+My resume is now written in HTML! The only tool I need to compile it into a PDF
 is any modern browser. You can view the HTML version
 [here](https://aneeshdurg.me/resume). There's a few key things that makes this
 approach work for me:
@@ -63,11 +63,11 @@ Which matches the dimensions of the standard US letter size (my old resume
 technically was formatted for A4, and I like the dimensions of A4 better, but US
 letter does make more sense since I'm in the US).
 
-### Javascript can fill gaps where HTML is cumbersome to write by hand
+### JavaScript can fill gaps where HTML is cumbersome to write by hand
 
 As I was migrating my resume to HTML, one thing I found myself missing was
 `\url`. Which took a URL and generated a link, but also set the text of the link
-to be the url. This makes a lot of sense for links to be printed - I actually
+to be the URL. This makes a lot of sense for links to be printed - I actually
 don't want any other alt text. My solution was to just write an `a` tag with a
 special class:
 
@@ -75,7 +75,7 @@ special class:
 <a class="autolink">https://github.com/aneeshdurg/resume</a><
 ```
 
-And then include a bit of Javascript to fix the link later:
+And then include a bit of JavaScript to fix the link later:
 
 ```javascript
 const fix_links = () => {
@@ -86,10 +86,10 @@ const fix_links = () => {
 ```
 
 I opted to keep the text in the element instead of in the `href` attribute as
-the initial state so that the links would still render without javascript. Of
+the initial state so that the links would still render without JavaScript. Of
 course, that was before I split the document up, which I talk about below
 
-### Javascript can enable combining documents
+### JavaScript can enable combining documents
 
 Since I wanted to have a common location for snippets shared by my resume and
 CV, I settled on a system of having `div`s with a special class and a data

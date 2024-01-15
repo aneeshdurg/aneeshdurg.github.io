@@ -30,7 +30,7 @@ MATCH (parent:div {class: "foo"})-[*]->(link:a) RETURN link.href
 MATCH (parent:code)-->(child) RETURN sum(child.innerText)
 ```
 
-Expressing the same thing in javascript or python is also possible, but tedious,
+Expressing the same thing in JavaScript or python is also possible, but tedious,
 and the syntax isn't as intuitive in my opinion.
 
 Here's a proof of concept:
@@ -88,7 +88,7 @@ class CypherExecutorBase(Generic[NodeType, EdgeType]):
 ```
 
 In this definition, `Graph`, `ExpressionEvaluator`, and `Matcher` are all
-abstract base clases. `expr_eval` and `matcher` are not instances of a class but
+abstract base classes. `expr_eval` and `matcher` are not instances of a class but
 rather the class type itself, and are instantiated during runtime. `Graph` is
 an instance itself. One thing to note is that the whole class is parameterized
 on `NodeType` and `EdgeType` which are the types that the underlying `Graph`
@@ -161,8 +161,8 @@ actually materialize all nodes or edges, and instead could return an object that
 defines `__getitem__` to allow only loading nodes or edges that are actually
 accessed.
 
-Some other methods are ommitted here for brevity, but a link to the full code is
-availible below.
+Some other methods are omitted here for brevity, but a link to the full code is
+available below.
 
 Next, we need to actually create an implementation of `CypherExecutorBase`.
 

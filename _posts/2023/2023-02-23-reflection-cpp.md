@@ -8,9 +8,9 @@ It this cursed? Is this totally valid? Only way to know is to use it in prod.
 
 ---
 
-Recently at work, we came across an issue that felt easy, but in cpp is not. We
+Recently at work, we came across an issue that felt easy, but in CPP is not. We
 have a collection of classes that need to define a method to serialize
-themselves to json, and we wanted to be sure that all fields in the class were
+themselves to JSON, and we wanted to be sure that all fields in the class were
 accounted for. Of course, we know better than to trust ourselves, so we were
 trying to think of automated ways to enforce this property.Unfortunately, our
 codebase is in C++, and since there's no mechanism for reflection, it's simply

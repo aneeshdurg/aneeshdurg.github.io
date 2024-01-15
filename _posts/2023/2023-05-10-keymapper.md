@@ -5,12 +5,12 @@ permalink: /posts/2023-05-10-keymapper/
 ---
 
 Free yourself from the tyranny of QMK and complex tools to remap keyboards!
-Improve ergnomics! Bring the magic of layers to the masses!
+Improve ergonomics! Bring the magic of layers to the masses!
 
 ---
 
 I like keyboards. A large portion of my day is spent using them, so I naturally
-have a few opinons on them. And it turns out a lot of people do! The keyboard
+have a few opinions on them. And it turns out a lot of people do! The keyboard
 enthusiast community is pretty big and in the last few years, it seems like it's
 hit the mainstream. My daily driver at home, is this Iris v2:
 
@@ -19,7 +19,7 @@ hit the mainstream. My daily driver at home, is this Iris v2:
 <i style="font-size:small">I've used this keyboard for 5 years! Absolutely love it!</i>
 
 However, at work, I had the opportunity to expense a keyboard to the company, so
-I bought a Kinesis Advatnage 2 (only to immediately realize that they now make a
+I bought a Kinesis Advantage 2 (only to immediately realize that they now make a
 split version of the keyboard - and that the new one uses ZMK!!!).
 
 ![kinesis]({{ '/static/images/2023-05-10-keymapper/kinesis.jpg' | relative_url }})
@@ -30,7 +30,7 @@ I actually really like the kinesis. The contoured shape is nice, and the larger
 thumb cluster is pretty cool too. I didn't really like the original layout of
 the keys, so I remapped it using the onboard remapping tool. That was nice, but
 after I while I wanted more complex remappings - what I really wanted was
-layers. Addtionally, the keyboard could not emulate a mouse, and I occasionly
+layers. Additionally, the keyboard could not emulate a mouse, and I occasionally
 like being able to move the cursor with my keyboard, or to at least send "click"
 and "rightclick" events.
 
@@ -118,7 +118,7 @@ File: config/layer3.txt
   KEY_PERIOD MOUSE_SCROLL_RIGHT
 ```
 
-one thing to note is that there's a hardcoded limit of 3 layers. For my
+One thing to note is that there's a hardcoded limit of 3 layers. For my
 usecases, that is sufficient. To reprogram the keyboard, remove the SD card,
 edit the config files, insert the SD card, unplug the keyboard, and plug it back
 in.
@@ -157,8 +157,8 @@ allocated arrays that contain the remapped values.
 This was a really fun project to work on! What's even more fun is that this has
 tangibly impacted my quality of life. The ability to easily edit files to change
 the config has been super helpful. The next step would be to try to improve the
-ergonomics if possible by somehow exposing the SD card to my host machine throug
-h the teensy, or maybe having a screen on the device and a way to enter an
+ergonomics if possible by somehow exposing the SD card to my host machine
+through the teensy, or maybe having a screen on the device and a way to enter an
 editor mode or something. I'd also like to make it possible to switch between
 multiple config files so that I can use this for multiple keyboards and have
 similar configs across all of them without having to reprogram them via QMK.
