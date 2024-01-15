@@ -49,10 +49,14 @@ easily be queried by SQL-like languages. A very convincing example from the
 paper is spreadsheets that may look like the following. Consider a spreadsheet
 that tracks how many miles members of a local running club ran across the years:
 
+<div style="width: 100%; overflow: auto;" markdown="block">
+
 ||name|2020|2021|2022|2023|2024
 |0|Aneesh|1|20|125|302|12
 |1|Sonic|1000|1000|1000|1000|1
 |...|
+
+</div>
 
 If I want to query for a member's total distance ran across all years, or the
 average or other such queries, it's hard to express since part of the data (the
