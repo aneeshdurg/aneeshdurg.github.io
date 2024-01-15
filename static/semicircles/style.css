@@ -11,3 +11,7 @@ canvas {
 .textbox {
     text-align: left;
 }
+
+.diagram {
+  background: white;
+}

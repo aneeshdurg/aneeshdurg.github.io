@@ -17,7 +17,7 @@ width: 100%;
 <script src="{{ '/static/20211228_fractal/script.js' | relative_url }}" type="text/javascript"></script>
 <script src="{{ '/static/20211228_fractal/post.js' | relative_url }}" type="text/javascript"></script>
 
-<div style="width:100%">
+<div style="width:100%; background: white;">
 <canvas id="canvas1" style="width:32%"></canvas>
 <canvas id="canvas2" style="width:32%"></canvas>
 <canvas id="canvas3" style="width:32%"></canvas>

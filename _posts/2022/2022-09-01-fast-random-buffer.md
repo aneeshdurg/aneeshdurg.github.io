@@ -80,6 +80,8 @@ res.innerHTML += `input: 10^${i}, time taken: ` + benchmark(usingCryptoRandom, M
 
 ### Firefox
 
+<div style="width: 100%; overflow: auto;" markdown="block">
+
 | Array size | Math.random | crypto.getRandomValues |
 |------------|-------------|------------------------|
 | 10^1       | 1           | 0                      |
@@ -91,7 +93,11 @@ res.innerHTML += `input: 10^${i}, time taken: ` + benchmark(usingCryptoRandom, M
 | 10^7       | 31          | 103                    |
 | 10^8       | 303         | 1098                   |
 
+</div>
+
 ### Chromium
+
+<div style="width: 100%; overflow: auto;" markdown="block">
 
 | Array size | Math.random | crypto.getRandomValues |
 |------------|-------------|------------------------|
@@ -104,13 +110,14 @@ res.innerHTML += `input: 10^${i}, time taken: ` + benchmark(usingCryptoRandom, M
 | 10^7       | 113         | 100                    |
 | 10^8       | 1139        | 917                    |
 
+</div>
 
 ## Conclusion
 
-I was mildly suprised to see that `Math.random` on ff is so fast. I suppose that makes
-sense as it does not need to satisfy any cryptographically secure properties,
-but the fact that `crypto.getRandomValues` took a buffer made me wonder if it was
-more optimized for this usecase. It's interesting that on chromium,
-`Crypto.getRandomValues` is faster than `Math.random`, so maybe the right choice
-here depends on the browser. Either way, I'll be sticking to `Math.random` since
-it's simpler.
+I was mildly surprised to see that `Math.random` on ff is so fast. I suppose
+that makes sense as it does not need to satisfy any cryptographically secure
+properties, but the fact that `crypto.getRandomValues` took a buffer made me
+wonder if it was more optimized for this usecase. It's interesting that on
+chromium, `Crypto.getRandomValues` is faster than `Math.random`, so maybe the
+right choice here depends on the browser. Either way, I'll be sticking to
+`Math.random` since it's simpler.

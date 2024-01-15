@@ -17,7 +17,7 @@ visualizations!
 
 <link rel="stylesheet" type="text/css" href="{{ '/static/semicircles/style.css' | relative_url }}">
 <script src="{{ '/static/semicircles/script.js' | relative_url}}"></script>
-<div id="p0"></div>
+<div class="diagram" id="p0"></div>
 <script>
 new SemicircleProblem(document.getElementById("p0"), true);
 </script>
@@ -35,7 +35,7 @@ of \\(p\\) as shown above visually.
 
 Let's add some annotations to the diagram above.
 
-<div id="p1"></div>
+<div class="diagram" id="p1"></div>
 <script>
 const problem = new SemicircleProblem(document.getElementById("p1"), false, true);
 problem.targetP = 100;
