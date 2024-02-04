@@ -76,7 +76,7 @@ but it's something I re-learn every so often.
 
 ### 1. Unicode
 
-<img src="{{ '/common-additions-v2.png' | prepend: baseurl }}"/><br>
+<img src="{{ '/common-additions-v2.jpg' | prepend: baseurl }}"/><br>
 _[https://www.unicode.org/reports/tr51/images/other/common-additions-v2.png](http://clipart-library.com/clipart/812547.htm)_
 
 One of my first tasks as a full time engineer was to write some tests of a
