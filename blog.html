@@ -2,6 +2,76 @@
 layout: default
 ---
 
+<script>
+  // Implement search functionality
+  function getAllPostsForMonth(month) {
+    let el = month.nextElementSibling;
+    const posts = [];
+    while (el && el.classList.contains('post')) {
+      posts.push(el);
+      el = el.nextElementSibling;
+    }
+
+    return posts;
+  }
+
+  function getAllMonthsForYear(year) {
+    let el = year.nextElementSibling;
+    const months = [];
+    while (el && !el.classList.contains('newyear')) {
+      if (el.classList.contains('newmonth')) {
+        months.push(el);
+      }
+      el = el.nextElementSibling;
+    }
+
+    return months;
+  }
+
+  function hideEmptyContainer(tag, extractor) {
+    for (let el of document.getElementsByClassName(tag)) {
+      const els = extractor(el);
+      const visibleEls = els.filter((el) => el.style.display !== 'none');
+      if (visibleEls.length === 0) {
+        el.style.display = 'none';
+      } else {
+        el.style.display = '';
+      }
+    }
+  }
+
+  const hideEmptyMonths = () => hideEmptyContainer('newmonth', getAllPostsForMonth);
+  const hideEmptyYears = () => hideEmptyContainer('newyear', getAllMonthsForYear);
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const searchbar = document.getElementById('search');
+    searchbar.addEventListener('keyup', () => {
+      var value = searchbar.value.toLowerCase();
+      var posts = document.getElementsByClassName('post');
+      for (let post of posts) {
+        var title = post.getElementsByTagName('h1')[0].innerText.toLowerCase();
+        var excerpt =
+          post.getElementsByClassName('excerpt')[0].innerText.toLowerCase();
+        if (title.indexOf(value) > -1 || excerpt.indexOf(value) > -1) {
+          post.style.display = '';
+        } else {
+          post.style.display = 'none';
+        }
+
+        hideEmptyMonths();
+        hideEmptyYears();
+      }
+    });
+  });
+
+
+</script>
+
+<div class="searchbar">
+  <label for="search">Search all posts: </label>
+  <input type="text" id="search" placeholder="Search">
+</div>
+
 <div class="posts">
     {% assign newyear = "0" %}
     {% assign newmonth = "0" %}
@@ -9,22 +79,24 @@ layout: default
     {% for post in site.posts %}
         {% capture postdate %}{{ post.date | date: "%Y" }}{% endcapture %}
         {% if postdate != newyear %}
-            {% if newyear != "0" %}
-                <br>
-            {% endif %}
             {% capture  newyear %}{{ postdate }}{% endcapture %}
-            <a name="{{ newyear }}"></a>
-            <a href="#{{ newyear }}"><p>{{ postdate }}</p></a>
-            <hr>
+            <div class="newyear">
+              {% if newyear != "0" %}
+                  <br>
+              {% endif %}
+              <a name="{{ newyear }}"></a>
+              <a href="#{{ newyear }}"><p>{{ postdate }}</p></a>
+              <hr>
+            </div>
             {% assign newmonth = "0" %}
         {% endif %}
         {% capture postmonth %}{{ post.date | date: "%B" }}{% endcapture %}
         {% if postmonth != newmonth %}
-            {% if newmonth != "0" %}
-                <br>
-            {% endif %}
             {% capture  newmonth %}{{ postmonth }}{% endcapture %}
             <div class="newmonth">
+                {% if newmonth != "0" %}
+                    <br>
+                {% endif %}
                 <a name="{{ newyear }}-{{ newmonth }}"></a>
                 <a href="#{{ newyear }}-{{ newmonth }}"><p>{{ postmonth }}</p></a>
                 <hr style="border: 1px dashed">
