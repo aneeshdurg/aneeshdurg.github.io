@@ -131,7 +131,7 @@ Thus, the algorithm implemented is as follows:
 Now, there's virtually no work done on the CPU! The only thing we need to do on
 the CPU for every frame is initialize the random buffer, which is pretty fast!
 This doesn't give us a completely optimal solution, and we could get better
-solutions by this this multiple times and keeping old results around, but that's
+solutions (more circles) by iterating this multiple times and keeping old results around, but that's
 not really necessary for this effect to look good.
 
 The final steps will be to integrate this with my [video synth](/video-synth),
