@@ -281,6 +281,7 @@ nav {
   .read-more {
     text-transform: uppercase;
     font-size: 15px;
+    padding-left: 1em;
   }
 }
 
@@ -337,6 +338,10 @@ td {
   @include mobile {
     margin-left: 1em;
   }
+}
+
+.searchhighlight {
+  color: red;
 }
 
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
