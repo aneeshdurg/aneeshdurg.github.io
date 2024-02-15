@@ -312,7 +312,19 @@ td {
   border: 1px solid;
 }
 
+// Styles for the projects section on the index page
+
+.projects img {
+  max-width: 80%;
+}
+
+// No bullets for images in list items
+.projects li:has(img) {
+  list-style-type: none;
+}
+
 // Styles for the blog preview on the index page
+
 .blogpreview {
   border: 1px dashed;
   padding: 0.1em;
@@ -325,7 +337,9 @@ td {
   }
 }
 
-// Add indents for the custom year/month links I added
+// Styles for elements/features on the blog page
+
+// Indent the year/month links
 .newmonth {
   margin-left: 1em;
   @include mobile {
@@ -333,6 +347,7 @@ td {
   }
 }
 
+// Indent the blog posts
 .posts > .post {
   margin-left: 2em;
   @include mobile {
@@ -340,9 +355,11 @@ td {
   }
 }
 
+// Highlight search results
 .searchhighlight {
   color: red;
 }
+
 
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
 // ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
