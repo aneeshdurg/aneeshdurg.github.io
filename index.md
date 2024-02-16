@@ -2,8 +2,10 @@
 layout: default
 ---
 
-Welcome to my website! I mostly use it for posting about various projects I've
-been working on. You can find my blog [here]({{ '/blog' | relative_url }}).
+Welcome to my website! My topics of interest are distributed systems,
+storage/databases, compilers, and programming languages. I also dabble in
+generative art from time to time. You can find my blog [here]({{ '/blog' |
+relative_url }}).
 
 
 ## projects
