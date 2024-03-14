@@ -19,9 +19,6 @@
 [submodule "static/vsynth/video-synth"]
 	path = static/vsynth/video-synth
 	url = https://github.com/aneeshdurg/video-synth
-[submodule "static/circle_packing/coi-serviceworker"]
-	path = static/circle_packing/coi-serviceworker
-	url = https://github.com/gzuidhof/coi-serviceworker
 [submodule "static/circle_packing/webgl-common"]
 	path = static/circle_packing/webgl-common
 	url = https://github.com/aneeshdurg/webgl-common/
