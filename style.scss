@@ -55,9 +55,6 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 30px;
-  a {
-    color: var(--emphasis-color);
-  }
 }
 
 h2 {
@@ -160,7 +157,7 @@ img {
 //
 
 .wrapper-masthead {
-  margin-bottom: 50px;
+  margin-bottom: 1em;
 }
 
 .masthead {
@@ -251,7 +248,7 @@ nav {
 //
 
 .posts > .post {
-  padding-bottom: 1em;
+  // padding-bottom: 1em;
   // border-bottom: 1px solid $lightGray;
 }
 
@@ -262,11 +259,12 @@ nav {
 
 .excerpt {
   padding-left: 1em;
+  margin-top: -0.5em;
 }
 
 .post {
   blockquote {
-    margin: 1.8em .8em;
+    // margin: 1.8em .8em;
     border-left: 2px solid $gray;
     padding: 0.1em 1em;
     color: $gray;
@@ -281,7 +279,7 @@ nav {
   .read-more {
     text-transform: uppercase;
     font-size: 15px;
-    padding-left: 1em;
+    // padding-left: 1em;
   }
 }
 
@@ -349,7 +347,19 @@ td {
   @include mobile {
     margin-left: 0.5em;
   }
+
+  font-size-adjust: 0.45;
+  p {
+    margin: 0;
+  }
 }
+
+.newyear {
+  p {
+    margin: 0;
+  }
+}
+
 
 // Indent the blog posts
 .posts > .post {
@@ -357,6 +367,20 @@ td {
   @include mobile {
     margin-left: 1em;
   }
+}
+
+.posttitle {
+  a {
+    color: var(--emphasis-color);
+  }
+  a:hover {
+    color: $blue;
+  }
+
+  line-height: 1.1;
+
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 // Highlight search results

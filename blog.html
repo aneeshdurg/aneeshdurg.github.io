@@ -8,6 +8,8 @@ layout: default
   <input type="text" id="search" placeholder="Search">
 </div>
 
+<hr>
+
 <div class="posts">
     {% assign newyear = "0" %}
     {% assign newmonth = "0" %}
@@ -17,12 +19,9 @@ layout: default
         {% if postdate != newyear %}
             {% capture  newyear %}{{ postdate }}{% endcapture %}
             <div class="newyear">
-              {% if newyear != "0" %}
-                  <br>
-              {% endif %}
               <a name="{{ newyear }}"></a>
               <a href="#{{ newyear }}"><p>{{ postdate }}</p></a>
-              <hr>
+              <!--hr-->
             </div>
             {% assign newmonth = "0" %}
         {% endif %}
@@ -30,12 +29,9 @@ layout: default
         {% if postmonth != newmonth %}
             {% capture  newmonth %}{{ postmonth }}{% endcapture %}
             <div class="newmonth">
-                {% if newmonth != "0" %}
-                    <br>
-                {% endif %}
                 <a name="{{ newyear }}-{{ newmonth }}"></a>
                 <a href="#{{ newyear }}-{{ newmonth }}"><p>{{ postmonth }}</p></a>
-                <hr style="border: 1px dashed">
+                <!--hr style="border: 1px dashed"-->
             </div>
         {% endif %}
         <article class="post">
@@ -43,11 +39,11 @@ layout: default
             {% if post.redirect %}
               {% capture postlink %}{{ post.redirect }}{% endcapture %}
             {% endif %}
-            <h1><a href="{{ site.baseurl }}{{ postlink }}">{{ post.title }}</a></h1>
+            <h2 class="posttitle"><a href="{{ site.baseurl }}{{ postlink }}">{{ post.title }}</a></h2>
             <div class="excerpt">
                 {{ post.excerpt }}
             </div>
-            <a href="{{ site.baseurl }}{{ postlink }}" class="read-more">Read More</a>
+            <!--a href="{{ site.baseurl }}{{ postlink }}" class="read-more">Read More</a-->
         </article>
   {% endfor %}
 </div>

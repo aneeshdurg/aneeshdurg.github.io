@@ -15,13 +15,12 @@ relative_url }}).
 ## recent blog posts
 
 <div class="blogpreview">
-{% for i in (0..2) %}
+{% for i in (0..5) %}
 <article class="post">
-<h1><a href="{{ site.baseurl }}{{ site.posts[i].url }}">{{ site.posts[i].title }}</a></h1>
-<div class="entry">
+<h2 class="posttitle"><a href="{{ site.baseurl }}{{ site.posts[i].url }}">{{ site.posts[i].title }}</a></h2>
+<div class="excerpt">
 {{ site.posts[i].excerpt }}
 </div>
-<a href="{{ site.baseurl }}{{ site.posts[i].url }}" class="read-more">Read More</a>
 </article>
 {% endfor %}
 </div>
