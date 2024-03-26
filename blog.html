@@ -17,6 +17,10 @@ layout: default
     {% for post in site.posts %}
         {% capture postdate %}{{ post.date | date: "%Y" }}{% endcapture %}
         {% if postdate != newyear %}
+            {% if newyear != "0" %}
+                </div>
+                </div>
+            {% endif %}
             {% capture  newyear %}{{ postdate }}{% endcapture %}
             <div class="newyear">
               <a name="{{ newyear }}"></a>
@@ -24,15 +28,20 @@ layout: default
               <!--hr-->
             </div>
             {% assign newmonth = "0" %}
+            <div class="yearcontainer">
         {% endif %}
         {% capture postmonth %}{{ post.date | date: "%B" }}{% endcapture %}
         {% if postmonth != newmonth %}
+            {% if newmonth != "0" %}
+                </div>
+            {% endif %}
             {% capture  newmonth %}{{ postmonth }}{% endcapture %}
             <div class="newmonth">
                 <a name="{{ newyear }}-{{ newmonth }}"></a>
                 <a href="#{{ newyear }}-{{ newmonth }}"><p>{{ postmonth }}</p></a>
                 <!--hr style="border: 1px dashed"-->
             </div>
+            <div class="monthcontainer">
         {% endif %}
         <article class="post">
           {% capture postlink %}{{ post.url }}{% endcapture %}
@@ -43,7 +52,8 @@ layout: default
             <div class="excerpt">
                 {{ post.excerpt }}
             </div>
-            <!--a href="{{ site.baseurl }}{{ postlink }}" class="read-more">Read More</a-->
         </article>
-  {% endfor %}
+    {% endfor %}
+  </div> <!-- monthcontainer -->
+  </div> <!-- yearcontainer -->
 </div>

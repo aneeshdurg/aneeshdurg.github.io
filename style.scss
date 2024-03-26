@@ -257,6 +257,18 @@ nav {
   border-bottom: none;
 }
 
+.yearcontainer {
+  margin-left: 0.25em;
+  border-left: 1px dashed;
+  padding-left: 0.5em;
+}
+
+.monthcontainer {
+  margin-left: 0.5em;
+  border-left: 1px dotted;
+  padding-left: 0.5em;
+}
+
 .excerpt {
   padding-left: 1em;
   margin-top: -0.5em;
@@ -264,7 +276,7 @@ nav {
 
 .post {
   blockquote {
-    // margin: 1.8em .8em;
+    margin: 1.8em .8em;
     border-left: 2px solid $gray;
     padding: 0.1em 1em;
     color: $gray;
@@ -274,12 +286,6 @@ nav {
 
   .comments {
     margin-top: 10px;
-  }
-
-  .read-more {
-    text-transform: uppercase;
-    font-size: 15px;
-    // padding-left: 1em;
   }
 }
 
@@ -343,11 +349,6 @@ td {
 
 // Indent the year/month links
 .newmonth {
-  margin-left: 1em;
-  @include mobile {
-    margin-left: 0.5em;
-  }
-
   font-size-adjust: 0.45;
   p {
     margin: 0;

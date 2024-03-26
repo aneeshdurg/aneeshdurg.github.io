@@ -1,26 +1,10 @@
 // Implement search functionality
 function getAllPostsForMonth(month) {
-  let el = month.nextElementSibling;
-  const posts = [];
-  while (el && el.classList.contains('post')) {
-    posts.push(el);
-    el = el.nextElementSibling;
-  }
-
-  return posts;
+  return [...month.nextElementSibling.querySelectorAll('.post')];
 }
 
 function getAllMonthsForYear(year) {
-  let el = year.nextElementSibling;
-  const months = [];
-  while (el && !el.classList.contains('newyear')) {
-    if (el.classList.contains('newmonth')) {
-      months.push(el);
-    }
-    el = el.nextElementSibling;
-  }
-
-  return months;
+  return [...year.nextElementSibling.querySelectorAll('.newmonth')];
 }
 
 function hideEmptyContainer(tag, extractor) {
@@ -35,7 +19,7 @@ function hideEmptyContainer(tag, extractor) {
   }
 }
 
-const hideEmptyMonths = () => hideEmptyContainer('newmonth', getAllPostsForMonth);
+const hideEmptyMonths = () => hideEmptyContainer('newmonth', getAllPostsForMonth)
 const hideEmptyYears = () => hideEmptyContainer('newyear', getAllMonthsForYear);
 
 function insertHighlights(text) {
@@ -49,7 +33,7 @@ function insertHighlights(text) {
     }
     // Insert spans highlighting text matching the input we have to do this on a
     // per-node basis because otherwise we would lose nested tags such as links
-    const title = post.getElementsByTagName('h1')[0];
+    const title = post.getElementsByClassName('posttitle')[0];
     const excerpt = post.getElementsByClassName('excerpt')[0];
     const nodes = [...title.childNodes, ...excerpt.childNodes];
     while (nodes.length > 0) {
@@ -120,7 +104,7 @@ function search(text) {
 
   const posts = document.getElementsByClassName('post');
   for (let post of posts) {
-    const title = post.getElementsByTagName('h1')[0].innerText.toLowerCase();
+    const title = post.getElementsByClassName('posttitle')[0].innerText.toLowerCase();
     const excerpt =
       post.getElementsByClassName('excerpt')[0].innerText.toLowerCase();
     if (title.indexOf(text) > -1 || excerpt.indexOf(text) > -1) {
