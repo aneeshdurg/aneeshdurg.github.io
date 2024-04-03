@@ -150,7 +150,7 @@ class Data:
 global_data = Data()
 ```
 
-There are two ways we could go about exposing this to C++
+There are two ways we could go about exposing this to C++. Note that for this discussion, we will not require the code to work with numba's caching. If caching is required Method 1 is the only working answer presented here. This is also a lot easier to do if you relax the constraint of doing this entirely from an intrinsic.
 
 ### Method 1 - using PyImport
 
