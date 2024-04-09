@@ -118,8 +118,9 @@ invoke this efficiently in the REPL short of writing this functionality in java
 and importing it since it seems to be impossible to turn of the output echoing
 in the `groovy` interpreter packaged with the default `janusgraph` client docker
 image (it seems like newer versions of `groovy` support this feature). Here's
-some relevant snippets from the script I ended up writing (when I'm done with my
-current efforts I'll try to put the full code somewhere):
+some relevant snippets from the script I ended up writing (~~when I'm done with my
+current efforts I'll try to put the full code somewhere~~ [full
+code](https://gist.github.com/aneeshdurg/19441eff1a315aeec417509ecd0e297d)):
 
 ```groovy
 def CSVToMap(filename) {
