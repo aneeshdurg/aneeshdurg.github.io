@@ -19,13 +19,13 @@ html {
 
 body {
 	background: var(--body-bg);
-  font: 18px/1.4 $helvetica;
+  font: 16px/1.4 $helvetica;
   color: var(--body-color);
 }
 
 .container {
   margin: 0 auto;
-  max-width: 50%;
+  max-width: 75%;
   padding: 0 10px;
   width: 100%;
 }
@@ -325,9 +325,9 @@ td {
 
 // Styles for the projects section on the index page
 
-.projects img {
-  max-width: 80%;
-}
+// .projects img {
+//   max-width: 80%;
+// }
 
 // No bullets for images in list items
 .projects li:has(img) {
@@ -338,10 +338,51 @@ td {
   margin-bottom: 1em;
 }
 
+.project {
+  display: flex;
+}
+
+.projectdesc {
+  float: right;
+  width: 75%;
+}
+
+// .projectdesc > ul > li > ul {
+//   font-size-adjust: 0.45;
+// }
+
+
+.projectimg {
+  float: left;
+  width: 25%;
+}
+
+.projectimg img {
+  width: 100%;
+}
+
+.placeholder {
+  background-image: url("/favicon.ico");
+  // keep aspect ratio, center and don't repeat
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  // blur and grayscale the image
+  filter: blur(2px) grayscale(100%);
+  opacity: 0.5;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  .placeholder {
+    filter: blur(2px) grayscale(100%) invert(1);
+  }
+}
+
 // Styles for the blog preview on the index page
 
 .blogpreview {
-  border: 1px dashed;
+  // border: 1px dashed;
   padding: 0.1em;
   padding-top: 1em;
 }
