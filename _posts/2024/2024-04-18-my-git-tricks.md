@@ -79,7 +79,7 @@ have untracked files all over the place. I'm very glad it exists.
 
 I have the following git-related aliases in my `fish` config:
 
-```fish
+```sh
 alias gp='git push origin (git rev-parse --abbrev-ref HEAD)'
 alias gb='git branch'
 alias gd='git diff'
