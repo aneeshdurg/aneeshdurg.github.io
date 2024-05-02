@@ -9,19 +9,32 @@ Let's try to construct some fractals!
 ---
 
 <link rel="stylesheet" href="{{ '/static/pi_digits/style.css' | relative_url }}">
-<style>
+<style markdown="0">
 canvas {
-width: 100%;
+    width: 100%;
+}
+
+.diagram {
+    width: 100%;
+    border: solid 1px;
+    padding: 0.5em;
+    background: white;
+}
+
+@media (prefers-color-scheme: dark) {
+  .diagram {
+    filter: invert();
+  }
 }
 </style>
 <script src="{{ '/static/20211228_fractal/script.js' | relative_url }}" type="text/javascript"></script>
 <script src="{{ '/static/20211228_fractal/post.js' | relative_url }}" type="text/javascript"></script>
 
-<div style="width:100%; background: white;">
-<canvas id="canvas1" style="width:32%"></canvas>
-<canvas id="canvas2" style="width:32%"></canvas>
-<canvas id="canvas3" style="width:32%"></canvas>
-<p><i>These aren't static images - they're computed on the fly!</i></p>
+<div markdown="0" class="diagram">
+    <canvas id="canvas1" style="width:32%"></canvas>
+    <canvas id="canvas2" style="width:32%"></canvas>
+    <canvas id="canvas3" style="width:32%"></canvas>
+    <p><i>These aren't static images - they're computed on the fly!</i></p>
 </div>
 <br>
 
@@ -47,14 +60,12 @@ the non-intersection property.
 We know that for \\(n = 4\\), \\(f = \frac{1}{2}\\). Here's an animation
 showing the construction of this fractal.
 
-<div style="width: 100%; border: solid 1px; padding: 0.5em">
-<button id="start1">Start animation</button>
-<canvas id="canvas4"></canvas>
-<script>
-document.addEventListener("DOMContentLoaded", async function() {
-
-});
-</script>
+<div markdown="0" class="diagram">
+    <button id="start1">Start animation</button>
+    <canvas id="canvas4"></canvas>
+    <script>
+        document.addEventListener("DOMContentLoaded", async function() { });
+    </script>
 </div>
 
 We can convince ourselves that a factor of \\(0.5\\) is in fact the largest
@@ -71,21 +82,21 @@ different values of \\(n\\) and \\(f\\) for to see what happens.
 \\(a_b\\)
 </div>
 
-<div style="width: 100%; border: solid 1px; padding: 0.5em">
-<canvas id="canvas5"></canvas>
+<div markdown="0" class="diagram">
+    <canvas id="canvas5"></canvas>
 
-<label for="enable-animation">Enable animation:</label>
-<input type="checkbox" id="enable-animation" checked/>
-<br>
+    <label for="enable-animation">Enable animation:</label>
+    <input type="checkbox" id="enable-animation" checked/>
+    <br>
 
-<label for="f-input">f:</label>
-<input type="number" min="0" max="1" value="0.5" step="0.01" id="f-input"/>
-<br>
-<label for="n-input">n:</label>
-<input type="number" min="3" value="4" step="1" id="n-input"/>
-<br>
-<label for="level-input">Levels to render:</label>
-<input type="number" min="0" value="5" step="1" id="level-input"/>
+    <label for="f-input">f:</label>
+    <input type="number" min="0" max="1" value="0.5" step="0.01" id="f-input"/>
+    <br>
+    <label for="n-input">n:</label>
+    <input type="number" min="3" value="4" step="1" id="n-input"/>
+    <br>
+    <label for="level-input">Levels to render:</label>
+    <input type="number" min="0" value="5" step="1" id="level-input"/>
 </div>
 
 This tool has helped me explore some different factors and I've found some good
@@ -93,8 +104,8 @@ upper/lower bounds on \\(f\\) for various values of \\(n\\) (see the art at the
 top of the post). The tools has also just been a good way to find some aesthetic
 patterns like this one:
 
-<div style="width: 100%; border: solid 1px; padding: 0.5em">
-<canvas id="canvas6"></canvas>
+<div markdown="0" class="diagram">
+    <canvas id="canvas6"></canvas>
 </div>
 
 ## what's next?
