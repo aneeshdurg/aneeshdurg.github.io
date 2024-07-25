@@ -13,6 +13,11 @@ project with a renewed fire.
 
 <style>
 .myimg { max-width: 50%; }
+@media (orientation: portrait) {
+  .myimg {
+    max-width: 85%;
+  }
+}
 .myimgctr { text-align: center; }
 </style>
 
