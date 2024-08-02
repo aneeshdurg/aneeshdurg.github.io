@@ -58,21 +58,27 @@ perplexing. I tried a couple software fixes first - setting `EE_HANDS` and
 explicitly telling each microcontroller whether it was the left or right side
 (and correspondingly whether it was the host device or not), but that didn't
 help. I got out a multimeter and checked that each pin of the trrs jack was
-connected to the corresponding ring on the cable, but that seemed correct. In a
-fit of desperation, I even took apart an old split keyboard I had to harvest the
-4.7k resistors to try to enable I2C. However, the Kyria only uses I2C as a local
-protocol to talk to the OLED display if present, or other peripherals that one
-might want to attach. Disheartened and questioning my abilities as an engineer,
-I gave up.
+connected to the corresponding ring on the cable, but that seemed correct. I
+checked with the voltmeter to see if both halves were receiving power, and
+noticed that the side plugged in showed 5V between VCC and GND, but the other
+side showed something closer to 3.3V - I figured that maybe the TRRS cable only
+sends over 3.3V, and that it was probably fine. In a fit of desperation, I even
+took apart an old split keyboard I had to harvest the 4.7k resistors to try to
+enable I2C. However, the Kyria only uses I2C as a local protocol to talk to the
+OLED display if present, or other peripherals that one might want to attach.
+Disheartened and questioning my abilities as an engineer, I gave up.
 
-When I woke up this morning, I couldn't stop thinking about it. I figured it was
+When I woke up this morning, I couldn't stop thinking about it. The 3.3V number
+on the secondary board seemed odd, and I wondered if it wasn't actually
+receiving enough power - maybe there was some onboard capacitors that tried to
+at least get the board to it's minimum operating voltage? I figured it was
 better to spend a few minutes debugging this and show up to work a bit late than
 think about this all day and not get any work done, so I got out the multimeter,
 found the Kyria's wiring diagram and started checking that the TRRS jack was
 connected to the pins that it should have been. On the left half - no issues. On
-the right half, VCC was not connected to the jack. This doesn't seem to
-unreasonable since the board was pretty scuffed up from removing the perfboard
-and freeing the original MC. To fix it, I added this hack:
+the right half, VCC was not connected to the jack! This made sense since the
+board was pretty scuffed up from removing the perfboard and freeing the original
+MC. To fix it, I added this hack:
 
 <div class=myimgctr>
     <img class=myimg src="{{ '/hack_vcc.jpg' | prepend: baseurl }}"/>
