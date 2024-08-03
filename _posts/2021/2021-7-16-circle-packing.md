@@ -1,6 +1,7 @@
 ---
 layout: post
 title: real time circle packing - now with WebGL!
+series: circle-packing
 permalink: /posts/2021-07-16-circle-packing/
 ---
 

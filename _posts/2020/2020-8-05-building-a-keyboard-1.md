@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Building a keyboard (part 1)
+series: building-a-keyboard
 permalink: /posts/building-a-keyboard/
 ---
 

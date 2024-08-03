@@ -1,7 +1,8 @@
 ---
 layout: post
 title: Building a keyboard (part 4)
-permalink: /posts/2024/08/building-a-keyboard-2/
+series: building-a-keyboard
+permalink: /posts/2024/08/building-a-keyboard-4/
 ---
 
 Finishing assembly! This was not as easy as I expected...

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: the journey towards real time circle packing
+series: circle-packing
 permalink: /posts/2021-07-15-circle-packing/
 ---
 

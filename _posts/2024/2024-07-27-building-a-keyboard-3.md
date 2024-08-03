@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Building a keyboard (part 3)
+series: building-a-keyboard
 permalink: /posts/2024/07/building-a-keyboard-3/
 ---
 

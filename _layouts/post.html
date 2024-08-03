@@ -3,10 +3,48 @@ layout: default
 ---
 <article class="post">
   <h1>{{ page.title }}</h1>
+  {% assign prevlink = "" %}
+  {% assign next_is_prev = false %}
+  {% if page.series != "" %}
+    {% for post in site.posts %}
+      {% if post.series == page.series %}
+        {% if next_is_prev %}
+          {% assign prevlink = post.url %}
+          {% assign next_is_prev = false %}
+        {% endif %}
+        {% if post.url == page.url %}
+          {% assign next_is_prev = true %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+    {% if prevlink != "" %}
+      <div class="series">
+        This post is a part of a series. <a href="{{ site.baseurl }}{{ prevlink }}"> Click here for the previous post. </a>
+      </div>
+    {% endif %}
+  {% endif %}
 
   <div class="entry">
     {{ content }}
   </div>
+
+  {% assign nextlink = "" %}
+  {% assign currlink = "" %}
+  {% if page.series != "" %}
+    {% for post in site.posts %}
+      {% if post.series == page.series %}
+        {% if post.url == page.url %}
+          {% assign nextlink = currlink %}
+        {% endif %}
+        {% assign currlink = post.url %}
+      {% endif %}
+    {% endfor %}
+    {% if nextlink != "" %}
+      <div class="series">
+        This post is a part of a series. <a href="{{ site.baseurl }}{{ nextlink }}"> Click here for the next post. </a>
+      </div>
+    {% endif %}
+  {% endif %}
 
   <div class="date">
     Written on {{ page.date | date: "%B %e, %Y" }}

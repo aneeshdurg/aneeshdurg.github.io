@@ -126,6 +126,13 @@ img {
   color: $gray;
 }
 
+.series {
+  padding: 0.25em;
+  margin: 0.25em;
+  font-style: italic;
+  color: $gray;
+}
+
 // Specify the color of the selection
 ::-moz-selection {
   color: $black;

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: real time circle packing - animated edition!
+series: circle-packing
 permalink: /posts/2022-06-23-circle-packing/
 ---
 
