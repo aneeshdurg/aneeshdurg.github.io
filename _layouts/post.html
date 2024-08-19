@@ -5,7 +5,7 @@ layout: default
   <h1>{{ page.title }}</h1>
   {% assign prevlink = "" %}
   {% assign next_is_prev = false %}
-  {% if page.series != "" %}
+  {% if page.series %}
     {% for post in site.posts %}
       {% if post.series == page.series %}
         {% if next_is_prev %}
@@ -17,7 +17,7 @@ layout: default
         {% endif %}
       {% endif %}
     {% endfor %}
-    {% if prevlink != "" %}
+    {% if prevlink %}
       <div class="series">
         This post is a part of a series. <a href="{{ site.baseurl }}{{ prevlink }}"> Click here for the previous post. </a>
       </div>
@@ -30,7 +30,7 @@ layout: default
 
   {% assign nextlink = "" %}
   {% assign currlink = "" %}
-  {% if page.series != "" %}
+  {% if page.series %}
     {% for post in site.posts %}
       {% if post.series == page.series %}
         {% if post.url == page.url %}
@@ -39,7 +39,7 @@ layout: default
         {% assign currlink = post.url %}
       {% endif %}
     {% endfor %}
-    {% if nextlink != "" %}
+    {% if nextlink %}
       <div class="series">
         This post is a part of a series. <a href="{{ site.baseurl }}{{ nextlink }}"> Click here for the next post. </a>
       </div>
