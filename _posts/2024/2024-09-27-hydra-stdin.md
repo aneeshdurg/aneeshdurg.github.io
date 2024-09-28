@@ -153,3 +153,28 @@ def parent():
     ...
 ...
 ```
+
+## Is this the right fix?
+
+I wasn't satisfied with this. It felt rather hacky and I felt like the
+appropriate fix would be a level deeper, as an option one could pass to `MPICH`.
+So, I forked the repo and started adding a new flag to close STDIN in the child
+processes. Along the way, I've learned the following:
+
++ the `hydra_pmi_proxy` process needs a valid STDIN. I don't know exactly why,
+  but it seems to use it to send control messages to the spawning MPI process.
++ When `MPI_Comm_Spawn` is called from a non-MPI process, it first creates an
+  MPI child process, which then spawn a new group. If the caller is an MPI
+  process, this step can be skipped.
+
+Putting this together - we actually do want the child processes to have valid
+STDIN's but this STDIN is not connected to the STDIN of the parent process at
+all - it's always a pipe. Instead, we need to ensure that if an intermediate
+`mpiexec` process is spawned, it should have an invalid STDIN. With that
+knowledge, I feel more confident about the fix above. I think it is the right
+fix, and it is in the right place. Maybe it could be nice to have an option for
+`MPI_Comm_Spawn` to close `STDIN` when it creates a `mpiexec` process, but I
+think such an option would likely be more confusing and difficult to use
+correctly in the common case. Anyway, this was a fun adventure and I
+definitely gained a deeper understanding of `MPICH`'s internals! Hopefully I'll
+have more opportunities to play around with this code in the future.
