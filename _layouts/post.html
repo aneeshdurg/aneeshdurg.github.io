@@ -17,7 +17,7 @@ layout: default
         {% endif %}
       {% endif %}
     {% endfor %}
-    {% if prevlink %}
+    {% if prevlink != "" %}
       <div class="series">
         This post is a part of a series. <a href="{{ site.baseurl }}{{ prevlink }}"> Click here for the previous post. </a>
       </div>
@@ -39,7 +39,7 @@ layout: default
         {% assign currlink = post.url %}
       {% endif %}
     {% endfor %}
-    {% if nextlink %}
+    {% if nextlink != "" %}
       <div class="series">
         This post is a part of a series. <a href="{{ site.baseurl }}{{ nextlink }}"> Click here for the next post. </a>
       </div>
