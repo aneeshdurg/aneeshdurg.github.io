@@ -5,10 +5,8 @@
 // IMPORTS
 //
 
-@use "reset";
-@use "variables";
-@use "highlights";
-@use "svg-icons";
+@import "reset";
+@import "variables";
 // Syntax highlighting @import is at the bottom of this file
 
 /**************/
@@ -21,7 +19,7 @@ html {
 
 body {
 	background: var(--body-bg);
-  font: 16px/1.4 variables.$helvetica;
+  font: 16px/1.4 $helvetica;
   color: var(--body-color);
 }
 
@@ -35,14 +33,14 @@ body {
 @media (orientation: portrait) {
   .container {
     max-width: 75%;
-    @include variables.mobile {
+    @include mobile {
       max-width: 95%;
     }
   }
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: variables.$helveticaNeue;
+  font-family: $helveticaNeue;
   color: var(--emphasis-color);
   font-weight: bold;
 
@@ -50,7 +48,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 1em 0 15px;
   padding: 0;
 
-  @include variables.mobile {
+  @include mobile {
     line-height: 1.4;
   }
 }
@@ -69,7 +67,7 @@ h3 {
 
 h4 {
   font-size: 18px;
-  color: variables.$gray;
+  color: $gray;
 }
 
 p {
@@ -77,11 +75,11 @@ p {
 }
 
 a {
-  color: variables.$blue;
+  color: $blue;
   text-decoration: none;
 	cursor: pointer;
   &:hover, &:active {
-    color: variables.$blue;
+    color: $blue;
   }
 }
 
@@ -125,24 +123,24 @@ img {
 
 .date {
   font-style: italic;
-  color: variables.$gray;
+  color: $gray;
 }
 
 .series {
   padding: 0.25em;
   margin: 0.25em;
   font-style: italic;
-  color: variables.$gray;
+  color: $gray;
 }
 
 // Specify the color of the selection
 ::-moz-selection {
-  color: variables.$black;
-  background: variables.$lightGray;
+  color: $black;
+  background: $lightGray;
 }
 ::selection {
-  color: variables.$black;
-  background: variables.$lightGray;
+  color: $black;
+  background: $lightGray;
 }
 
 // Nicolas Gallagher's micro clearfix hack
@@ -171,9 +169,9 @@ img {
 
 .masthead {
   padding: 20px 0;
-  border-bottom: 1px solid variables.$lightGray;
+  border-bottom: 1px solid $lightGray;
 
-  @include variables.mobile {
+  @include mobile {
     text-align: center;
   }
 }
@@ -184,7 +182,7 @@ img {
   height: 70px;
   margin-right: 15px;
 
-  @include variables.mobile {
+  @include mobile {
     float: none;
     display: block;
     margin: 0 auto;
@@ -198,7 +196,7 @@ img {
 .site-info {
   float: left;
 
-  @include variables.mobile {
+  @include mobile {
     float: none;
     display: block;
     margin: 0 auto;
@@ -207,9 +205,9 @@ img {
 
 .site-name {
   margin: 0;
-  color: variables.$darkGray;
+  color: $darkGray;
   cursor: pointer;
-  font-family: variables.$helveticaNeue;
+  font-family: $helveticaNeue;
   font-weight: 300;
   font-size: 28px;
   letter-spacing: 1px;
@@ -218,16 +216,16 @@ img {
     color: var(--emphasis-color);
   }
   a:hover {
-    color: variables.$blue;
+    color: $blue;
   }
 }
 
 .site-description {
   margin: -5px 0 0 0;
-  color: variables.$gray;
+  color: $gray;
   font-size: 16px;
 
-  @include variables.mobile {
+  @include mobile {
     margin: 3px 0;
   }
 }
@@ -235,10 +233,10 @@ img {
 nav {
   float: right;
   margin-top: 23px; // @TODO: Vertically middle align
-  font-family: variables.$helveticaNeue;
+  font-family: $helveticaNeue;
   font-size: 18px;
 
-  @include variables.mobile {
+  @include mobile {
     float: none;
     margin-top: 9px;
     display: block;
@@ -252,9 +250,9 @@ nav {
     font-weight: 300;
     letter-spacing: 1px;
 
-    @include variables.mobile {
+    @include mobile {
       margin: 0 10px;
-      color: variables.$blue;
+      color: $blue;
     }
   }
 }
@@ -265,7 +263,7 @@ nav {
 
 .posts > .post {
   // padding-bottom: 1em;
-  // border-bottom: 1px solid variables.$lightGray;
+  // border-bottom: 1px solid $lightGray;
 }
 
 .posts > .post:last-child {
@@ -293,9 +291,9 @@ nav {
 .post {
   blockquote {
     margin: 1.8em .8em;
-    border-left: 2px solid variables.$gray;
+    border-left: 2px solid $gray;
     padding: 0.1em 1em;
-    color: variables.$gray;
+    color: $gray;
     font-size: 22px;
     font-style: italic;
   }
@@ -402,7 +400,7 @@ td {
 
 .blogpreview > .post {
   margin-left: 2em;
-  @include variables.mobile {
+  @include mobile {
     margin-left: 1em;
   }
 }
@@ -427,7 +425,7 @@ td {
 // Indent the blog posts
 .posts > .post {
   margin-left: 2em;
-  @include variables.mobile {
+  @include mobile {
     margin-left: 1em;
   }
 }
@@ -437,7 +435,7 @@ td {
     color: var(--emphasis-color);
   }
   a:hover {
-    color: variables.$blue;
+    color: $blue;
   }
 
   line-height: 1.1;
@@ -450,3 +448,9 @@ td {
 .searchhighlight {
   color: red;
 }
+
+
+// Settled on moving the import of syntax highlighting to the bottom of the CSS
+// ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
+@import "highlights";
+@import "svg-icons";
