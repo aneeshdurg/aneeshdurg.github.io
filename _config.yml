@@ -19,11 +19,10 @@ avatar: /static/images/me.jpg
 footer-links:
   email: aneeshdurg17@gmail.com
   github: aneeshdurg
-  linkedin:
+  linkedin: aneesh-durg-b67649105
   rss: subscribe # just type anything here for a working RSS icon
   twitter:
   stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
-  cohost: aneesh
 
 
 url: https://aneeshdurg.github.io
