@@ -1,7 +1,0 @@
-types/
-server.py
-*.pem
-
-build/
-node_modules/
-package-lock.json
