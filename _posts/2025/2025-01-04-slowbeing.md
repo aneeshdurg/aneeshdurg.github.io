@@ -17,16 +17,16 @@ just couldn't move as fast as I thought. As I grew up a little and gained
 proficiency with a keyboard, I found that it felt slightly more possible for the
 words to keep pace with my ideas. Today, I like to play around with new keyboard
 layouts and input mechanisms to get closer to the ideal world of being able to
-have my thoughts manifest at the same rate I experience them.
-
-But how fast do I experience my thoughts? And how much slower is typing compared
-to that rate? This paper proposes that the throughput of the human brain is
-actually only around 10 bits per second.
+have my thoughts manifest at the same rate I experience them. But how fast do I
+experience my thoughts? And how much slower is typing compared to that rate?
+This paper proposes that the throughput of the human brain is actually only
+around 10 bits per second.
 
 The paper authors acknowledge that this is a surprisingly low number and draw
 comparisons to the bandwidth available via current networking equipment and
 highlight that network bandwidth is often several orders of magnitude larger.
-But what does 10 bits per second actually mean in this context?
+But what does 10 bits per second actually mean in this context, and how was it
+measured?
 
 The authors provide a few examples of how they arrive at this number. First they
 examine typing speeds of professional typists, and show that the rate of
@@ -60,9 +60,10 @@ versus the amount of information that we could theoretically absorb at
 \\(10b/s\\). In short, they claim that the brain can store at most \\(50TB\\),
 but we can only input at most \\(40GB\\) over the course of a single lifetime.
 Another section I found interesting was on whether or not the brain can
-multitask - in short, while processing incoming information is done via
-massively parallel computation, actual though processes are serial. This means
-that the \\(10b/s\\) limit cannot be enhanced by doing multiple things at once.
+multitask. The paper cites prior work that shows that while processing incoming
+information is done via massively parallel computation, actual though processes
+are serial. This means that the \\(10b/s\\) limit cannot be enhanced by doing
+multiple things at once.
 
 ## Thoughts
 
@@ -72,7 +73,7 @@ understanding of the claims presented. These thoughts are not well informed, but
 more like a collection of questions/thoughts that I hope will guide any future
 exploration I may attempt in this domain.
 
-+ Maybe the human brain isn't good at acting as a bus that move information from
++ Maybe the human brain isn't good at acting as a bus that moves information from
   our perception to some action - maybe the processing capability is about
   understanding abstract concepts. How many bits represent the platonic ideal of
   something? The ability to absorb and synthesize information seems to be
