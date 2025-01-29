@@ -29,10 +29,11 @@ modular implementation of OpenCypher called
 modules to be used as LLVM optimization passes - to produce a proof-of-concept
 implementation that allows LLVM IR to be queried with
 [OpenCypher](https://opencypher.org/). One notable feature of my implementation
-is that it operates directly on a LLVM Module instance in an optimization pass -
-this doesn't matter much since my demo doesn't support modification, but it
-seems to me that extending it to support modification wouldn't be too much
-effort.
+is that it operates directly on a LLVM Module instance in an optimization pass
+and doesn't copy the IR into some kind of graph format native to an existing
+engine - this doesn't matter much since my demo doesn't support modification,
+but it seems to me that extending it to support modification wouldn't be too
+much effort.
 
 Here is the full code for my demo:
 
