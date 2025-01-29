@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Sharing variables across interpreted langauges - a quest to make my shell more ergonomic
+title: Sharing variables across interpreted languages - a quest to make my shell more ergonomic
 series: pysh
 ---
 
