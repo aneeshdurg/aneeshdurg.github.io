@@ -5,7 +5,7 @@ title: Cleaning out some old tabs
 
 On my phone I've got waay to many open tabs because I use my tabs as a "read
 later" list. Well, later is now, so it's time to read and summarize every open
-tab I have and summarize the information contained in each for my reference.
+tab I have.
 
 ---
 
