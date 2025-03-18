@@ -16,7 +16,7 @@ these things automatically, but I think in many cases, the finer grained control
 can be appreciated. However, when I ran the following script I ran into a
 curious issue:
 
-``python
+```python
 import sys
 import random
 from time import sleep
@@ -75,7 +75,7 @@ There's a few hacky workarounds to tricking the `pickle` call in `chkpt` into
 seeing the right definitions for `State`, but this led me to another question -
 what happens if the user code itself attempts to pickle something?
 
-``python
+```python
 from dataclasses import dataclass, field
 import pickle
 
