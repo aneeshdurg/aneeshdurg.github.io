@@ -39,7 +39,7 @@ perhaps when compute is sufficiently inexpensive, or for debugging), or even
   entire operating systems (see [CRIU](https://criu.org/Main_Page) or [VM
   migration](https://en.wikipedia.org/wiki/Live_migration)). Regular readers of
   my blog (who probably don't really exist tbh) probably know that this is an
-  area that I've been interested in [recently]({{ '/posts/2025-02-21-chkpt' |
+  area that I've been interested in [recently]({{ '/posts/2025/02/21-chkpt' |
   relative_url }}).
 
   For a concrete example, let's take a look at [redis](https://redis.io) (an
