@@ -13,7 +13,7 @@ transparently - which is especially important to UNIX programs that rely on
 [fork](https://man7.org/linux/man-pages/man2/fork.2.html). `fork` works by
 duplicating a process and all of it's memory mappings to create a new process
 with the only difference being that the return value of `fork` is different (`0`
-in the parent, `pid` of the current process in the child). when a
+in the child, `pid` of the child in the parent). when a
 process forks, all of it's writeable pages are marked both shared and read-only,
 and a flag is set to note that it should be considered for CoW. When a process
 writes to a shared page, it triggers a write-fault, which causes the OS to copy
@@ -136,7 +136,7 @@ int main() {
   // This shows stats on how many HugePages are allocated
   // system("cat /proc/meminfo | grep ^Huge");
   pid_t p = fork();
-  if (p == 0) {
+  if (p != 0) {
     close(fds0[1]);
     close(fds1[0]);
 
