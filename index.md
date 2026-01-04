@@ -4,11 +4,12 @@ layout: default
 
 Welcome to my website! My topics of interest are distributed systems,
 storage/databases, compilers, and programming languages. I also dabble in
-generative art from time to time. You can find my blog [here]({{ '/blog' |
-relative_url }}) where I will write about my professional/research interests. My
-newer personal website and personal blog are at
+generative art from time to time. You can read my [/blog]({{ '/blog' |
+relative_url }}) where I write about my professional/research interests.
+
+My personal website and personal ramblings are at
 <https://moontowercomputer.club/~aneesh> and
-<https://moontowercomputer.club/~aneesh/blog> respectively.
+<https://moontowercomputer.club/~aneesh/blog> respectively!
 
 ## recent blog posts
 
