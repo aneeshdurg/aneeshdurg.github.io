@@ -101,6 +101,21 @@ int main() {
 }
 ```
 
+The output looks like this (annotations added):
+
+```
+# ACT I - the original state
+tid=47792 fs=74cced1fe6c0 fs_base=74cced1fe6c0
+tid=47791 fs=74cced9ff6c0 fs_base=74cced9ff6c0
+# ACT II - we've swapped FS registers, but the tids (really, pids) are the same
+tid=47792 fs=74cced9ff6c0 fs_base=74cced9ff6c0
+tid=47791 fs=74cced1fe6c0 fs_base=74cced1fe6c0
+# ACT III - each "thread" (pthread_t) returns the "other" value
+t 0 return 0x1
+t 1 return (nil)
+```
+
+
 So what are we really doing here (I ask myself this daily)?
 By swapping the `fs` register, we're moving all the thread local state to a
 different thread.
