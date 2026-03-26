@@ -18,7 +18,7 @@ This is relatively easy to avoid for me as I can configure my second context to 
 However, since the process as a whole is now using two allocators, special care needs to be taken to avoid corrupting the Dynamic Thread Vector (DTV). 
 
 In the case of a dynamically linked process, the DTV is a part of the Thread Control Block (TCB), a per-thread structure that is used by `ld.so` to provide a unique Thread Local Storage (TLS) region per-module.
-You can learn slightly more about TCBs (and possibly question ~your~ my sanity by reading my [previous post](/posts/2026/02/23-juggling-threads/).
+You can learn slightly more about TCBs (and possibly question ~~your~~ my sanity by reading my [previous post](/posts/2026/02/23-juggling-threads/).
 When reading or writing to TLS, the module must first look up the TCB by accessing the FS register.
 Then, from the TCB, the appropriate DTV can be looked up by an index, yielding the base location for the module specific TLS.
 Then, an offset can be added to the TLS base to get the actual location to read or write from.
