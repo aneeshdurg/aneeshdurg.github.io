@@ -26,13 +26,13 @@ The TLS region itself for each dynamically loaded library is allocated by the gl
 This poses a challenge, as the second context will register DTV entries for modules it loads, and allocate the TLS regions with `jemalloc`.
 This can cause memory corruption (and usually a segfault) on thread exit as the TLS was allocated with a different allocator than the rest of the allocation.
 
-![DTV Corruption]({{ '/static/images/2026-03-26-tale-of-two-dtvs/alloc_err.png' | relative_url }})
+![DTV Corruption]({{ '/static/images/2026-03-26-tale-of-two-dtvs/alloc_err.jpg' | relative_url }})
 
 To avoid this, when my second context detects a thread it has not encountered before, it allocates a new TCB and swaps it with the current TCB, using the technique I outline in [previous post](/posts/2026/02/23-juggling-threads/).
 When TLS allocation occurs, it will update the DTV in the new TCB instead of the original TCB.
 Before a method from the second context returns to the application, it restores the original TCB.
 
-![TCB Swap]({{ '/static/images/2026-03-26-tale-of-two-dtvs/tcbswap.png' | relative_url }})
+![TCB Swap]({{ '/static/images/2026-03-26-tale-of-two-dtvs/tcbswap.jpg' | relative_url }})
 
 It turns out this technique in general has a name - stackless threads!
 A stackless thread is a lightweight thread context that can be used in cooperatively scheduled environments to manage multiple execution contexts without explicit stacks.
