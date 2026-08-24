@@ -2,14 +2,12 @@
 layout: default
 ---
 
-Welcome to my website! My topics of interest are distributed systems,
-storage/databases, compilers, and programming languages. I also dabble in
-generative art from time to time. You can read my [/blog]({{ '/blog' |
-relative_url }}) where I write about my professional/research interests.
+Welcome to my website! I'm a second year PhD Student at UT Austin, advised by <a href="https://www.cs.utexas.edu/~rossbach/"> Chris Rossbach</a>.
+My topics of interest are Operating System Design, Systems for ML, and compilers.
 
-My personal website and personal ramblings are at
-<https://moontowercomputer.club/~aneesh> and
-<https://moontowercomputer.club/~aneesh/blog> respectively!
++ "Professional"/research Blog: [/blog]({{ '/blog' | relative_url }})
++ Personal Website: <https://moontowercomputer.club/~aneesh>
++ Personal Blog: <https://moontowercomputer.club/~aneesh/blog>
 
 ## recent blog posts
 
