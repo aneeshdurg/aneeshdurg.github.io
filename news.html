@@ -1,0 +1,15 @@
+---
+layout: default
+title: News
+---
+
+<h1>News</h1>
+
+<div class="newslist">
+{% assign all_news = site.news | sort: "date" | reverse %}
+{% for item in all_news %}
+<div class="newsitem">
+<span class="newsdate">{{ item.date | date: "%Y-%m-%d" }}</span> {{ item.summary | markdownify }}
+</div>
+{% endfor %}
+</div>

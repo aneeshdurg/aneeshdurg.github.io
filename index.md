@@ -9,6 +9,19 @@ My topics of interest are Operating System Design, Systems for ML, and compilers
 + Personal Website: <https://moontowercomputer.club/~aneesh>
 + Personal Blog: <https://moontowercomputer.club/~aneesh/blog>
 
+## recent news
+
+{% assign recent_news = site.news | sort: "date" | reverse %}
+<div class="newslist">
+{% for item in recent_news limit: 5 %}
+<div class="newsitem">
+<span class="newsdate">{{ item.date | date: "%Y-%m-%d" }}</span> {{ item.summary | markdownify }}
+</div>
+{% endfor %}
+</div>
+
+<a href="{{ '/news' | relative_url }}">see all news</a>
+
 ## recent blog posts
 
 <div class="blogpreview">

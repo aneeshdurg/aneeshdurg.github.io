@@ -405,6 +405,29 @@ td {
   }
 }
 
+// Styles for news lists (index preview and /news)
+
+.newslist {
+  padding-top: 1em;
+}
+
+.newsitem {
+  margin-left: 2em;
+  @include mobile {
+    margin-left: 1em;
+  }
+}
+
+.newsdate {
+  color: $gray;
+  margin-right: 0.5em;
+}
+
+.newsitem p {
+  display: inline;
+  margin: 0;
+}
+
 // Styles for elements/features on the blog page
 
 // Indent the year/month links
