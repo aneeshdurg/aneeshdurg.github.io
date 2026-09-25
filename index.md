@@ -5,6 +5,8 @@ layout: default
 Welcome to my website! I'm a second year PhD Student at UT Austin, advised by <a href="https://www.cs.utexas.edu/~rossbach/"> Chris Rossbach</a>.
 My topics of interest are Operating System Design, Systems for ML, and compilers.
 
+All words on this blog my own (and not AI generated) unless specified :)
+
 + "Professional"/research Blog: [/blog]({{ '/blog' | relative_url }})
 + Personal Website: <https://moontowercomputer.club/~aneesh>
 + Personal Blog: <https://moontowercomputer.club/~aneesh/blog>
